@@ -34,6 +34,7 @@
 		F0CB06A929B6FD4000AA7255 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06A829B6FD4000AA7255 /* ImageManager.swift */; };
 		F0CB06AB29B6FD6800AA7255 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06AA29B6FD6800AA7255 /* TimeManager.swift */; };
 		F0CB06AD29B6FDA500AA7255 /* EditorMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06AC29B6FDA500AA7255 /* EditorMode.swift */; };
+		F0CB06AF29B705D500AA7255 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06AE29B705D500AA7255 /* Level.swift */; };
 		FBB5489B8BB381F50417F23F /* Pods_ColorDumbbell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22C8599FFE89588CE10B807 /* Pods_ColorDumbbell.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		F0CB06A829B6FD4000AA7255 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		F0CB06AA29B6FD6800AA7255 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		F0CB06AC29B6FDA500AA7255 /* EditorMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorMode.swift; sourceTree = "<group>"; };
+		F0CB06AE29B705D500AA7255 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			children = (
 				F0CB069A29B6FB8C00AA7255 /* Constants.swift */,
 				F0CB06AC29B6FDA500AA7255 /* EditorMode.swift */,
+				F0CB06AE29B705D500AA7255 /* Level.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				F0CB06A129B6FC2E00AA7255 /* UIView.swift in Sources */,
 				F0CB069B29B6FB8C00AA7255 /* Constants.swift in Sources */,
 				F0CB06A529B6FCC700AA7255 /* FirebaseManager.swift in Sources */,
+				F0CB06AF29B705D500AA7255 /* Level.swift in Sources */,
 				F0CB06AD29B6FDA500AA7255 /* EditorMode.swift in Sources */,
 				F0CB06A929B6FD4000AA7255 /* ImageManager.swift in Sources */,
 				F027CF4929B6007C000B94BC /* MainVC.swift in Sources */,
