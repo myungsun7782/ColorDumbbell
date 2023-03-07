@@ -28,6 +28,7 @@
 		F0CB069D29B6FBB700AA7255 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB069C29B6FBB700AA7255 /* UIImageView.swift */; };
 		F0CB069F29B6FBE500AA7255 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB069E29B6FBE500AA7255 /* UITextField.swift */; };
 		F0CB06A129B6FC2E00AA7255 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06A029B6FC2E00AA7255 /* UIView.swift */; };
+		F0CB06A329B6FC5600AA7255 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06A229B6FC5600AA7255 /* ColorManager.swift */; };
 		FBB5489B8BB381F50417F23F /* Pods_ColorDumbbell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22C8599FFE89588CE10B807 /* Pods_ColorDumbbell.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		F0CB069C29B6FBB700AA7255 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		F0CB069E29B6FBE500AA7255 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		F0CB06A029B6FC2E00AA7255 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		F0CB06A229B6FC5600AA7255 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				F0CB069829B6FB4E00AA7255 /* FontManager.swift */,
+				F0CB06A229B6FC5600AA7255 /* ColorManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				F0CB069F29B6FBE500AA7255 /* UITextField.swift in Sources */,
 				F027CF4529B6007C000B94BC /* AppDelegate.swift in Sources */,
 				F0CB069929B6FB4E00AA7255 /* FontManager.swift in Sources */,
+				F0CB06A329B6FC5600AA7255 /* ColorManager.swift in Sources */,
 				F0CB069D29B6FBB700AA7255 /* UIImageView.swift in Sources */,
 				F027CF4729B6007C000B94BC /* SceneDelegate.swift in Sources */,
 			);
