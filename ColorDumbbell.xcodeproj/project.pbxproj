@@ -25,6 +25,7 @@
 		F0CB069729B6FAE700AA7255 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F0CB068E29B6FAE700AA7255 /* Pretendard-Thin.otf */; };
 		F0CB069929B6FB4E00AA7255 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB069829B6FB4E00AA7255 /* FontManager.swift */; };
 		F0CB069B29B6FB8C00AA7255 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB069A29B6FB8C00AA7255 /* Constants.swift */; };
+		F0CB069D29B6FBB700AA7255 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB069C29B6FBB700AA7255 /* UIImageView.swift */; };
 		FBB5489B8BB381F50417F23F /* Pods_ColorDumbbell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22C8599FFE89588CE10B807 /* Pods_ColorDumbbell.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		F0CB068E29B6FAE700AA7255 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		F0CB069829B6FB4E00AA7255 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		F0CB069A29B6FB8C00AA7255 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F0CB069C29B6FBB700AA7255 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		F0CB067D29B6FA4700AA7255 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F0CB069C29B6FBB700AA7255 /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				F027CF4929B6007C000B94BC /* MainVC.swift in Sources */,
 				F027CF4529B6007C000B94BC /* AppDelegate.swift in Sources */,
 				F0CB069929B6FB4E00AA7255 /* FontManager.swift in Sources */,
+				F0CB069D29B6FBB700AA7255 /* UIImageView.swift in Sources */,
 				F027CF4729B6007C000B94BC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
