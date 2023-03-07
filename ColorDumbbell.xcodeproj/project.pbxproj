@@ -29,6 +29,7 @@
 		F0CB069F29B6FBE500AA7255 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB069E29B6FBE500AA7255 /* UITextField.swift */; };
 		F0CB06A129B6FC2E00AA7255 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06A029B6FC2E00AA7255 /* UIView.swift */; };
 		F0CB06A329B6FC5600AA7255 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06A229B6FC5600AA7255 /* ColorManager.swift */; };
+		F0CB06A529B6FCC700AA7255 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06A429B6FCC700AA7255 /* FirebaseManager.swift */; };
 		FBB5489B8BB381F50417F23F /* Pods_ColorDumbbell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22C8599FFE89588CE10B807 /* Pods_ColorDumbbell.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		F0CB069E29B6FBE500AA7255 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		F0CB06A029B6FC2E00AA7255 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		F0CB06A229B6FC5600AA7255 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		F0CB06A429B6FCC700AA7255 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			children = (
 				F0CB069829B6FB4E00AA7255 /* FontManager.swift */,
 				F0CB06A229B6FC5600AA7255 /* ColorManager.swift */,
+				F0CB06A429B6FCC700AA7255 /* FirebaseManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 			files = (
 				F0CB06A129B6FC2E00AA7255 /* UIView.swift in Sources */,
 				F0CB069B29B6FB8C00AA7255 /* Constants.swift in Sources */,
+				F0CB06A529B6FCC700AA7255 /* FirebaseManager.swift in Sources */,
 				F027CF4929B6007C000B94BC /* MainVC.swift in Sources */,
 				F0CB069F29B6FBE500AA7255 /* UITextField.swift in Sources */,
 				F027CF4529B6007C000B94BC /* AppDelegate.swift in Sources */,
