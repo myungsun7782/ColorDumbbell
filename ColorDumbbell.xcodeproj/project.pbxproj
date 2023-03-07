@@ -31,6 +31,7 @@
 		F0CB06A329B6FC5600AA7255 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06A229B6FC5600AA7255 /* ColorManager.swift */; };
 		F0CB06A529B6FCC700AA7255 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06A429B6FCC700AA7255 /* FirebaseManager.swift */; };
 		F0CB06A729B6FD0C00AA7255 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06A629B6FD0C00AA7255 /* UserDefaultsManager.swift */; };
+		F0CB06A929B6FD4000AA7255 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06A829B6FD4000AA7255 /* ImageManager.swift */; };
 		FBB5489B8BB381F50417F23F /* Pods_ColorDumbbell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22C8599FFE89588CE10B807 /* Pods_ColorDumbbell.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		F0CB06A229B6FC5600AA7255 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		F0CB06A429B6FCC700AA7255 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F0CB06A629B6FD0C00AA7255 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		F0CB06A829B6FD4000AA7255 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				F0CB06A229B6FC5600AA7255 /* ColorManager.swift */,
 				F0CB06A429B6FCC700AA7255 /* FirebaseManager.swift */,
 				F0CB06A629B6FD0C00AA7255 /* UserDefaultsManager.swift */,
+				F0CB06A829B6FD4000AA7255 /* ImageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				F0CB06A129B6FC2E00AA7255 /* UIView.swift in Sources */,
 				F0CB069B29B6FB8C00AA7255 /* Constants.swift in Sources */,
 				F0CB06A529B6FCC700AA7255 /* FirebaseManager.swift in Sources */,
+				F0CB06A929B6FD4000AA7255 /* ImageManager.swift in Sources */,
 				F027CF4929B6007C000B94BC /* MainVC.swift in Sources */,
 				F0CB06A729B6FD0C00AA7255 /* UserDefaultsManager.swift in Sources */,
 				F0CB069F29B6FBE500AA7255 /* UITextField.swift in Sources */,
