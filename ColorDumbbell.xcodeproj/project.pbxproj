@@ -27,6 +27,7 @@
 		F0CB069B29B6FB8C00AA7255 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB069A29B6FB8C00AA7255 /* Constants.swift */; };
 		F0CB069D29B6FBB700AA7255 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB069C29B6FBB700AA7255 /* UIImageView.swift */; };
 		F0CB069F29B6FBE500AA7255 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB069E29B6FBE500AA7255 /* UITextField.swift */; };
+		F0CB06A129B6FC2E00AA7255 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06A029B6FC2E00AA7255 /* UIView.swift */; };
 		FBB5489B8BB381F50417F23F /* Pods_ColorDumbbell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22C8599FFE89588CE10B807 /* Pods_ColorDumbbell.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		F0CB069A29B6FB8C00AA7255 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F0CB069C29B6FBB700AA7255 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		F0CB069E29B6FBE500AA7255 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		F0CB06A029B6FC2E00AA7255 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			children = (
 				F0CB069C29B6FBB700AA7255 /* UIImageView.swift */,
 				F0CB069E29B6FBE500AA7255 /* UITextField.swift */,
+				F0CB06A029B6FC2E00AA7255 /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0CB06A129B6FC2E00AA7255 /* UIView.swift in Sources */,
 				F0CB069B29B6FB8C00AA7255 /* Constants.swift in Sources */,
 				F027CF4929B6007C000B94BC /* MainVC.swift in Sources */,
 				F0CB069F29B6FBE500AA7255 /* UITextField.swift in Sources */,
