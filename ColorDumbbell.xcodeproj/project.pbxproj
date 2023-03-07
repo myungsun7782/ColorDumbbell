@@ -26,6 +26,7 @@
 		F0CB069929B6FB4E00AA7255 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB069829B6FB4E00AA7255 /* FontManager.swift */; };
 		F0CB069B29B6FB8C00AA7255 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB069A29B6FB8C00AA7255 /* Constants.swift */; };
 		F0CB069D29B6FBB700AA7255 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB069C29B6FBB700AA7255 /* UIImageView.swift */; };
+		F0CB069F29B6FBE500AA7255 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB069E29B6FBE500AA7255 /* UITextField.swift */; };
 		FBB5489B8BB381F50417F23F /* Pods_ColorDumbbell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22C8599FFE89588CE10B807 /* Pods_ColorDumbbell.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		F0CB069829B6FB4E00AA7255 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		F0CB069A29B6FB8C00AA7255 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F0CB069C29B6FBB700AA7255 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		F0CB069E29B6FBE500AA7255 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				F0CB069C29B6FBB700AA7255 /* UIImageView.swift */,
+				F0CB069E29B6FBE500AA7255 /* UITextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 			files = (
 				F0CB069B29B6FB8C00AA7255 /* Constants.swift in Sources */,
 				F027CF4929B6007C000B94BC /* MainVC.swift in Sources */,
+				F0CB069F29B6FBE500AA7255 /* UITextField.swift in Sources */,
 				F027CF4529B6007C000B94BC /* AppDelegate.swift in Sources */,
 				F0CB069929B6FB4E00AA7255 /* FontManager.swift in Sources */,
 				F0CB069D29B6FBB700AA7255 /* UIImageView.swift in Sources */,
