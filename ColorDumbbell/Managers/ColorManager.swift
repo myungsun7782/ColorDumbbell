@@ -43,5 +43,52 @@ class ColorManager {
     func getArgent() -> UIColor {
         return UIColor(named: "Argent")!
     }
+    
+    func getSilverFoil() -> UIColor {
+        return UIColor(named: "SilverFoil")!
+    }
+    
+    func getSpanishGray() -> UIColor {
+        return UIColor(named: "SpanishGray")!
+    }
+    
+    func getCyclamen() -> UIColor {
+        return UIColor(named: "Cyclamen")!
+    }
+    
+    func getCorn() -> UIColor {
+        return UIColor(named: "Corn")!
+    }
+    
+    func getMarigold() -> UIColor {
+        return UIColor(named: "Marigold")!
+    }
+    
+    func getMalachiteGreen() -> UIColor {
+        return UIColor(named: "MalachiteGreen")!
+    }
+    
+    func getSteelPink() -> UIColor {
+        return UIColor(named: "SteelPink")!
+    }
+    
+    func getAero() -> UIColor {
+        return UIColor(named: "Aero")!
+    }
+    
+    func getPastelBrown() -> UIColor {
+        return UIColor(named: "PastelBrown")!
+    }
+    
+    func getLightCarminePink() -> UIColor {
+        return UIColor(named: "LightCarminePink")!
+    }
+    
+    func getSilverChalice() -> UIColor {
+        return UIColor(named: "SilverChalice")!
+    }
+    
+    func getBlack() -> UIColor {
+        return UIColor(named: "Black")!
+    }
 }
-
