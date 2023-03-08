@@ -52,6 +52,10 @@ class ColorManager {
         return UIColor(named: "SpanishGray")!
     }
     
+    func getPhilippineSilver() -> UIColor {
+        return UIColor(named: "PhilippineSilver")!
+    }
+    
     func getCyclamen() -> UIColor {
         return UIColor(named: "Cyclamen")!
     }
