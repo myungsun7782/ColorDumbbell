@@ -6,3 +6,46 @@
 //
 
 import Foundation
+import RxSwift
+
+class UsernameVM {
+    // Input
+    var input = Input()
+    
+    // Output
+    var output = Output()
+    
+    // Variable
+    var isEnabled: Bool = false
+    var editorMode: EditorMode = .new
+    
+    // RxSwift
+    let disposeBag = DisposeBag()
+    
+    // Constants
+    let MINIMUM_LENGTH: Int = 2
+    let MAXIMUM_LENGTH: Int = 6
+    
+    struct Input {
+        var nickname = BehaviorSubject<String>(value: "")
+    }
+    
+    struct Output {
+        var nextButtonValidation = PublishSubject<Bool>()
+    }
+    
+    init() {
+        input.nickname.subscribe(onNext: { name in
+            self.output.nextButtonValidation.onNext(self.validateName(name: name))
+        })
+        .disposed(by: disposeBag)
+        
+    }
+    
+    private func validateName(name: String) -> Bool {
+        if name.count >= MINIMUM_LENGTH && name.count <= MAXIMUM_LENGTH {
+            return true
+        }
+        return false
+    }
+}
