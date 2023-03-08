@@ -12,7 +12,8 @@ public enum Cell {
 }
 
 public enum VC {
-    
+    static let usernameVC = "UsernameVC"
+    static let exerciseTimeVC = "ExerciseTimeVC"
 }
 
 public enum Storyboard {
