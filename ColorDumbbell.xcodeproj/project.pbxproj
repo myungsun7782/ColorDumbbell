@@ -13,7 +13,9 @@
 		F027CF4C29B6007C000B94BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F027CF4A29B6007C000B94BC /* Main.storyboard */; };
 		F027CF4E29B6007D000B94BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F027CF4D29B6007D000B94BC /* Assets.xcassets */; };
 		F027CF5129B6007D000B94BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F027CF4F29B6007D000B94BC /* LaunchScreen.storyboard */; };
+		F054C60229B833BC00473918 /* ExerciseTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F054C60129B833BC00473918 /* ExerciseTimeVC.swift */; };
 		F078232C29B6021B001D2220 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F078232B29B6021B001D2220 /* GoogleService-Info.plist */; };
+		F0819DF529B8368E00A45B57 /* ExerciseTimeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0819DF429B8368E00A45B57 /* ExerciseTimeVM.swift */; };
 		F0CB068F29B6FAE700AA7255 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F0CB068629B6FAE700AA7255 /* Pretendard-Light.otf */; };
 		F0CB069029B6FAE700AA7255 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F0CB068729B6FAE700AA7255 /* Pretendard-Bold.otf */; };
 		F0CB069129B6FAE700AA7255 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = F0CB068829B6FAE700AA7255 /* Pretendard-ExtraLight.otf */; };
@@ -36,6 +38,8 @@
 		F0CB06AD29B6FDA500AA7255 /* EditorMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06AC29B6FDA500AA7255 /* EditorMode.swift */; };
 		F0CB06AF29B705D500AA7255 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06AE29B705D500AA7255 /* Level.swift */; };
 		F0CB06B129B7067900AA7255 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06B029B7067900AA7255 /* User.swift */; };
+		F0CB06B329B7104500AA7255 /* UsernameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06B229B7104500AA7255 /* UsernameVC.swift */; };
+		F0CB06B529B7110D00AA7255 /* UsernameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06B429B7110D00AA7255 /* UsernameVM.swift */; };
 		FBB5489B8BB381F50417F23F /* Pods_ColorDumbbell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22C8599FFE89588CE10B807 /* Pods_ColorDumbbell.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +55,9 @@
 		F027CF4D29B6007D000B94BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F027CF5029B6007D000B94BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F027CF5229B6007D000B94BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F054C60129B833BC00473918 /* ExerciseTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTimeVC.swift; sourceTree = "<group>"; };
 		F078232B29B6021B001D2220 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F0819DF429B8368E00A45B57 /* ExerciseTimeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTimeVM.swift; sourceTree = "<group>"; };
 		F0CB068629B6FAE700AA7255 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		F0CB068729B6FAE700AA7255 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		F0CB068829B6FAE700AA7255 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
@@ -74,6 +80,8 @@
 		F0CB06AC29B6FDA500AA7255 /* EditorMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorMode.swift; sourceTree = "<group>"; };
 		F0CB06AE29B705D500AA7255 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		F0CB06B029B7067900AA7255 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F0CB06B229B7104500AA7255 /* UsernameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameVC.swift; sourceTree = "<group>"; };
+		F0CB06B429B7110D00AA7255 /* UsernameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				F027CF4829B6007C000B94BC /* MainVC.swift */,
+				F0CB06B229B7104500AA7255 /* UsernameVC.swift */,
+				F054C60129B833BC00473918 /* ExerciseTimeVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -211,6 +221,8 @@
 		F0CB068329B6FA5E00AA7255 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F0CB06B429B7110D00AA7255 /* UsernameVM.swift */,
+				F0819DF429B8368E00A45B57 /* ExerciseTimeVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -359,14 +371,18 @@
 			files = (
 				F0CB06A129B6FC2E00AA7255 /* UIView.swift in Sources */,
 				F0CB069B29B6FB8C00AA7255 /* Constants.swift in Sources */,
+				F054C60229B833BC00473918 /* ExerciseTimeVC.swift in Sources */,
 				F0CB06A529B6FCC700AA7255 /* FirebaseManager.swift in Sources */,
 				F0CB06AF29B705D500AA7255 /* Level.swift in Sources */,
 				F0CB06B129B7067900AA7255 /* User.swift in Sources */,
 				F0CB06AD29B6FDA500AA7255 /* EditorMode.swift in Sources */,
 				F0CB06A929B6FD4000AA7255 /* ImageManager.swift in Sources */,
 				F027CF4929B6007C000B94BC /* MainVC.swift in Sources */,
+				F0CB06B529B7110D00AA7255 /* UsernameVM.swift in Sources */,
 				F0CB06A729B6FD0C00AA7255 /* UserDefaultsManager.swift in Sources */,
 				F0CB069F29B6FBE500AA7255 /* UITextField.swift in Sources */,
+				F0CB06B329B7104500AA7255 /* UsernameVC.swift in Sources */,
+				F0819DF529B8368E00A45B57 /* ExerciseTimeVM.swift in Sources */,
 				F0CB06AB29B6FD6800AA7255 /* TimeManager.swift in Sources */,
 				F027CF4529B6007C000B94BC /* AppDelegate.swift in Sources */,
 				F0CB069929B6FB4E00AA7255 /* FontManager.swift in Sources */,

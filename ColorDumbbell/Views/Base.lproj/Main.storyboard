@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lKL-qI-tBA">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -24,8 +24,307 @@
             </objects>
             <point key="canvasLocation" x="132" y="-34"/>
         </scene>
+        <!--UsernameVC-->
+        <scene sceneID="3vk-Dw-qMA">
+            <objects>
+                <viewController storyboardIdentifier="UsernameVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lKL-qI-tBA" customClass="UsernameVC" customModule="ColorDumbbell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ncO-j6-vmE">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="e9p-iS-eGQ">
+                                <rect key="frame" x="169" y="83" width="55" height="4"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imS-j9-NfJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="24" height="4"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="PdS-Xc-dOm"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oc7-CT-H5e">
+                                        <rect key="frame" x="31" y="0.0" width="24" height="4"/>
+                                        <color key="backgroundColor" name="LightSilver"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="ZGQ-sV-SMU"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="mQd-9n-O5H"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="iKu-lQ-mLg">
+                                <rect key="frame" x="20" y="121" width="353" height="97.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임 설정" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4I-qj-Vj3">
+                                        <rect key="frame" x="0.0" y="0.0" width="166" height="42"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="36"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yiL-vR-cLY">
+                                        <rect key="frame" x="0.0" y="60" width="185" height="37.666666666666657"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color Dumbbell에서 사용할" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCg-Qi-kRL">
+                                                <rect key="frame" x="0.0" y="0.0" width="185" height="16.333333333333332"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
+                                                <color key="textColor" name="OldSilver"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신의 멋진 닉네임을 알려주세요!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amK-Wi-pCB">
+                                                <rect key="frame" x="0.0" y="21.333333333333343" width="185" height="16.333333333333329"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
+                                                <color key="textColor" name="OldSilver"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="E3H-gQ-UeK">
+                                <rect key="frame" x="20" y="288.66666666666669" width="353" height="143.66666666666669"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="닉네임을 입력해주세요 :)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UC7-cM-AhL">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="18.666666666666668"/>
+                                        <color key="backgroundColor" name="White"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="amx-aU-sX3">
+                                        <rect key="frame" x="0.0" y="24.666666666666629" width="353" height="9"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="30q-gd-TeP">
+                                                <rect key="frame" x="0.0" y="7" width="353" height="2"/>
+                                                <color key="backgroundColor" name="SpanishGray"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="L05-Hz-Oxy"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="7" left="0.0" bottom="0.0" right="0.0"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RA9-S9-rjX">
+                                        <rect key="frame" x="0.0" y="39.666666666666629" width="353" height="14.666666666666664"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2글자에서 6글자 이내로 설정해주세요." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2r-CF-koM">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="14.666666666666666"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12.5"/>
+                                                <color key="textColor" name="OldSilver"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="e0w-Bh-hjw">
+                                        <rect key="frame" x="0.0" y="60.333333333333307" width="353" height="83.333333333333314"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCd-oH-MTp">
+                                                <rect key="frame" x="0.0" y="30.000000000000004" width="353" height="53.333333333333343"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="OCd-oH-MTp" secondAttribute="height" multiplier="6.6:1" id="EQm-rh-1Kf"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="다음으로"/>
+                                            </button>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="30" left="0.0" bottom="0.0" right="0.0"/>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bzX-eV-NQm"/>
+                        <color key="backgroundColor" name="White"/>
+                        <constraints>
+                            <constraint firstItem="e9p-iS-eGQ" firstAttribute="top" secondItem="bzX-eV-NQm" secondAttribute="top" constant="24" id="AoW-th-zJQ"/>
+                            <constraint firstItem="bzX-eV-NQm" firstAttribute="trailing" secondItem="iKu-lQ-mLg" secondAttribute="trailing" constant="20" id="F1M-CB-SUK"/>
+                            <constraint firstItem="bzX-eV-NQm" firstAttribute="trailing" secondItem="E3H-gQ-UeK" secondAttribute="trailing" constant="20" id="F2m-8c-2gx"/>
+                            <constraint firstItem="e9p-iS-eGQ" firstAttribute="centerX" secondItem="ncO-j6-vmE" secondAttribute="centerX" id="MfL-y0-1cy"/>
+                            <constraint firstItem="iKu-lQ-mLg" firstAttribute="leading" secondItem="bzX-eV-NQm" secondAttribute="leading" constant="20" id="XZS-eh-lA2"/>
+                            <constraint firstItem="iKu-lQ-mLg" firstAttribute="top" secondItem="bzX-eV-NQm" secondAttribute="top" constant="62" id="f6d-Yq-VrM"/>
+                            <constraint firstItem="E3H-gQ-UeK" firstAttribute="top" secondItem="iKu-lQ-mLg" secondAttribute="bottom" constant="70" id="fTR-cw-RG5"/>
+                            <constraint firstItem="E3H-gQ-UeK" firstAttribute="leading" secondItem="bzX-eV-NQm" secondAttribute="leading" constant="20" id="h8F-ch-y6C"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="UC7-cM-AhL" id="IVz-TJ-GvE"/>
+                        <outlet property="nextButton" destination="OCd-oH-MTp" id="iWx-up-Chk"/>
+                        <outlet property="stepStackView" destination="e9p-iS-eGQ" id="S8J-5B-Zor"/>
+                        <outlet property="validationLabel" destination="Q2r-CF-koM" id="1Ug-dw-rjc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IUH-hO-da1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-480" y="-697"/>
+        </scene>
+        <!--Exercise TimeVC-->
+        <scene sceneID="Esg-Sh-7Ye">
+            <objects>
+                <viewController storyboardIdentifier="ExerciseTimeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dvY-24-Dvl" customClass="ExerciseTimeVC" customModule="ColorDumbbell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FF0-B8-3qr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="WWG-Hk-vCm">
+                                <rect key="frame" x="169" y="83" width="55" height="4"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qm-3u-afq">
+                                        <rect key="frame" x="0.0" y="0.0" width="24" height="4"/>
+                                        <color key="backgroundColor" name="LightSilver"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="swL-9s-QsZ"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Th0-QH-RjM">
+                                        <rect key="frame" x="31" y="0.0" width="24" height="4"/>
+                                        <color key="backgroundColor" name="Black"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="w7X-cw-fph"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="h1b-NZ-HFd"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="L9u-Rb-sDr">
+                                <rect key="frame" x="20" y="121" width="353" height="97.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="운동 시간 설정" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEU-xf-v9G">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="42"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="36"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ze2-cw-yt4">
+                                        <rect key="frame" x="0.0" y="60" width="164.66666666666666" height="37.666666666666657"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설정하신 운동 시간 30분 전에" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mqg-la-toP">
+                                                <rect key="frame" x="0.0" y="0.0" width="164.66666666666666" height="16.333333333333332"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
+                                                <color key="textColor" name="OldSilver"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="운동 준비 알림이 전달됩니다!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OuG-n7-Nec">
+                                                <rect key="frame" x="0.0" y="21.333333333333343" width="164.66666666666666" height="16.333333333333329"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
+                                                <color key="textColor" name="OldSilver"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="CAy-yb-tYx">
+                                <rect key="frame" x="20" y="288.66666666666669" width="353" height="143.66666666666669"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="운동 시간을 선택해주세요 :)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yaK-HD-x31">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="18.666666666666668"/>
+                                        <color key="backgroundColor" name="White"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yl3-iK-5JY">
+                                        <rect key="frame" x="0.0" y="24.666666666666629" width="353" height="9"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WcG-hx-g1K">
+                                                <rect key="frame" x="0.0" y="7" width="353" height="2"/>
+                                                <color key="backgroundColor" name="SpanishGray"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="bCz-Ut-eHz"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="7" left="0.0" bottom="0.0" right="0.0"/>
+                                    </stackView>
+                                    <stackView opaque="NO" alpha="0.0" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zlU-DR-FH1">
+                                        <rect key="frame" x="0.0" y="39.666666666666629" width="353" height="14.666666666666664"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2글자에서 6글자 이내로 설정해주세요." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLb-mt-Ru5">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="14.666666666666666"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12.5"/>
+                                                <color key="textColor" name="OldSilver"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GaU-Ex-smY">
+                                        <rect key="frame" x="0.0" y="60.333333333333307" width="353" height="83.333333333333314"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jW-Uy-Bq1">
+                                                <rect key="frame" x="0.0" y="30.000000000000004" width="124.66666666666667" height="53.333333333333343"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="5jW-Uy-Bq1" secondAttribute="height" multiplier="2.34:1" id="eFJ-eZ-SPI"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="이전으로"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgw-Kb-w0C">
+                                                <rect key="frame" x="139.66666666666663" y="30.000000000000004" width="213.33333333333337" height="53.333333333333343"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="bgw-Kb-w0C" secondAttribute="height" multiplier="4:1" id="uVY-7X-ZTQ"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="시작하기"/>
+                                            </button>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="30" left="0.0" bottom="0.0" right="0.0"/>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="jMz-UL-ssi">
+                                <rect key="frame" x="0.0" y="598" width="393" height="220"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="NXF-Re-f7Z"/>
+                                </constraints>
+                                <locale key="locale" localeIdentifier="ko_KR"/>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TOz-y0-ah9"/>
+                        <color key="backgroundColor" name="White"/>
+                        <constraints>
+                            <constraint firstItem="WWG-Hk-vCm" firstAttribute="centerX" secondItem="FF0-B8-3qr" secondAttribute="centerX" id="0Fr-mj-v0i"/>
+                            <constraint firstItem="CAy-yb-tYx" firstAttribute="top" secondItem="L9u-Rb-sDr" secondAttribute="bottom" constant="70" id="1zb-DP-IAK"/>
+                            <constraint firstItem="TOz-y0-ah9" firstAttribute="trailing" secondItem="CAy-yb-tYx" secondAttribute="trailing" constant="20" id="6dc-dM-Rit"/>
+                            <constraint firstItem="L9u-Rb-sDr" firstAttribute="leading" secondItem="FF0-B8-3qr" secondAttribute="leading" constant="20" id="7JK-Sc-yZd"/>
+                            <constraint firstItem="jMz-UL-ssi" firstAttribute="leading" secondItem="FF0-B8-3qr" secondAttribute="leading" id="C0V-tZ-eA7"/>
+                            <constraint firstItem="TOz-y0-ah9" firstAttribute="trailing" secondItem="L9u-Rb-sDr" secondAttribute="trailing" constant="20" id="JAl-TM-5wN"/>
+                            <constraint firstItem="jMz-UL-ssi" firstAttribute="centerX" secondItem="FF0-B8-3qr" secondAttribute="centerX" id="M8b-Iw-JMR"/>
+                            <constraint firstItem="WWG-Hk-vCm" firstAttribute="top" secondItem="TOz-y0-ah9" secondAttribute="top" constant="24" id="MCa-kR-ks0"/>
+                            <constraint firstItem="TOz-y0-ah9" firstAttribute="bottom" secondItem="jMz-UL-ssi" secondAttribute="bottom" id="XWH-ef-BY0"/>
+                            <constraint firstAttribute="trailing" secondItem="jMz-UL-ssi" secondAttribute="trailing" id="aBQ-F9-h8d"/>
+                            <constraint firstItem="L9u-Rb-sDr" firstAttribute="top" secondItem="TOz-y0-ah9" secondAttribute="top" constant="62" id="imZ-QH-14o"/>
+                            <constraint firstItem="CAy-yb-tYx" firstAttribute="leading" secondItem="FF0-B8-3qr" secondAttribute="leading" constant="20" id="wlA-ld-ZsL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="5jW-Uy-Bq1" id="r8i-Y3-ohE"/>
+                        <outlet property="exerciseTimeTextField" destination="yaK-HD-x31" id="NzB-rh-SrE"/>
+                        <outlet property="startButton" destination="bgw-Kb-w0C" id="1M5-AF-ew1"/>
+                        <outlet property="stepStackView" destination="WWG-Hk-vCm" id="3Dz-Fh-T8g"/>
+                        <outlet property="timePickerView" destination="jMz-UL-ssi" id="viK-30-I9H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r9j-aZ-tJX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="227" y="-697"/>
+        </scene>
     </scenes>
     <resources>
+        <namedColor name="Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LightSilver">
+            <color red="0.84299999475479126" green="0.84299999475479126" blue="0.84299999475479126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="OldSilver">
+            <color red="0.51399999856948853" green="0.51399999856948853" blue="0.51399999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SpanishGray">
+            <color red="0.58799999952316284" green="0.58799999952316284" blue="0.58799999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
