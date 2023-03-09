@@ -63,6 +63,15 @@ class ExerciseTimeVC: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        startButton.rx.tap
+            .subscribe(onNext: { _ in
+                if self.viewModel.editorMode == .new {
+                    self.presentMainVC()
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        // UIDatePicker
         timePickerView.rx.controlEvent([.valueChanged])
             .asObservable()
             .subscribe(onNext: { _ in
@@ -100,5 +109,24 @@ class ExerciseTimeVC: UIViewController {
     private func configureDatePicker() {
         timePickerView.backgroundColor = ColorManager.shared.getWhite()
         timePickerView.setValue(UIColor.black, forKeyPath: PICKER_KEY_PATH)
+    }
+    
+    private func presentMainVC() {
+        let mainVC = UIStoryboard(name: Storyboard.main, bundle: nil).instantiateViewController(withIdentifier: VC.mainTabBarController) as! MainTabBarController
+        
+        mainVC.modalPresentationStyle = .overFullScreen
+        mainVC.modalTransitionStyle = .crossDissolve
+        
+        guard let name = viewModel.userName else { return }
+        guard let exerciseTime = viewModel.exerciseTime else { return }
+        let user = User(name: name, exerciseTime: exerciseTime)
+        
+        // UserDefaults에 필요한 정보 저장
+        UserDefaultsManager.shared.finishIntialization(uid: user.uid, userName: user.name, exerciseTime: user.exerciseTime, totalExerciseCount: user.totalExerciseCount)
+
+        // CloudFirestore에 필요한 정보 저장
+        viewModel.saveUserData(userObj: user)
+        
+        present(mainVC, animated: true)
     }
 }
