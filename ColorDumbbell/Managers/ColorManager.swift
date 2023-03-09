@@ -95,4 +95,16 @@ class ColorManager {
     func getBlack() -> UIColor {
         return UIColor(named: "Black")!
     }
+    
+    func getPlatinum() -> UIColor {
+        return UIColor(named: "Platinum")!
+    }
+    
+    func getBrightGray() -> UIColor {
+        return UIColor(named: "BrightGray")!
+    }
+    
+    func getGainsboro() -> UIColor {
+        return UIColor(named: "Gainsboro")!
+    }
 }
