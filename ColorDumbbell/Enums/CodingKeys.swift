@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+enum UserCodingKeys: String {
+    case uid = "uid"
+    case name = "name"
+    case exerciseTime = "exerciseTime"
+    case currentLevel = "currentLevel"
+    case totalExerciseCount = "totalExerciseCount"
+}
