@@ -36,4 +36,14 @@ class ExerciseTimeVM {
     init() {
 
     }
+    
+    func saveUserData(userObj: User) {
+        FirebaseManager.shared.addUser(user: userObj) { isSuccess in
+            if isSuccess {
+                print("successfully saved")
+            } else {
+                print("Firebase Error!")
+            }
+        }
+    }
 }
