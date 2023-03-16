@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lKL-qI-tBA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9c4-j2-WuR">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,20 +9,447 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MainVC-->
+        <!--홈-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="ColorDumbbell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MainVC" customModule="ColorDumbbell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lo-8P-XHv">
+                                <rect key="frame" x="0.0" y="768" width="393" height="1"/>
+                                <color key="backgroundColor" name="Platinum"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="dyD-Zo-IDB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="White"/>
+                        <constraints>
+                            <constraint firstItem="0lo-8P-XHv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ARo-bt-7g0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0lo-8P-XHv" secondAttribute="trailing" id="V2f-U4-NWC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0lo-8P-XHv" secondAttribute="bottom" id="Wly-Bl-ZRu"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="홈" image="HomeIconImage" id="egp-8A-hQf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="-34"/>
+            <point key="canvasLocation" x="-1367" y="820"/>
+        </scene>
+        <!--루틴-->
+        <scene sceneID="qRp-zF-3JJ">
+            <objects>
+                <viewController storyboardIdentifier="RoutineVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Czi-Jt-jgv" customClass="RoutineVC" customModule="ColorDumbbell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zLD-PB-1vu">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2FY-Zc-Rmp">
+                                <rect key="frame" x="0.0" y="768" width="393" height="1"/>
+                                <color key="backgroundColor" name="Platinum"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="MYo-jC-8n4"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NI4-mR-YvH"/>
+                        <color key="backgroundColor" name="White"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2FY-Zc-Rmp" secondAttribute="trailing" id="OsF-Qz-hzW"/>
+                            <constraint firstItem="2FY-Zc-Rmp" firstAttribute="leading" secondItem="zLD-PB-1vu" secondAttribute="leading" id="ja9-5k-tna"/>
+                            <constraint firstItem="NI4-mR-YvH" firstAttribute="bottom" secondItem="2FY-Zc-Rmp" secondAttribute="bottom" id="rQV-UX-P6Z"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="루틴" image="RoutineIconImage" id="a92-z5-0gz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g9R-ZQ-N3y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-480" y="820"/>
+        </scene>
+        <!--이력-->
+        <scene sceneID="Aji-Q2-i21">
+            <objects>
+                <viewController storyboardIdentifier="ExerciseCalendarVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5yf-D8-Bhv" customClass="ExerciseCalendarVC" customModule="ColorDumbbell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s2g-hu-tbc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vC4-Yd-NxR">
+                                <rect key="frame" x="0.0" y="768" width="393" height="1"/>
+                                <color key="backgroundColor" name="Platinum"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="ShW-Po-0Gn"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="j65-mi-Qai">
+                                <rect key="frame" x="20" y="71" width="353" height="28"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 운동 달력" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yA-bm-0QV">
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="28"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="24"/>
+                                        <color key="textColor" name="Black"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="EED-XD-KEu">
+                                        <rect key="frame" x="296" y="0.0" width="57" height="28"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTz-cv-f3M">
+                                                <rect key="frame" x="0.0" y="0.0" width="21" height="28"/>
+                                                <color key="tintColor" name="Black"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="list.bullet" catalog="system"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bP3-WN-LFe">
+                                                <rect key="frame" x="34" y="0.0" width="18" height="28"/>
+                                                <color key="tintColor" name="Black"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="plus" catalog="system"/>
+                                            </button>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="5"/>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UbI-1x-yin" customClass="FSCalendar">
+                                <rect key="frame" x="20" y="127" width="353" height="350"/>
+                                <color key="backgroundColor" name="White"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="p5g-XU-WiB"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfB-tb-7Wt">
+                                <rect key="frame" x="0.0" y="497" width="393" height="1.6666666666666856"/>
+                                <color key="backgroundColor" name="BrightGray"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1.5" id="N3x-u9-lVP"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Q8t-NM-KF3">
+                                <rect key="frame" x="20" y="531.66666666666663" width="353" height="56.333333333333371"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ipn-Ac-loy">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="25"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sD5-ZB-ejS">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="17.666666666666668"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="15"/>
+                                                <color key="textColor" name="Black"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MuU-EL-cmj">
+                                                <rect key="frame" x="0.0" y="24.666666666666742" width="353" height="0.33333333333333215"/>
+                                                <color key="backgroundColor" name="Gainsboro"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="0.5" id="XlV-43-yl0"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vrd-3P-HYS">
+                                        <rect key="frame" x="0.0" y="25" width="353" height="31.333333333333329"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 등록된 운동 일지가 없어요 :(" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j94-Jp-0KE">
+                                                <rect key="frame" x="0.0" y="14.999999999999998" width="353" height="16.333333333333329"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
+                                                <color key="textColor" name="Gray"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="15" left="0.0" bottom="0.0" right="0.0"/>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8BW-Rv-g1M">
+                                <rect key="frame" x="0.0" y="596" width="393" height="172"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fBF-Tb-4SG"/>
+                        <color key="backgroundColor" name="White"/>
+                        <constraints>
+                            <constraint firstItem="fBF-Tb-4SG" firstAttribute="trailing" secondItem="j65-mi-Qai" secondAttribute="trailing" constant="20" id="00i-6J-7P8"/>
+                            <constraint firstItem="fBF-Tb-4SG" firstAttribute="trailing" secondItem="VfB-tb-7Wt" secondAttribute="trailing" id="4ps-co-uXm"/>
+                            <constraint firstItem="Q8t-NM-KF3" firstAttribute="leading" secondItem="fBF-Tb-4SG" secondAttribute="leading" constant="20" id="7Wt-OO-hO0"/>
+                            <constraint firstItem="8BW-Rv-g1M" firstAttribute="leading" secondItem="fBF-Tb-4SG" secondAttribute="leading" id="8i3-hi-RrA"/>
+                            <constraint firstItem="j65-mi-Qai" firstAttribute="leading" secondItem="fBF-Tb-4SG" secondAttribute="leading" constant="20" id="9U2-Jx-5Vv"/>
+                            <constraint firstItem="VfB-tb-7Wt" firstAttribute="leading" secondItem="fBF-Tb-4SG" secondAttribute="leading" id="9w2-63-Bua"/>
+                            <constraint firstAttribute="trailing" secondItem="vC4-Yd-NxR" secondAttribute="trailing" id="AZf-HF-8Zt"/>
+                            <constraint firstItem="Q8t-NM-KF3" firstAttribute="top" secondItem="VfB-tb-7Wt" secondAttribute="bottom" constant="33" id="G0U-oT-sey"/>
+                            <constraint firstItem="8BW-Rv-g1M" firstAttribute="top" secondItem="Q8t-NM-KF3" secondAttribute="bottom" constant="8" id="JFb-JU-C1f"/>
+                            <constraint firstItem="fBF-Tb-4SG" firstAttribute="bottom" secondItem="vC4-Yd-NxR" secondAttribute="bottom" id="PXk-b7-rnx"/>
+                            <constraint firstItem="j65-mi-Qai" firstAttribute="top" secondItem="fBF-Tb-4SG" secondAttribute="top" constant="12" id="Rc2-Ze-ZVd"/>
+                            <constraint firstItem="VfB-tb-7Wt" firstAttribute="top" secondItem="UbI-1x-yin" secondAttribute="bottom" constant="20" id="Sxf-eh-4EJ"/>
+                            <constraint firstItem="fBF-Tb-4SG" firstAttribute="trailing" secondItem="Q8t-NM-KF3" secondAttribute="trailing" constant="20" id="T9p-SY-FG0"/>
+                            <constraint firstItem="fBF-Tb-4SG" firstAttribute="trailing" secondItem="8BW-Rv-g1M" secondAttribute="trailing" id="ZNh-p3-Cht"/>
+                            <constraint firstItem="fBF-Tb-4SG" firstAttribute="trailing" secondItem="UbI-1x-yin" secondAttribute="trailing" constant="20" id="aSx-F6-4DD"/>
+                            <constraint firstItem="vC4-Yd-NxR" firstAttribute="leading" secondItem="s2g-hu-tbc" secondAttribute="leading" id="gnW-9A-0mV"/>
+                            <constraint firstItem="vC4-Yd-NxR" firstAttribute="top" secondItem="8BW-Rv-g1M" secondAttribute="bottom" id="h4Z-X5-mHu"/>
+                            <constraint firstItem="UbI-1x-yin" firstAttribute="top" secondItem="j65-mi-Qai" secondAttribute="bottom" constant="28" id="mG3-KO-bJK"/>
+                            <constraint firstItem="UbI-1x-yin" firstAttribute="leading" secondItem="fBF-Tb-4SG" secondAttribute="leading" constant="20" id="sBs-qg-2FM"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="이력" image="ExerciseCalendarIconImage" id="1ae-rK-Ao0"/>
+                    <connections>
+                        <outlet property="addButton" destination="bP3-WN-LFe" id="oZj-pY-poK"/>
+                        <outlet property="calendarView" destination="UbI-1x-yin" id="FNN-r9-2dd"/>
+                        <outlet property="dateLabel" destination="sD5-ZB-ejS" id="0ln-no-sdr"/>
+                        <outlet property="emptyJournalStackView" destination="vrd-3P-HYS" id="wbh-or-WhA"/>
+                        <outlet property="exerciseTableView" destination="8BW-Rv-g1M" id="fQt-cK-1gG"/>
+                        <outlet property="listButton" destination="jTz-cv-f3M" id="Xec-FB-jkY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Yf-81-xzH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="399" y="820"/>
+        </scene>
+        <!--Journal RegisterVC-->
+        <scene sceneID="b2j-5V-W3g">
+            <objects>
+                <viewController storyboardIdentifier="JournalRegisterVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="whL-wV-l96" customClass="JournalRegisterVC" customModule="ColorDumbbell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RXE-jP-f86">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="L9d-NM-svg">
+                                <rect key="frame" x="16" y="71" width="361" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7o2-BU-YzG">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="32"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="17"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="취소">
+                                            <color key="titleColor" name="CarminePink"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="운동 일지" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGK-j2-bUU">
+                                        <rect key="frame" x="150.66666666666666" y="0.0" width="60" height="32"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWl-Wi-gfc">
+                                        <rect key="frame" x="331" y="0.0" width="30" height="32"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="17"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="추가">
+                                            <color key="titleColor" name="CarminePink"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Xbo-h0-otK">
+                                <rect key="frame" x="0.0" y="121" width="393" height="731"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="46Z-Xq-5mY"/>
+                        <color key="backgroundColor" name="AntiFlashWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Xbo-h0-otK" secondAttribute="bottom" id="2rb-Hz-691"/>
+                            <constraint firstItem="Xbo-h0-otK" firstAttribute="leading" secondItem="46Z-Xq-5mY" secondAttribute="leading" id="CYc-UK-z2M"/>
+                            <constraint firstItem="L9d-NM-svg" firstAttribute="top" secondItem="46Z-Xq-5mY" secondAttribute="top" constant="12" id="HcD-0H-nOc"/>
+                            <constraint firstItem="46Z-Xq-5mY" firstAttribute="trailing" secondItem="L9d-NM-svg" secondAttribute="trailing" constant="16" id="JDz-hP-hCZ"/>
+                            <constraint firstItem="Xbo-h0-otK" firstAttribute="top" secondItem="L9d-NM-svg" secondAttribute="bottom" constant="18" id="LPp-I0-M1c"/>
+                            <constraint firstItem="L9d-NM-svg" firstAttribute="leading" secondItem="46Z-Xq-5mY" secondAttribute="leading" constant="16" id="YqV-X1-pfJ"/>
+                            <constraint firstItem="Xbo-h0-otK" firstAttribute="trailing" secondItem="46Z-Xq-5mY" secondAttribute="trailing" id="h13-u8-Ysa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="7o2-BU-YzG" id="bWN-Ru-a5p"/>
+                        <outlet property="journalTableView" destination="Xbo-h0-otK" id="d2o-0j-seF"/>
+                        <outlet property="registerButton" destination="aWl-Wi-gfc" id="Lx6-wl-fwk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ny8-IK-ChF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1219" y="813"/>
+        </scene>
+        <!--Exercise SelectionVC-->
+        <scene sceneID="e1B-Rl-Yy6">
+            <objects>
+                <viewController storyboardIdentifier="ExerciseSelectionVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="p7j-R2-mUc" customClass="ExerciseSelectionVC" customModule="ColorDumbbell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hIN-cO-R0K">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="frD-dC-di1">
+                                <rect key="frame" x="16" y="71" width="361" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebp-ca-ycE">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="32"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="17"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="취소">
+                                            <color key="titleColor" name="CarminePink"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="운동 선택" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMv-Qd-meU">
+                                        <rect key="frame" x="150.66666666666666" y="0.0" width="60" height="32"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1I-Vq-PDJ">
+                                        <rect key="frame" x="331" y="0.0" width="30" height="32"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="17"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="완료">
+                                            <color key="titleColor" name="CarminePink"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1jJ-xo-yuI">
+                                <rect key="frame" x="0.0" y="121" width="393" height="731"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7Ru-oe-wQY"/>
+                        <color key="backgroundColor" name="AntiFlashWhite"/>
+                        <constraints>
+                            <constraint firstItem="1jJ-xo-yuI" firstAttribute="top" secondItem="frD-dC-di1" secondAttribute="bottom" constant="18" id="8wB-G9-ieU"/>
+                            <constraint firstItem="frD-dC-di1" firstAttribute="top" secondItem="7Ru-oe-wQY" secondAttribute="top" constant="12" id="Cem-KM-lTt"/>
+                            <constraint firstAttribute="bottom" secondItem="1jJ-xo-yuI" secondAttribute="bottom" id="ICT-AL-OOq"/>
+                            <constraint firstItem="frD-dC-di1" firstAttribute="leading" secondItem="7Ru-oe-wQY" secondAttribute="leading" constant="16" id="IMR-TE-7Ut"/>
+                            <constraint firstItem="7Ru-oe-wQY" firstAttribute="trailing" secondItem="frD-dC-di1" secondAttribute="trailing" constant="16" id="X5g-2H-tJY"/>
+                            <constraint firstItem="1jJ-xo-yuI" firstAttribute="leading" secondItem="7Ru-oe-wQY" secondAttribute="leading" id="wZ9-Oc-NIr"/>
+                            <constraint firstItem="7Ru-oe-wQY" firstAttribute="trailing" secondItem="1jJ-xo-yuI" secondAttribute="trailing" id="zwJ-1B-ZhF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="ebp-ca-ycE" id="zH0-GG-LfO"/>
+                        <outlet property="finishButton" destination="Y1I-Vq-PDJ" id="R2L-4L-pZB"/>
+                        <outlet property="selectionTableView" destination="1jJ-xo-yuI" id="3U8-RX-oZc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O7D-Vi-GXZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2074" y="813"/>
+        </scene>
+        <!--Add ExerciseVC-->
+        <scene sceneID="4eJ-35-CF7">
+            <objects>
+                <viewController storyboardIdentifier="AddExerciseVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZhB-UE-pQ3" customClass="AddExerciseVC" customModule="ColorDumbbell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ar0-Yg-E3k">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Xh-Wp-TRB">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" name="Black"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IC8-I8-cAS">
+                                <rect key="frame" x="27" y="268.66666666666669" width="339" height="215"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uHV-n3-JNJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="339" height="80"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="AAm-0Q-Ykm">
+                                                <rect key="frame" x="0.0" y="26" width="339" height="54"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 운동 추가" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACp-k7-Shv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="339" height="25"/>
+                                                        <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="18"/>
+                                                        <color key="textColor" name="Black"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추가할 운동을 입력해주세요 :)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9O3-VL-RZt">
+                                                        <rect key="frame" x="0.0" y="34" width="339" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="W1G-Ie-ugk"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" name="Black"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="26" left="0.0" bottom="0.0" right="0.0"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6gv-ow-Ss3">
+                                        <rect key="frame" x="0.0" y="100" width="339" height="40"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SCN-Rr-QDW">
+                                                <rect key="frame" x="20" y="0.0" width="299" height="40"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Xk-J1-8C2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="299" height="40"/>
+                                                        <color key="backgroundColor" name="White"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="PkN-ei-RdZ"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3Oi-a8-bAS">
+                                        <rect key="frame" x="0.0" y="160" width="339" height="55"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbD-wD-2PY">
+                                                <rect key="frame" x="0.0" y="0.0" width="169.66666666666666" height="55"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
+                                                <color key="tintColor" name="BleuDeFrance"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="취소">
+                                                    <color key="titleColor" name="BleuDeFrance"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNB-D8-imU">
+                                                <rect key="frame" x="169.66666666666663" y="0.0" width="169.33333333333337" height="55"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
+                                                <color key="tintColor" name="BleuDeFrance"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="저장">
+                                                    <color key="titleColor" name="BleuDeFrance"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="G9r-55-NGF"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="Platinum"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="215" id="9cV-Ef-QcS"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sal-26-uQf"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="4Xh-Wp-TRB" secondAttribute="bottom" id="5Qj-hY-eVh"/>
+                            <constraint firstItem="4Xh-Wp-TRB" firstAttribute="top" secondItem="ar0-Yg-E3k" secondAttribute="top" id="69e-BV-L2N"/>
+                            <constraint firstItem="IC8-I8-cAS" firstAttribute="centerX" secondItem="ar0-Yg-E3k" secondAttribute="centerX" id="7GG-nr-4MM"/>
+                            <constraint firstItem="IC8-I8-cAS" firstAttribute="centerY" secondItem="ar0-Yg-E3k" secondAttribute="centerY" constant="-50" id="7cS-vq-rb0"/>
+                            <constraint firstItem="sal-26-uQf" firstAttribute="trailing" secondItem="4Xh-Wp-TRB" secondAttribute="trailing" id="7zU-t1-1E3"/>
+                            <constraint firstItem="4Xh-Wp-TRB" firstAttribute="leading" secondItem="sal-26-uQf" secondAttribute="leading" id="AZb-9I-KAQ"/>
+                            <constraint firstItem="sal-26-uQf" firstAttribute="trailing" secondItem="IC8-I8-cAS" secondAttribute="trailing" constant="27" id="Kya-8C-RcA"/>
+                            <constraint firstItem="IC8-I8-cAS" firstAttribute="leading" secondItem="sal-26-uQf" secondAttribute="leading" constant="27" id="yYS-7c-8n9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="vbD-wD-2PY" id="ThA-Pj-uwx"/>
+                        <outlet property="containerView" destination="4Xh-Wp-TRB" id="feA-Cr-gMN"/>
+                        <outlet property="descriptionLabel" destination="9O3-VL-RZt" id="Bhj-mt-rOJ"/>
+                        <outlet property="exerciseTextField" destination="2Xk-J1-8C2" id="Jtw-Kn-Epc"/>
+                        <outlet property="popUpStackView" destination="IC8-I8-cAS" id="B3L-rP-doO"/>
+                        <outlet property="saveButton" destination="WNB-D8-imU" id="gur-Mi-usy"/>
+                        <outlet property="titleLabel" destination="ACp-k7-Shv" id="RfU-Ud-um7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lz4-qW-ZAY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2911" y="813"/>
         </scene>
         <!--UsernameVC-->
         <scene sceneID="3vk-Dw-qMA">
@@ -309,18 +736,66 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r9j-aZ-tJX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="227" y="-697"/>
+            <point key="canvasLocation" x="352" y="-697"/>
+        </scene>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="jaL-BR-isO">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9c4-j2-WuR" customClass="MainTabBarController" customModule="ColorDumbbell" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Fyi-Rp-9BV">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="White"/>
+                        <color key="barTintColor" name="White"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="z4V-kD-sMI"/>
+                        <segue destination="Czi-Jt-jgv" kind="relationship" relationship="viewControllers" id="1qm-VT-Ubj"/>
+                        <segue destination="5yf-D8-Bhv" kind="relationship" relationship="viewControllers" id="xAo-93-rbU"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8SX-hy-XcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-480" y="18"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ExerciseCalendarIconImage" width="18" height="19.333333969116211"/>
+        <image name="HomeIconImage" width="18.666666030883789" height="19"/>
+        <image name="RoutineIconImage" width="17.333333969116211" height="19.333333969116211"/>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <namedColor name="AntiFlashWhite">
+            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BleuDeFrance">
+            <color red="0.21199999749660492" green="0.49000000953674316" blue="0.94499999284744263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BrightGray">
+            <color red="0.9179999828338623" green="0.9179999828338623" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CarminePink">
+            <color red="0.92199999094009399" green="0.30199998617172241" blue="0.23899999260902405" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Gainsboro">
+            <color red="0.875" green="0.875" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Gray">
+            <color red="0.49411764705882355" green="0.49399998784065247" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LightSilver">
             <color red="0.84299999475479126" green="0.84299999475479126" blue="0.84299999475479126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="OldSilver">
             <color red="0.51399999856948853" green="0.51399999856948853" blue="0.51399999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Platinum">
+            <color red="0.90200001001358032" green="0.90200001001358032" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SpanishGray">
             <color red="0.58799999952316284" green="0.58799999952316284" blue="0.58799999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F001931329B9AB3F0041CE68 /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001931229B9AB3F0041CE68 /* MainVM.swift */; };
+		F001931529B9B6CF0041CE68 /* CodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001931429B9B6CF0041CE68 /* CodingKeys.swift */; };
+		F001931729B9BBD10041CE68 /* RoutineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001931629B9BBD10041CE68 /* RoutineVC.swift */; };
+		F001931929B9BC600041CE68 /* ExerciseCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001931829B9BC600041CE68 /* ExerciseCalendarVC.swift */; };
+		F001931B29B9BDD90041CE68 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001931A29B9BDD90041CE68 /* MainTabBarController.swift */; };
 		F027CF4529B6007C000B94BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027CF4429B6007C000B94BC /* AppDelegate.swift */; };
 		F027CF4729B6007C000B94BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027CF4629B6007C000B94BC /* SceneDelegate.swift */; };
 		F027CF4929B6007C000B94BC /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027CF4829B6007C000B94BC /* MainVC.swift */; };
@@ -15,7 +20,37 @@
 		F027CF5129B6007D000B94BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F027CF4F29B6007D000B94BC /* LaunchScreen.storyboard */; };
 		F054C60229B833BC00473918 /* ExerciseTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F054C60129B833BC00473918 /* ExerciseTimeVC.swift */; };
 		F078232C29B6021B001D2220 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F078232B29B6021B001D2220 /* GoogleService-Info.plist */; };
+		F07B7D7329C2D167002B0B6C /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07B7D7229C2D167002B0B6C /* CALayer.swift */; };
+		F07B7D7529C2D72D002B0B6C /* AddExerciseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07B7D7429C2D72D002B0B6C /* AddExerciseVM.swift */; };
+		F07B7D7829C2E113002B0B6C /* ExerciseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07B7D7729C2E113002B0B6C /* ExerciseProtocol.swift */; };
+		F07B7D7B29C2F030002B0B6C /* ExerciseSetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07B7D7929C2F030002B0B6C /* ExerciseSetCell.swift */; };
+		F07B7D7C29C2F030002B0B6C /* ExerciseSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F07B7D7A29C2F030002B0B6C /* ExerciseSetCell.xib */; };
+		F07B7D7F29C2F72C002B0B6C /* ExerciseUtilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07B7D7D29C2F72C002B0B6C /* ExerciseUtilityCell.swift */; };
+		F07B7D8029C2F72C002B0B6C /* ExerciseUtilityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F07B7D7E29C2F72C002B0B6C /* ExerciseUtilityCell.xib */; };
+		F080579229BEFBA600556426 /* ExerciseAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080579029BEFBA600556426 /* ExerciseAddCell.swift */; };
+		F080579329BEFBA600556426 /* ExerciseAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F080579129BEFBA600556426 /* ExerciseAddCell.xib */; };
+		F080579529BF040F00556426 /* LoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080579429BF040F00556426 /* LoadingManager.swift */; };
+		F080579929BF161200556426 /* ExerciseSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080579829BF161200556426 /* ExerciseSelectionVC.swift */; };
+		F080579B29BF190100556426 /* ExerciseSelectionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080579A29BF190100556426 /* ExerciseSelectionVM.swift */; };
+		F080579E29BF19A000556426 /* ExerciseTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080579C29BF19A000556426 /* ExerciseTitleCell.swift */; };
+		F080579F29BF19A000556426 /* ExerciseTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F080579D29BF19A000556426 /* ExerciseTitleCell.xib */; };
+		F08057A229BF1CC700556426 /* ExerciseContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08057A029BF1CC700556426 /* ExerciseContentCell.swift */; };
+		F08057A329BF1CC700556426 /* ExerciseContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F08057A129BF1CC700556426 /* ExerciseContentCell.xib */; };
+		F08057A629BF201300556426 /* ExerciseRegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08057A429BF201300556426 /* ExerciseRegisterCell.swift */; };
+		F08057A729BF201300556426 /* ExerciseRegisterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F08057A529BF201300556426 /* ExerciseRegisterCell.xib */; };
 		F0819DF529B8368E00A45B57 /* ExerciseTimeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0819DF429B8368E00A45B57 /* ExerciseTimeVM.swift */; };
+		F0A1308E29BC522F005D3793 /* ExerciseArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1308D29BC522F005D3793 /* ExerciseArea.swift */; };
+		F0A1309029BC52F8005D3793 /* ExerciseQuantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1308F29BC52F8005D3793 /* ExerciseQuantity.swift */; };
+		F0A1309229BC539D005D3793 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1309129BC539D005D3793 /* Exercise.swift */; };
+		F0A1309429BC540F005D3793 /* ExerciseJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1309329BC540F005D3793 /* ExerciseJournal.swift */; };
+		F0A1309929BC56DB005D3793 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1309729BC56DB005D3793 /* TitleCell.swift */; };
+		F0A1309A29BC56DB005D3793 /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0A1309829BC56DB005D3793 /* TitleCell.xib */; };
+		F0A1309D29BC5CC9005D3793 /* ExerciseTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1309B29BC5CC9005D3793 /* ExerciseTimeCell.swift */; };
+		F0A1309E29BC5CC9005D3793 /* ExerciseTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0A1309C29BC5CC9005D3793 /* ExerciseTimeCell.xib */; };
+		F0A130A129BC6448005D3793 /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1309F29BC6448005D3793 /* AddCell.swift */; };
+		F0A130A229BC6448005D3793 /* AddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0A130A029BC6448005D3793 /* AddCell.xib */; };
+		F0A130A429BC673F005D3793 /* JournalRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A130A329BC673F005D3793 /* JournalRegisterVC.swift */; };
+		F0A130A629BC674E005D3793 /* JournalRegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A130A529BC674E005D3793 /* JournalRegisterVM.swift */; };
 		F0CB068F29B6FAE700AA7255 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F0CB068629B6FAE700AA7255 /* Pretendard-Light.otf */; };
 		F0CB069029B6FAE700AA7255 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F0CB068729B6FAE700AA7255 /* Pretendard-Bold.otf */; };
 		F0CB069129B6FAE700AA7255 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = F0CB068829B6FAE700AA7255 /* Pretendard-ExtraLight.otf */; };
@@ -40,6 +75,11 @@
 		F0CB06B129B7067900AA7255 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06B029B7067900AA7255 /* User.swift */; };
 		F0CB06B329B7104500AA7255 /* UsernameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06B229B7104500AA7255 /* UsernameVC.swift */; };
 		F0CB06B529B7110D00AA7255 /* UsernameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CB06B429B7110D00AA7255 /* UsernameVM.swift */; };
+		F0CBF37429B9C3880075D382 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CBF37329B9C3880075D382 /* LevelManager.swift */; };
+		F0F4E51229BDF4D000DCD04C /* PhotoFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4E51029BDF4D000DCD04C /* PhotoFileCell.swift */; };
+		F0F4E51329BDF4D000DCD04C /* PhotoFileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0F4E51129BDF4D000DCD04C /* PhotoFileCell.xib */; };
+		F0FBF43F29C196A200789D3D /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FBF43E29C196A200789D3D /* AlertManager.swift */; };
+		F0FBF44129C1A89400789D3D /* AddExerciseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FBF44029C1A89400789D3D /* AddExerciseVC.swift */; };
 		FBB5489B8BB381F50417F23F /* Pods_ColorDumbbell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22C8599FFE89588CE10B807 /* Pods_ColorDumbbell.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +87,11 @@
 		0218B6B5F3C42E3D3F795B19 /* Pods-ColorDumbbell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColorDumbbell.release.xcconfig"; path = "Target Support Files/Pods-ColorDumbbell/Pods-ColorDumbbell.release.xcconfig"; sourceTree = "<group>"; };
 		C22C8599FFE89588CE10B807 /* Pods_ColorDumbbell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColorDumbbell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA91C793294085B536DA79BF /* Pods-ColorDumbbell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColorDumbbell.debug.xcconfig"; path = "Target Support Files/Pods-ColorDumbbell/Pods-ColorDumbbell.debug.xcconfig"; sourceTree = "<group>"; };
+		F001931229B9AB3F0041CE68 /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
+		F001931429B9B6CF0041CE68 /* CodingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingKeys.swift; sourceTree = "<group>"; };
+		F001931629B9BBD10041CE68 /* RoutineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineVC.swift; sourceTree = "<group>"; };
+		F001931829B9BC600041CE68 /* ExerciseCalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCalendarVC.swift; sourceTree = "<group>"; };
+		F001931A29B9BDD90041CE68 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F027CF4129B6007C000B94BC /* ColorDumbbell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorDumbbell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F027CF4429B6007C000B94BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F027CF4629B6007C000B94BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +102,37 @@
 		F027CF5229B6007D000B94BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F054C60129B833BC00473918 /* ExerciseTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTimeVC.swift; sourceTree = "<group>"; };
 		F078232B29B6021B001D2220 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F07B7D7229C2D167002B0B6C /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		F07B7D7429C2D72D002B0B6C /* AddExerciseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseVM.swift; sourceTree = "<group>"; };
+		F07B7D7729C2E113002B0B6C /* ExerciseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseProtocol.swift; sourceTree = "<group>"; };
+		F07B7D7929C2F030002B0B6C /* ExerciseSetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSetCell.swift; sourceTree = "<group>"; };
+		F07B7D7A29C2F030002B0B6C /* ExerciseSetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseSetCell.xib; sourceTree = "<group>"; };
+		F07B7D7D29C2F72C002B0B6C /* ExerciseUtilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseUtilityCell.swift; sourceTree = "<group>"; };
+		F07B7D7E29C2F72C002B0B6C /* ExerciseUtilityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseUtilityCell.xib; sourceTree = "<group>"; };
+		F080579029BEFBA600556426 /* ExerciseAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseAddCell.swift; sourceTree = "<group>"; };
+		F080579129BEFBA600556426 /* ExerciseAddCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseAddCell.xib; sourceTree = "<group>"; };
+		F080579429BF040F00556426 /* LoadingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingManager.swift; sourceTree = "<group>"; };
+		F080579829BF161200556426 /* ExerciseSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelectionVC.swift; sourceTree = "<group>"; };
+		F080579A29BF190100556426 /* ExerciseSelectionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelectionVM.swift; sourceTree = "<group>"; };
+		F080579C29BF19A000556426 /* ExerciseTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTitleCell.swift; sourceTree = "<group>"; };
+		F080579D29BF19A000556426 /* ExerciseTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseTitleCell.xib; sourceTree = "<group>"; };
+		F08057A029BF1CC700556426 /* ExerciseContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseContentCell.swift; sourceTree = "<group>"; };
+		F08057A129BF1CC700556426 /* ExerciseContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseContentCell.xib; sourceTree = "<group>"; };
+		F08057A429BF201300556426 /* ExerciseRegisterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRegisterCell.swift; sourceTree = "<group>"; };
+		F08057A529BF201300556426 /* ExerciseRegisterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseRegisterCell.xib; sourceTree = "<group>"; };
 		F0819DF429B8368E00A45B57 /* ExerciseTimeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTimeVM.swift; sourceTree = "<group>"; };
+		F0A1308D29BC522F005D3793 /* ExerciseArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseArea.swift; sourceTree = "<group>"; };
+		F0A1308F29BC52F8005D3793 /* ExerciseQuantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseQuantity.swift; sourceTree = "<group>"; };
+		F0A1309129BC539D005D3793 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		F0A1309329BC540F005D3793 /* ExerciseJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseJournal.swift; sourceTree = "<group>"; };
+		F0A1309729BC56DB005D3793 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		F0A1309829BC56DB005D3793 /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
+		F0A1309B29BC5CC9005D3793 /* ExerciseTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTimeCell.swift; sourceTree = "<group>"; };
+		F0A1309C29BC5CC9005D3793 /* ExerciseTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseTimeCell.xib; sourceTree = "<group>"; };
+		F0A1309F29BC6448005D3793 /* AddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCell.swift; sourceTree = "<group>"; };
+		F0A130A029BC6448005D3793 /* AddCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCell.xib; sourceTree = "<group>"; };
+		F0A130A329BC673F005D3793 /* JournalRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalRegisterVC.swift; sourceTree = "<group>"; };
+		F0A130A529BC674E005D3793 /* JournalRegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalRegisterVM.swift; sourceTree = "<group>"; };
 		F0CB068629B6FAE700AA7255 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		F0CB068729B6FAE700AA7255 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		F0CB068829B6FAE700AA7255 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
@@ -82,6 +157,11 @@
 		F0CB06B029B7067900AA7255 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F0CB06B229B7104500AA7255 /* UsernameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameVC.swift; sourceTree = "<group>"; };
 		F0CB06B429B7110D00AA7255 /* UsernameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameVM.swift; sourceTree = "<group>"; };
+		F0CBF37329B9C3880075D382 /* LevelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
+		F0F4E51029BDF4D000DCD04C /* PhotoFileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFileCell.swift; sourceTree = "<group>"; };
+		F0F4E51129BDF4D000DCD04C /* PhotoFileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoFileCell.xib; sourceTree = "<group>"; };
+		F0FBF43E29C196A200789D3D /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		F0FBF44029C1A89400789D3D /* AddExerciseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,11 +225,54 @@
 				F0CB067F29B6FA5500AA7255 /* Fonts */,
 				F0CB067E29B6FA5300AA7255 /* Enums */,
 				F0CB067D29B6FA4700AA7255 /* Extensions */,
+				F07B7D7629C2E0EE002B0B6C /* Protocols */,
 				F027CF4D29B6007D000B94BC /* Assets.xcassets */,
 				F027CF5229B6007D000B94BC /* Info.plist */,
 				F078232B29B6021B001D2220 /* GoogleService-Info.plist */,
 			);
 			path = ColorDumbbell;
+			sourceTree = "<group>";
+		};
+		F07B7D7629C2E0EE002B0B6C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F07B7D7729C2E113002B0B6C /* ExerciseProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F0A1309529BC56A2005D3793 /* UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F0A1309729BC56DB005D3793 /* TitleCell.swift */,
+				F0A1309829BC56DB005D3793 /* TitleCell.xib */,
+				F0A1309B29BC5CC9005D3793 /* ExerciseTimeCell.swift */,
+				F0A1309C29BC5CC9005D3793 /* ExerciseTimeCell.xib */,
+				F0A1309F29BC6448005D3793 /* AddCell.swift */,
+				F0A130A029BC6448005D3793 /* AddCell.xib */,
+				F0F4E51029BDF4D000DCD04C /* PhotoFileCell.swift */,
+				F0F4E51129BDF4D000DCD04C /* PhotoFileCell.xib */,
+				F080579029BEFBA600556426 /* ExerciseAddCell.swift */,
+				F080579129BEFBA600556426 /* ExerciseAddCell.xib */,
+				F080579C29BF19A000556426 /* ExerciseTitleCell.swift */,
+				F080579D29BF19A000556426 /* ExerciseTitleCell.xib */,
+				F08057A029BF1CC700556426 /* ExerciseContentCell.swift */,
+				F08057A129BF1CC700556426 /* ExerciseContentCell.xib */,
+				F08057A429BF201300556426 /* ExerciseRegisterCell.swift */,
+				F08057A529BF201300556426 /* ExerciseRegisterCell.xib */,
+				F07B7D7929C2F030002B0B6C /* ExerciseSetCell.swift */,
+				F07B7D7A29C2F030002B0B6C /* ExerciseSetCell.xib */,
+				F07B7D7D29C2F72C002B0B6C /* ExerciseUtilityCell.swift */,
+				F07B7D7E29C2F72C002B0B6C /* ExerciseUtilityCell.xib */,
+			);
+			path = UITableViewCell;
+			sourceTree = "<group>";
+		};
+		F0A1309629BC56B4005D3793 /* UICollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UICollectionViewCell;
 			sourceTree = "<group>";
 		};
 		F0CB067D29B6FA4700AA7255 /* Extensions */ = {
@@ -158,6 +281,7 @@
 				F0CB069C29B6FBB700AA7255 /* UIImageView.swift */,
 				F0CB069E29B6FBE500AA7255 /* UITextField.swift */,
 				F0CB06A029B6FC2E00AA7255 /* UIView.swift */,
+				F07B7D7229C2D167002B0B6C /* CALayer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -168,6 +292,8 @@
 				F0CB069A29B6FB8C00AA7255 /* Constants.swift */,
 				F0CB06AC29B6FDA500AA7255 /* EditorMode.swift */,
 				F0CB06AE29B705D500AA7255 /* Level.swift */,
+				F001931429B9B6CF0041CE68 /* CodingKeys.swift */,
+				F0A1308D29BC522F005D3793 /* ExerciseArea.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -197,6 +323,9 @@
 				F0CB06A629B6FD0C00AA7255 /* UserDefaultsManager.swift */,
 				F0CB06A829B6FD4000AA7255 /* ImageManager.swift */,
 				F0CB06AA29B6FD6800AA7255 /* TimeManager.swift */,
+				F0CBF37329B9C3880075D382 /* LevelManager.swift */,
+				F080579429BF040F00556426 /* LoadingManager.swift */,
+				F0FBF43E29C196A200789D3D /* AlertManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -204,6 +333,8 @@
 		F0CB068129B6FA5800AA7255 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				F0A1309529BC56A2005D3793 /* UITableViewCell */,
+				F0A1309629BC56B4005D3793 /* UICollectionViewCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -214,6 +345,12 @@
 				F027CF4829B6007C000B94BC /* MainVC.swift */,
 				F0CB06B229B7104500AA7255 /* UsernameVC.swift */,
 				F054C60129B833BC00473918 /* ExerciseTimeVC.swift */,
+				F001931629B9BBD10041CE68 /* RoutineVC.swift */,
+				F001931829B9BC600041CE68 /* ExerciseCalendarVC.swift */,
+				F001931A29B9BDD90041CE68 /* MainTabBarController.swift */,
+				F0A130A329BC673F005D3793 /* JournalRegisterVC.swift */,
+				F080579829BF161200556426 /* ExerciseSelectionVC.swift */,
+				F0FBF44029C1A89400789D3D /* AddExerciseVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -223,6 +360,10 @@
 			children = (
 				F0CB06B429B7110D00AA7255 /* UsernameVM.swift */,
 				F0819DF429B8368E00A45B57 /* ExerciseTimeVM.swift */,
+				F001931229B9AB3F0041CE68 /* MainVM.swift */,
+				F0A130A529BC674E005D3793 /* JournalRegisterVM.swift */,
+				F080579A29BF190100556426 /* ExerciseSelectionVM.swift */,
+				F07B7D7429C2D72D002B0B6C /* AddExerciseVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -240,6 +381,9 @@
 			isa = PBXGroup;
 			children = (
 				F0CB06B029B7067900AA7255 /* User.swift */,
+				F0A1308F29BC52F8005D3793 /* ExerciseQuantity.swift */,
+				F0A1309129BC539D005D3793 /* Exercise.swift */,
+				F0A1309329BC540F005D3793 /* ExerciseJournal.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -304,19 +448,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F07B7D8029C2F72C002B0B6C /* ExerciseUtilityCell.xib in Resources */,
+				F08057A729BF201300556426 /* ExerciseRegisterCell.xib in Resources */,
+				F0F4E51329BDF4D000DCD04C /* PhotoFileCell.xib in Resources */,
 				F0CB069129B6FAE700AA7255 /* Pretendard-ExtraLight.otf in Resources */,
 				F027CF5129B6007D000B94BC /* LaunchScreen.storyboard in Resources */,
 				F0CB069029B6FAE700AA7255 /* Pretendard-Bold.otf in Resources */,
+				F080579F29BF19A000556426 /* ExerciseTitleCell.xib in Resources */,
+				F0A1309E29BC5CC9005D3793 /* ExerciseTimeCell.xib in Resources */,
 				F078232C29B6021B001D2220 /* GoogleService-Info.plist in Resources */,
+				F0A130A229BC6448005D3793 /* AddCell.xib in Resources */,
 				F0CB069329B6FAE700AA7255 /* Pretendard-Regular.otf in Resources */,
 				F027CF4E29B6007D000B94BC /* Assets.xcassets in Resources */,
 				F0CB069529B6FAE700AA7255 /* Pretendard-ExtraBold.otf in Resources */,
+				F07B7D7C29C2F030002B0B6C /* ExerciseSetCell.xib in Resources */,
 				F0CB068F29B6FAE700AA7255 /* Pretendard-Light.otf in Resources */,
 				F0CB069429B6FAE700AA7255 /* Pretendard-SemiBold.otf in Resources */,
 				F0CB069229B6FAE700AA7255 /* Pretendard-Black.otf in Resources */,
 				F0CB069729B6FAE700AA7255 /* Pretendard-Thin.otf in Resources */,
 				F027CF4C29B6007C000B94BC /* Main.storyboard in Resources */,
+				F080579329BEFBA600556426 /* ExerciseAddCell.xib in Resources */,
+				F0A1309A29BC56DB005D3793 /* TitleCell.xib in Resources */,
 				F0CB069629B6FAE700AA7255 /* Pretendard-Medium.otf in Resources */,
+				F08057A329BF1CC700556426 /* ExerciseContentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,24 +524,54 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0CB06A129B6FC2E00AA7255 /* UIView.swift in Sources */,
+				F0A130A429BC673F005D3793 /* JournalRegisterVC.swift in Sources */,
 				F0CB069B29B6FB8C00AA7255 /* Constants.swift in Sources */,
+				F0A1309929BC56DB005D3793 /* TitleCell.swift in Sources */,
+				F001931B29B9BDD90041CE68 /* MainTabBarController.swift in Sources */,
+				F080579B29BF190100556426 /* ExerciseSelectionVM.swift in Sources */,
+				F0A1308E29BC522F005D3793 /* ExerciseArea.swift in Sources */,
 				F054C60229B833BC00473918 /* ExerciseTimeVC.swift in Sources */,
+				F07B7D7B29C2F030002B0B6C /* ExerciseSetCell.swift in Sources */,
 				F0CB06A529B6FCC700AA7255 /* FirebaseManager.swift in Sources */,
 				F0CB06AF29B705D500AA7255 /* Level.swift in Sources */,
 				F0CB06B129B7067900AA7255 /* User.swift in Sources */,
+				F0A130A129BC6448005D3793 /* AddCell.swift in Sources */,
+				F0FBF43F29C196A200789D3D /* AlertManager.swift in Sources */,
+				F080579E29BF19A000556426 /* ExerciseTitleCell.swift in Sources */,
+				F08057A229BF1CC700556426 /* ExerciseContentCell.swift in Sources */,
+				F08057A629BF201300556426 /* ExerciseRegisterCell.swift in Sources */,
+				F080579929BF161200556426 /* ExerciseSelectionVC.swift in Sources */,
 				F0CB06AD29B6FDA500AA7255 /* EditorMode.swift in Sources */,
+				F001931329B9AB3F0041CE68 /* MainVM.swift in Sources */,
 				F0CB06A929B6FD4000AA7255 /* ImageManager.swift in Sources */,
+				F0FBF44129C1A89400789D3D /* AddExerciseVC.swift in Sources */,
+				F0A130A629BC674E005D3793 /* JournalRegisterVM.swift in Sources */,
+				F001931529B9B6CF0041CE68 /* CodingKeys.swift in Sources */,
+				F0A1309029BC52F8005D3793 /* ExerciseQuantity.swift in Sources */,
+				F0A1309229BC539D005D3793 /* Exercise.swift in Sources */,
 				F027CF4929B6007C000B94BC /* MainVC.swift in Sources */,
 				F0CB06B529B7110D00AA7255 /* UsernameVM.swift in Sources */,
+				F080579229BEFBA600556426 /* ExerciseAddCell.swift in Sources */,
 				F0CB06A729B6FD0C00AA7255 /* UserDefaultsManager.swift in Sources */,
+				F0A1309429BC540F005D3793 /* ExerciseJournal.swift in Sources */,
 				F0CB069F29B6FBE500AA7255 /* UITextField.swift in Sources */,
+				F001931929B9BC600041CE68 /* ExerciseCalendarVC.swift in Sources */,
+				F0F4E51229BDF4D000DCD04C /* PhotoFileCell.swift in Sources */,
+				F0CBF37429B9C3880075D382 /* LevelManager.swift in Sources */,
 				F0CB06B329B7104500AA7255 /* UsernameVC.swift in Sources */,
 				F0819DF529B8368E00A45B57 /* ExerciseTimeVM.swift in Sources */,
+				F0A1309D29BC5CC9005D3793 /* ExerciseTimeCell.swift in Sources */,
 				F0CB06AB29B6FD6800AA7255 /* TimeManager.swift in Sources */,
 				F027CF4529B6007C000B94BC /* AppDelegate.swift in Sources */,
+				F07B7D7529C2D72D002B0B6C /* AddExerciseVM.swift in Sources */,
 				F0CB069929B6FB4E00AA7255 /* FontManager.swift in Sources */,
+				F07B7D7F29C2F72C002B0B6C /* ExerciseUtilityCell.swift in Sources */,
 				F0CB06A329B6FC5600AA7255 /* ColorManager.swift in Sources */,
 				F0CB069D29B6FBB700AA7255 /* UIImageView.swift in Sources */,
+				F07B7D7829C2E113002B0B6C /* ExerciseProtocol.swift in Sources */,
+				F001931729B9BBD10041CE68 /* RoutineVC.swift in Sources */,
+				F07B7D7329C2D167002B0B6C /* CALayer.swift in Sources */,
+				F080579529BF040F00556426 /* LoadingManager.swift in Sources */,
 				F027CF4729B6007C000B94BC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
