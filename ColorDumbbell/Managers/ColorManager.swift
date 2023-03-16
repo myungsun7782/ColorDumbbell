@@ -107,4 +107,24 @@ class ColorManager {
     func getGainsboro() -> UIColor {
         return UIColor(named: "Gainsboro")!
     }
+    
+    func getGray() -> UIColor {
+        return UIColor(named: "Gray")!
+    }
+    
+    func getSilverSand() -> UIColor {
+        return UIColor(named: "SilverSand")!
+    }
+    
+    func getLavenderGray() -> UIColor {
+        return UIColor(named: "LavenderGray")!
+    }
+    
+    func getQuickSilver() -> UIColor {
+        return UIColor(named: "QuickSilver")!
+    }
+    
+    func getGrayX11() -> UIColor {
+        return UIColor(named: "Gray(x11)")!
+    }
 }
