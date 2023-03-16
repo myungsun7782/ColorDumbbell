@@ -6,18 +6,50 @@
 //
 
 import UIKit
+import RxSwift
 
 class ExerciseTimeCell: UITableViewCell {
-
+    // UIStackView
+    @IBOutlet weak var containerStackView: UIStackView!
+    
+    // UIDatePicker
+    @IBOutlet weak var startTimePicker: UIDatePicker!
+    @IBOutlet weak var endTimePicker: UIDatePicker!
+    
+    // UILabel
+    @IBOutlet weak var totalExerciseTimeLabel: UILabel!
+    
+    // Constants
+    let STACK_VIEW_CORNER_RADIUS: CGFloat = 7
+    let PICKER_KEY_PATH: String = "textColor"
+    
+    // RxSwift
+    var disposeBag = DisposeBag()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        initUI()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+    
+    private func initUI() {
+        // UIStackView
+        containerStackView.layer.cornerRadius = STACK_VIEW_CORNER_RADIUS
+        
+        // UIDatePicker
+        configureDatePicker()
+    }
+    
+    private func configureDatePicker() {
+        if #available(iOS 13.4, *) {
+            startTimePicker.overrideUserInterfaceStyle = .light
+            endTimePicker.overrideUserInterfaceStyle = .light
+        }
+        startTimePicker.setValue(UIColor.black, forKeyPath: PICKER_KEY_PATH)
+        endTimePicker.setValue(UIColor.black, forKeyPath: PICKER_KEY_PATH)
+    }
 }
