@@ -20,7 +20,7 @@ class TimeManager {
     static let shared = TimeManager()
     private init() {}
     
-    let weekdayList = ["", "(일)", "(월)", "(화)", "(수)", "(목)", "(금)", "(토)"]
+    let weekdayList = ["", "일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"]
         
     func dateToString(date: Date, options: Array<TimeOption>) -> String {
         let rDate = date.convertTo(region: Region.current)
@@ -36,7 +36,7 @@ class TimeManager {
                 result += "\(rDate.month)월 "
                 
             case .day:
-                result += "\(rDate.day)일"
+                result += "\(rDate.day)일 "
                 
             case .weekday:
                 result += "\(weekdayList[rDate.weekday]) "
