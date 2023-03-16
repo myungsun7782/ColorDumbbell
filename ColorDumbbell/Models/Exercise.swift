@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct Exercise {
+    var name: String
+    var area: ExerciseArea.RawValue
+    var quantity: [ExerciseQuantity]
+    var isChecked: Bool = false
+}
