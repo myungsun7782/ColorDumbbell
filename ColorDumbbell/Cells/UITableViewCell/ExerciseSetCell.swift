@@ -8,16 +8,21 @@
 import UIKit
 
 class ExerciseSetCell: UITableViewCell {
-
+    // UIStackView
+    @IBOutlet weak var containerStackView: UIStackView!
+    @IBOutlet weak var dataStackView: UIStackView!
+    
+    // UILabel
+    @IBOutlet weak var setLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var repsLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
+    func setData(set: Int) {
+        setLabel.text = "\(set)세트"
+    }
 }
