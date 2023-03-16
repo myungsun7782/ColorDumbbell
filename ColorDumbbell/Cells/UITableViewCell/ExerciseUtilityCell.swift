@@ -8,16 +8,42 @@
 import UIKit
 
 class ExerciseUtilityCell: UITableViewCell {
-
+    // UIStackView
+    @IBOutlet weak var containerStackView: UIStackView!
+    
+    // UIButton
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var timerButton: UIButton!
+    
+    // Constants
+    let STACK_VIEW_BORDER_RADIUS: CGFloat = 7
+    let BUTTON_CORNER_RADIUS: CGFloat = 5
+    let BUTTON_BORDER_WIDTH: CGFloat = 1
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        configureButton()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        containerStackView.layer.cornerRadius = .zero
+        containerStackView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: STACK_VIEW_BORDER_RADIUS)
+    }
+    
+    private func configureButton() {
+        addButton.layer.cornerRadius = BUTTON_CORNER_RADIUS
+        addButton.layer.borderWidth = BUTTON_BORDER_WIDTH
+        addButton.layer.borderColor = ColorManager.shared.getBrightGray().cgColor
+        
+        deleteButton.layer.cornerRadius = BUTTON_CORNER_RADIUS
+        deleteButton.layer.borderWidth = BUTTON_BORDER_WIDTH
+        deleteButton.layer.borderColor = ColorManager.shared.getBrightGray().cgColor
+        
+        timerButton.layer.cornerRadius = BUTTON_CORNER_RADIUS
+        timerButton.layer.borderWidth = BUTTON_BORDER_WIDTH
+        timerButton.layer.borderColor = ColorManager.shared.getBrightGray().cgColor
+    }
 }
