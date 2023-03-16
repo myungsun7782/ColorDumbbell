@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+enum ExerciseArea: String {
+    case back = "back"
+    case chest = "chest"
+    case shoulder = "shoulder"
+    case leg = "leg"
+    case arm = "arm"
+    case abs = "abs"
+}
