@@ -6,18 +6,38 @@
 //
 
 import UIKit
+import RxSwift
 
 class ExerciseRegisterCell: UITableViewCell {
+    // UIStackView
+    @IBOutlet weak var containerStackView: UIStackView!
+    
+    // RxSwift
+    var disposeBag = DisposeBag()
 
+    // Variables
+    var isEditorModeOn: Bool?
+    
+    // Constants
+    let STACK_VIEW_CORNER_RADIUS: CGFloat = 7
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+        
+    override func setNeedsLayout() {
+        if isEditorModeOn != nil {
+            containerStackView.layer.cornerRadius = 0
+            containerStackView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: STACK_VIEW_CORNER_RADIUS)
+            self.layoutIfNeeded()
+        }
+    }
+    func setData(isEditorModeOn: Bool) {
+        self.isEditorModeOn = isEditorModeOn
+    }
 }
