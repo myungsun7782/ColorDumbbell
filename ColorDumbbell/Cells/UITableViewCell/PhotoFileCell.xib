@@ -39,12 +39,24 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oHp-Id-tRf">
                                         <rect key="frame" x="55" y="3" width="284" height="44"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo id" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOh-Kh-WEY">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="2gY-fE-4XU">
                                                 <rect key="frame" x="14" y="0.0" width="270" height="43.666666666666664"/>
-                                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="17"/>
-                                                <color key="textColor" name="Black"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo id" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOh-Kh-WEY">
+                                                        <rect key="frame" x="0.0" y="0.0" width="64" height="43.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="17"/>
+                                                        <color key="textColor" name="Black"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0VL-dx-iLF">
+                                                        <rect key="frame" x="236.66666666666669" y="0.0" width="17.333333333333343" height="43.666666666666664"/>
+                                                        <color key="tintColor" name="AmericanSilver"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="xmark" catalog="system"/>
+                                                    </button>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="16"/>
+                                            </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q10-F7-Tee">
                                                 <rect key="frame" x="14" y="43.666666666666671" width="270" height="0.3333333333333357"/>
                                                 <color key="backgroundColor" name="LavenderGray"/>
@@ -77,6 +89,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="containerStackView" destination="U4b-L5-aSc" id="xz9-2r-HER"/>
+                <outlet property="deleteButton" destination="0VL-dx-iLF" id="kdc-9j-hQw"/>
                 <outlet property="photoIdLabel" destination="hOh-Kh-WEY" id="zsW-Zh-lWj"/>
                 <outlet property="topConst" destination="Szq-h6-T4h" id="L7Z-dq-xcZ"/>
             </connections>
@@ -85,6 +98,10 @@
     </objects>
     <resources>
         <image name="documentImage" width="42" height="48"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="AmericanSilver">
+            <color red="0.81568627450980391" green="0.81568627450980391" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

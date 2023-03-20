@@ -15,6 +15,9 @@ class PhotoFileCell: UITableViewCell {
     // UILabel
     @IBOutlet weak var photoIdLabel: UILabel!
     
+    // UIButton
+    @IBOutlet weak var deleteButton: UIButton!
+    
     // NSLayoutConstarint
     @IBOutlet weak var topConst: NSLayoutConstraint!
     
@@ -26,10 +29,11 @@ class PhotoFileCell: UITableViewCell {
     
     // Constants
     let CORNER_RADIUS: CGFloat = 7
+    let BUTTON_IMAGE: UIImage? = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 16))
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        deleteButton.setImage(BUTTON_IMAGE, for: .normal)
     }
     
     override func prepareForReuse() {
