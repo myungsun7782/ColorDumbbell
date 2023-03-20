@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import SwiftDate
 
 class ExerciseTimeCell: UITableViewCell {
     // UIStackView
@@ -42,6 +43,9 @@ class ExerciseTimeCell: UITableViewCell {
         
         // UIDatePicker
         configureDatePicker()
+        
+        // UILabel
+        totalExerciseTimeLabel.text = "1분"
     }
     
     private func configureDatePicker() {
@@ -51,5 +55,6 @@ class ExerciseTimeCell: UITableViewCell {
         }
         startTimePicker.setValue(UIColor.black, forKeyPath: PICKER_KEY_PATH)
         endTimePicker.setValue(UIColor.black, forKeyPath: PICKER_KEY_PATH)
+        endTimePicker.minimumDate = startTimePicker.date + 1.minutes
     }
 }
