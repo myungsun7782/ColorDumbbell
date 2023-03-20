@@ -28,6 +28,8 @@ public enum VC {
     static let exerciseSelectionVC = "ExerciseSelectionVC"
     static let mainTabBarController = "MainTabBarController"
     static let addExerciseVC = "AddExerciseVC"
+    static let weightAndRepetitionsVC = "WeightAndRepetitionsVC"
+    static let detailImageVC = "DetailImageVC"
 }
 
 public enum Storyboard {
