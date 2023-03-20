@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class ExerciseUtilityCell: UITableViewCell {
     // UIStackView
@@ -16,6 +17,9 @@ class ExerciseUtilityCell: UITableViewCell {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var timerButton: UIButton!
     
+    // RxSwift
+    var disposeBag = DisposeBag()
+    
     // Constants
     let STACK_VIEW_BORDER_RADIUS: CGFloat = 7
     let BUTTON_CORNER_RADIUS: CGFloat = 5
@@ -24,6 +28,11 @@ class ExerciseUtilityCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         configureButton()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
     
     override func layoutSubviews() {
