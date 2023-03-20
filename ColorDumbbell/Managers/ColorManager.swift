@@ -127,4 +127,12 @@ class ColorManager {
     func getGrayX11() -> UIColor {
         return UIColor(named: "Gray(x11)")!
     }
+    
+    func getCultured() -> UIColor {
+        return UIColor(named: "Cultured")!
+    }
+    
+    func getAmericanSilver() -> UIColor {
+        return UIColor(named: "AmericanSilver")!
+    }
 }

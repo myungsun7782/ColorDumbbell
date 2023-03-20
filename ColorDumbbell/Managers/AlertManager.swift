@@ -35,4 +35,3 @@ class AlertManager {
         completionHandler(alert)
     }
 }
-
