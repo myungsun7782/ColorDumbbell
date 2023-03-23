@@ -20,6 +20,9 @@ class ExerciseUtilityCell: UITableViewCell {
     // RxSwift
     var disposeBag = DisposeBag()
     
+    // Variables
+    var index: Int?
+    
     // Constants
     let STACK_VIEW_BORDER_RADIUS: CGFloat = 7
     let BUTTON_CORNER_RADIUS: CGFloat = 5
@@ -35,11 +38,12 @@ class ExerciseUtilityCell: UITableViewCell {
         disposeBag = DisposeBag()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        containerStackView.layer.cornerRadius = .zero
-        containerStackView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: STACK_VIEW_BORDER_RADIUS)
+    override func setNeedsLayout() {
+        if index != nil {
+            containerStackView.layer.cornerRadius = .zero
+            containerStackView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: STACK_VIEW_BORDER_RADIUS)
+            self.layoutIfNeeded()
+        }
     }
     
     private func configureButton() {
@@ -54,5 +58,9 @@ class ExerciseUtilityCell: UITableViewCell {
         timerButton.layer.cornerRadius = BUTTON_CORNER_RADIUS
         timerButton.layer.borderWidth = BUTTON_BORDER_WIDTH
         timerButton.layer.borderColor = ColorManager.shared.getBrightGray().cgColor
+    }
+    
+    func setData(index: Int) {
+        self.index = index
     }
 }
