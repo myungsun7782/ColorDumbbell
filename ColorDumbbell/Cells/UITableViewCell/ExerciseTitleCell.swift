@@ -40,7 +40,7 @@ class ExerciseTitleCell: UITableViewCell {
     let LEG_TEXT = "하체 (Leg)"
     let ARM_TEXT = "팔 (Arm)"
     let ABS_TEXT = "복근 (Abs)"
-    let BUTTON_IMAGE: UIImage? = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 17))
+    let BUTTON_IMAGE: UIImage? = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 14))
     
     
     override func awakeFromNib() {
@@ -72,6 +72,7 @@ class ExerciseTitleCell: UITableViewCell {
     }
     
     func setData(index: Int, isEditorModeOn: Bool) {
+        self.index = index
         editButton.titleLabel?.text = isEditorModeOn ? FINISH_TEXT : EDIT_TEXT
         if isEditorModeOn {
             editButton.setTitle(FINISH_TEXT, for: .normal)
