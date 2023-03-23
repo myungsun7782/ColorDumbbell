@@ -57,4 +57,23 @@ class ExerciseTimeCell: UITableViewCell {
         endTimePicker.setValue(UIColor.black, forKeyPath: PICKER_KEY_PATH)
         endTimePicker.minimumDate = startTimePicker.date + 1.minutes
     }
+    
+    func setData(startTime: Date, endTime: Date) {
+        let currentMonth = startTime.convertTo(region: Region.current).month
+        let currentDay = startTime.convertTo(region: Region.current).day
+        let currentHour = Date().convertTo(region: Region.current).hour
+        let currentMinute = Date().convertTo(region: Region.current).minute
+        let currentSeconds = Date().convertTo(region: Region.current).second
+        
+        startTimePicker.date = Date(year: startTime.year,
+                                    month: startTime.month,
+                                    day: currentDay,
+                                    hour: currentHour-9,
+                                    minute: currentMinute)
+        endTimePicker.date = Date(year: startTime.year,
+                                  month: startTime.month,
+                                  day: currentDay,
+                                  hour: currentHour-9,
+                                  minute: currentMinute+1)
+    }
 }
