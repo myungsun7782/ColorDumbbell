@@ -18,6 +18,8 @@ public enum Cell {
     static let exerciseRegisterCell = "ExerciseRegisterCell"
     static let exerciseSetCell = "ExerciseSetCell"
     static let exerciseUtilityCell = "ExerciseUtilityCell"
+    static let exerciseCalendarCell = "ExerciseCalendarCell"
+    static let exerciseDateCell = "ExerciseDateCell"
 }
 
 public enum VC {
@@ -30,6 +32,7 @@ public enum VC {
     static let addExerciseVC = "AddExerciseVC"
     static let weightAndRepetitionsVC = "WeightAndRepetitionsVC"
     static let detailImageVC = "DetailImageVC"
+    static let monthlyExerciseVC = "MonthlyExerciseVC"
 }
 
 public enum Storyboard {
