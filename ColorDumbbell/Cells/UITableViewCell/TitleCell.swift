@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class TitleCell: UITableViewCell {
     // UITextField
@@ -13,6 +14,9 @@ class TitleCell: UITableViewCell {
     
     // UIStackView
     @IBOutlet weak var containerStackView: UIStackView!
+    
+    // Variable
+    var disposeBag = DisposeBag()
     
     // Constants
     let TEXT_FIELD_PLACE_HOLDER: String = "제목"
@@ -23,6 +27,11 @@ class TitleCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         initUI()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
     
     private func initUI() {
