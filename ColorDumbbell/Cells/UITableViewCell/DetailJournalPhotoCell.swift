@@ -8,16 +8,54 @@
 import UIKit
 
 class DetailJournalPhotoCell: UITableViewCell {
-
+    // UICollectionView
+    @IBOutlet weak var photoCollectionView: UICollectionView!
+    
+    // Variables
+    var photoIdList: [String] = Array<String>()
+    
+    // Constants
+    let COLLECTION_VIEW_MINIMUM_SPACING: CGFloat = 8
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        initUI()
     }
     
+    private func initUI() {
+        configureCollectionView()
+    }
+    
+    private func configureCollectionView() {
+        photoCollectionView.dataSource = self
+        photoCollectionView.delegate = self
+        registerCollectionViewCell()
+    }
+    
+    private func registerCollectionViewCell() {
+        photoCollectionView.register(UINib(nibName: Cell.photoCell, bundle: nil), forCellWithReuseIdentifier: Cell.photoCell)
+    }
+    
+    func setData(photoIdList: [String]) {
+        self.photoIdList = photoIdList
+        photoCollectionView.reloadData()
+    }
+}
+
+extension DetailJournalPhotoCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photoIdList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.photoCell, for: indexPath) as! PhotoCell
+        
+        cell.photoImageView.fetchImage(photoId: photoIdList[indexPath.row])
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return COLLECTION_VIEW_MINIMUM_SPACING
+    }
 }
