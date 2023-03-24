@@ -6,12 +6,22 @@
 //
 
 import UIKit
+import RxSwift
 
 class PhotoCell: UICollectionViewCell {
-
+    // UIImageView
+    @IBOutlet weak var photoImageView: UIImageView!
+    
+    // RxSwift
+    var disposeBag = DisposeBag()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
 }
