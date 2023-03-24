@@ -1,21 +1,128 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DetailJournalSetCell" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DetailJournalSetCell" rowHeight="72" id="KGk-i7-Jjw" customClass="DetailJournalSetCell" customModule="ColorDumbbell" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="EhO-8c-Da0">
+                        <rect key="frame" x="16" y="8" width="288" height="56"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="P4L-ci-ffH">
+                                <rect key="frame" x="16" y="0.0" width="59" height="56"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ubr-2n-gBM">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="56"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wk2-t2-8XZ">
+                                                <rect key="frame" x="5" y="20.666666666666668" width="15" height="15.000000000000004"/>
+                                                <color key="backgroundColor" name="Cyclamen"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="15" id="QKi-NA-ruZ"/>
+                                                    <constraint firstAttribute="height" constant="15" id="k8t-VG-vmj"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Wk2-t2-8XZ" firstAttribute="centerY" secondItem="ubr-2n-gBM" secondAttribute="centerY" id="MZ2-ev-18X"/>
+                                            <constraint firstAttribute="width" constant="20" id="TN1-PZ-QD9"/>
+                                            <constraint firstItem="Wk2-t2-8XZ" firstAttribute="leading" secondItem="ubr-2n-gBM" secondAttribute="leading" constant="5" id="WZP-RV-w86"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UeZ-wz-zqg">
+                                        <rect key="frame" x="35" y="0.0" width="24" height="56"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
+                                        <color key="textColor" name="Black"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="gn8-nF-yAU">
+                                <rect key="frame" x="137" y="0.0" width="128" height="56"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIC-VI-UIA">
+                                        <rect key="frame" x="0.0" y="0.0" width="79.666666666666671" height="56"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBV-tq-1aL">
+                                                <rect key="frame" x="0.0" y="0.0" width="49.333333333333336" height="56"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
+                                                <color key="textColor" name="PhilippineSilver"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kg x" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJe-3x-8e9">
+                                                <rect key="frame" x="49.33333333333335" y="0.0" width="30.333333333333336" height="56"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
+                                                <color key="textColor" name="PhilippineSilver"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2zR-f9-YBd">
+                                        <rect key="frame" x="82.666666666666657" y="0.0" width="45.333333333333343" height="56"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Og3-i0-gdv">
+                                                <rect key="frame" x="0.0" y="0.0" width="31.333333333333332" height="56"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
+                                                <color key="textColor" name="PhilippineSilver"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RwR-ud-tfx">
+                                                <rect key="frame" x="31.333333333333343" y="0.0" width="14" height="56"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
+                                                <color key="textColor" name="PhilippineSilver"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <edgeInsets key="layoutMargins" top="0.0" left="16" bottom="0.0" right="23"/>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="EhO-8c-Da0" secondAttribute="trailing" constant="16" id="3Dq-va-42p"/>
+                    <constraint firstItem="EhO-8c-Da0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="4oX-VT-Lyn"/>
+                    <constraint firstAttribute="bottom" secondItem="EhO-8c-Da0" secondAttribute="bottom" constant="8" id="Kn8-7v-r5S"/>
+                    <constraint firstItem="EhO-8c-Da0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ovK-mO-GhS"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="bottomConst" destination="Kn8-7v-r5S" id="2Zq-zh-IRZ"/>
+                <outlet property="pointView" destination="Wk2-t2-8XZ" id="AoL-0M-z6b"/>
+                <outlet property="repsLabel" destination="Og3-i0-gdv" id="YrD-wE-jOW"/>
+                <outlet property="setLabel" destination="UeZ-wz-zqg" id="qjD-uv-509"/>
+                <outlet property="topConst" destination="4oX-VT-Lyn" id="yZ5-b6-uni"/>
+                <outlet property="weightLabel" destination="qBV-tq-1aL" id="xYd-4h-RbO"/>
+            </connections>
+            <point key="canvasLocation" x="167.93893129770993" y="22.535211267605636"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Cyclamen">
+            <color red="0.98799997568130493" green="0.44699999690055847" blue="0.65100002288818359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PhilippineSilver">
+            <color red="0.70999997854232788" green="0.70999997854232788" blue="0.70999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
