@@ -117,4 +117,10 @@ class ExerciseTitleCell: UITableViewCell {
         editButton.setTitle("", for: .normal)
         editButton.setImage(BUTTON_IMAGE, for: .normal)
     }
+    
+    func setData(isHidden: Bool, exercise: Exercise) {
+        editButton.isHidden = isHidden
+        titleLabel.font = FontManager.shared.getPretendardBold(fontSize: LABEL_FONT_SIZE)
+        titleLabel.text = exercise.name + " (\(exercise.area))"
+    }
 }
