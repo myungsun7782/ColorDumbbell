@@ -13,6 +13,7 @@ class DetailJournalPhotoCell: UITableViewCell {
     
     // Variables
     var photoIdList: [String] = Array<String>()
+    var detailExerciseJournalVC: DetailExerciseJournalVC?
     
     // Constants
     let COLLECTION_VIEW_MINIMUM_SPACING: CGFloat = 8
@@ -36,9 +37,22 @@ class DetailJournalPhotoCell: UITableViewCell {
         photoCollectionView.register(UINib(nibName: Cell.photoCell, bundle: nil), forCellWithReuseIdentifier: Cell.photoCell)
     }
     
-    func setData(photoIdList: [String]) {
+    func setData(photoIdList: [String], detailExerciseJournalVC: DetailExerciseJournalVC) {
         self.photoIdList = photoIdList
+        self.detailExerciseJournalVC = detailExerciseJournalVC
         photoCollectionView.reloadData()
+    }
+    
+    private func presentDetailImageVC(index: Int) {
+        if let detailExerciseJournalVC = detailExerciseJournalVC {
+            let detailImageVC = UIStoryboard(name: Storyboard.main, bundle: nil).instantiateViewController(withIdentifier: VC.detailImageVC) as! DetailImageVC
+            
+            detailImageVC.photoId = photoIdList[index]
+            detailImageVC.modalPresentationStyle = .overCurrentContext
+            detailImageVC.modalTransitionStyle = .crossDissolve
+            
+            detailExerciseJournalVC.present(detailImageVC, animated: true)
+        }
     }
 }
 
@@ -57,5 +71,9 @@ extension DetailJournalPhotoCell: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return COLLECTION_VIEW_MINIMUM_SPACING
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presentDetailImageVC(index: indexPath.row)
     }
 }
