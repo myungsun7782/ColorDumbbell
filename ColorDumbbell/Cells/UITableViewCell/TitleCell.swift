@@ -47,4 +47,8 @@ class TitleCell: UITableViewCell {
         titleTextField.attributedPlaceholder = NSAttributedString(string: TEXT_FIELD_PLACE_HOLDER, attributes: [NSAttributedString.Key.foregroundColor : ColorManager.shared.getSilverSand()])
         titleTextField.addLeftPadding()
     }
+    
+    func setData(title: String) {
+        titleTextField.text = title
+    }
 }
