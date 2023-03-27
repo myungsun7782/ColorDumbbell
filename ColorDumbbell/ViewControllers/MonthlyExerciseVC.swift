@@ -32,7 +32,7 @@ class MonthlyExerciseVC: UIViewController {
     // Variables
 
     // Constants
-    let BACK_BUTTON_IMAGE: UIImage? = UIImage(systemName: "chevron.left", withConfiguration: UIImage.SymbolConfiguration(pointSize: 16))
+    let BACK_BUTTON_IMAGE: UIImage? = UIImage(systemName: "chevron.left", withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .bold))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +83,15 @@ class MonthlyExerciseVC: UIViewController {
         monthlyExerciseTableView.register(UINib(nibName: Cell.exerciseDateCell, bundle: nil), forCellReuseIdentifier: Cell.exerciseDateCell)
         monthlyExerciseTableView.register(UINib(nibName: Cell.exerciseCalendarCell, bundle: nil), forCellReuseIdentifier: Cell.exerciseCalendarCell)
     }
+    
+    private func presentDetailExerciseJournalVC(exerciseJournal: ExerciseJournal) {
+        let detailExerciseJournalVC = UIStoryboard(name: Storyboard.main, bundle: nil).instantiateViewController(withIdentifier: VC.detailExerciseJournal) as! DetailExerciseJournalVC
+        
+        detailExerciseJournalVC.viewModel.journalDate = TimeManager.shared.dateToString(date: exerciseJournal.startTime.date, options: [.month, .day])
+        detailExerciseJournalVC.viewModel.exerciseJournal = exerciseJournal
+        
+        navigationController?.pushViewController(detailExerciseJournalVC, animated: true)
+    }
 }
 
 extension MonthlyExerciseVC: UITableViewDataSource, UITableViewDelegate {
@@ -109,6 +118,13 @@ extension MonthlyExerciseVC: UITableViewDataSource, UITableViewDelegate {
         
         // MARK: - 사용자 현재 레벨에 맞는 색깔로 수정하기!
         cell.setData(index: indexPath.row-1, lastIndex: viewModel.exerciseJournalArray[indexPath.section].groupedExerciseArray!.count-1, currentLevelColor: ColorManager.shared.getCyclamen(), exerciseArray: viewModel.exerciseJournalArray[indexPath.section].groupedExerciseArray![indexPath.row-1])
+        
+        cell.containerStackView.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { _ in
+                self.presentDetailExerciseJournalVC(exerciseJournal: self.viewModel.exerciseJournalArray[indexPath.section])
+            })
+            .disposed(by: cell.disposeBag)
         
         return cell
     }
