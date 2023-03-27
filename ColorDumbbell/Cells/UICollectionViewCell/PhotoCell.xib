@@ -18,17 +18,17 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bor-Vx-lri">
-                        <rect key="frame" x="5" y="5" width="330" height="264"/>
+                        <rect key="frame" x="0.0" y="0.0" width="340" height="274"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Bor-Vx-lri" secondAttribute="bottom" constant="5" id="BmF-q0-kP6"/>
-                <constraint firstAttribute="trailing" secondItem="Bor-Vx-lri" secondAttribute="trailing" constant="5" id="Z1t-jK-G4m"/>
-                <constraint firstItem="Bor-Vx-lri" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="p8I-fh-AyG"/>
-                <constraint firstItem="Bor-Vx-lri" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="zyt-yB-7f2"/>
+                <constraint firstAttribute="bottom" secondItem="Bor-Vx-lri" secondAttribute="bottom" id="BmF-q0-kP6"/>
+                <constraint firstAttribute="trailing" secondItem="Bor-Vx-lri" secondAttribute="trailing" id="Z1t-jK-G4m"/>
+                <constraint firstItem="Bor-Vx-lri" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="p8I-fh-AyG"/>
+                <constraint firstItem="Bor-Vx-lri" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zyt-yB-7f2"/>
             </constraints>
             <size key="customSize" width="340" height="274"/>
             <connections>
