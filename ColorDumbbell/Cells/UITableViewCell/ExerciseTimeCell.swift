@@ -58,22 +58,27 @@ class ExerciseTimeCell: UITableViewCell {
         endTimePicker.minimumDate = startTimePicker.date + 1.minutes
     }
     
-    func setData(startTime: Date, endTime: Date) {
-        let currentMonth = startTime.convertTo(region: Region.current).month
-        let currentDay = startTime.convertTo(region: Region.current).day
-        let currentHour = Date().convertTo(region: Region.current).hour
-        let currentMinute = Date().convertTo(region: Region.current).minute
-        let currentSeconds = Date().convertTo(region: Region.current).second
-        
-        startTimePicker.date = Date(year: startTime.year,
-                                    month: startTime.month,
-                                    day: currentDay,
-                                    hour: currentHour-9,
-                                    minute: currentMinute)
-        endTimePicker.date = Date(year: startTime.year,
-                                  month: startTime.month,
-                                  day: currentDay,
-                                  hour: currentHour-9,
-                                  minute: currentMinute+1)
+    func setData(startTime: Date, endTime: Date, totalExerciseTime: Int, isEditingMode: Bool) {
+        if !isEditingMode {
+            let currentDay = startTime.convertTo(region: Region.current).day
+            let currentHour = Date().convertTo(region: Region.current).hour
+            let currentMinute = Date().convertTo(region: Region.current).minute
+            
+            startTimePicker.date = Date(year: startTime.year,
+                                        month: startTime.month,
+                                        day: currentDay,
+                                        hour: currentHour-9,
+                                        minute: currentMinute)
+            endTimePicker.date = Date(year: startTime.year,
+                                      month: startTime.month,
+                                      day: currentDay,
+                                      hour: currentHour-9,
+                                      minute: currentMinute+1)
+        } else {
+            startTimePicker.datePickerMode = .time
+            startTimePicker.date = startTime
+            endTimePicker.date = endTime
+            totalExerciseTimeLabel.text = "\(totalExerciseTime)분"
+        }
     }
 }
