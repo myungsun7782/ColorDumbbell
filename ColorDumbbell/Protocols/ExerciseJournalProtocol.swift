@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ExerciseJournalDelegate: AnyObject {
-    func transferData(exerciseJournal: ExerciseJournal)
+    func transferData(exerciseJournal: ExerciseJournal, editorMode: EditorMode)
 }
