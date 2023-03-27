@@ -21,6 +21,7 @@ class DetailImageVC: UIViewController {
     
     // UIImage
     var selectedImage: UIImage?
+    var photoId: String?
     
     // RxSwift
     let disposeBag = DisposeBag()
@@ -32,6 +33,7 @@ class DetailImageVC: UIViewController {
     let BUTTON_IMAGE: UIImage? = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 23))
     let PINCH_GESTURE_SCALE: CGFloat = 1.0
     let ANIMATION_DURATION: CGFloat = 0.3
+    let CONTAINER_VIEW_ALPHA: CGFloat = 0.7
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +47,7 @@ class DetailImageVC: UIViewController {
         
         // UIImageView
         configureImageView()
+        initImageViewFromStorage()
         
         // UIButton
         configureButton()
@@ -60,13 +63,22 @@ class DetailImageVC: UIViewController {
     
     private func configureView() {
         // MARK: - alpha값 설정
-//        containerView.alpha = 0.65
+        containerView.alpha = CONTAINER_VIEW_ALPHA
     }
     
     private func configureImageView() {
         guard let selectedImage = selectedImage else { return }
         detailImageView.image = selectedImage
         
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(pinchGesture:)))
+        detailImageView.isUserInteractionEnabled = true
+        detailImageView.addGestureRecognizer(pinchGestureRecognizer)
+    }
+    
+    private func initImageViewFromStorage() {
+        guard let photoId = photoId else { return }
+        detailImageView.fetchImage(photoId: photoId)
+    
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(pinchGesture:)))
         detailImageView.isUserInteractionEnabled = true
         detailImageView.addGestureRecognizer(pinchGestureRecognizer)
