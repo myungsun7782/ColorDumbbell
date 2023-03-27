@@ -10,6 +10,7 @@ import Foundation
 struct ExerciseQuantity {
     var weight: Double // 무게(kg)
     var reps: Int
+    var isFocused: Bool = false
     
     init() {
         self.weight = 0
