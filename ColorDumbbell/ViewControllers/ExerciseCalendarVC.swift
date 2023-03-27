@@ -9,6 +9,7 @@ import UIKit
 import FSCalendar
 import RxSwift
 import RxCocoa
+import RxGesture
 import SwiftDate
 
 class ExerciseCalendarVC: UIViewController {
@@ -44,7 +45,7 @@ class ExerciseCalendarVC: UIViewController {
     let CALENDAR_HEADER_FONT_SIZE: CGFloat = 19.75
     let CALENDAR_EVENT_OFFSET_X: Double = -0.3
     let CALENDAR_EVENT_OFFSET_Y: Double = -8
-    let CALENDAR_HEADER_TITLE_OFFSET_X: Double = -75
+    let CALENDAR_HEADER_TITLE_OFFSET_X: Double = -79
     let CALENDAR_HEADER_TITLE_OFFSET_Y: Double = 0
     
     // RxSwift
@@ -152,7 +153,7 @@ class ExerciseCalendarVC: UIViewController {
         
         guard let selectedDate = viewModel.selectedDate else { return }
         journalRegisterVC.viewModel.startTime = selectedDate.convertTo(region: Region.current).date
-        journalRegisterVC.viewModel.endTime = selectedDate.convertTo(region: Region.current).date
+        journalRegisterVC.viewModel.endTime = selectedDate.convertTo(region: Region.current).date.addingTimeInterval(60)
         journalRegisterVC.viewModel.delegate = self
         
         present(journalRegisterVC, animated: true)
@@ -165,6 +166,15 @@ class ExerciseCalendarVC: UIViewController {
         monthlyExerciseVC.viewModel.exerciseJournalArray = viewModel.getSpecificExerciseJournal()
         
         self.navigationController?.pushViewController(monthlyExerciseVC, animated: true)
+    }
+    
+    private func presentDetailExerciseJournalVC(exerciseJournal: ExerciseJournal) {
+        let detailExerciseJournalVC = UIStoryboard(name: Storyboard.main, bundle: nil).instantiateViewController(withIdentifier: VC.detailExerciseJournal) as! DetailExerciseJournalVC
+        
+        detailExerciseJournalVC.viewModel.journalDate = TimeManager.shared.dateToString(date: exerciseJournal.startTime.date, options: [.month, .day])
+        detailExerciseJournalVC.viewModel.exerciseJournal = exerciseJournal
+        
+        navigationController?.pushViewController(detailExerciseJournalVC, animated: true)
     }
 }
 
@@ -212,6 +222,12 @@ extension ExerciseCalendarVC: UITableViewDataSource, UITableViewDelegate {
         // MARK: - User 현재 레벨에 맞는 색깔 넣어주기! (나중에 수정 필요!)
         if viewModel.selectedExerciseJournal != nil {
             cell.setData(currentLevelColor: ColorManager.shared.getCyclamen(), exerciseArray: viewModel.exerciseDivisionArray[indexPath.row])
+            cell.containerStackView.rx.tapGesture()
+                .when(.recognized)
+                .subscribe(onNext: { _ in
+                    self.presentDetailExerciseJournalVC(exerciseJournal: self.viewModel.selectedExerciseJournal!)
+                })
+                .disposed(by: cell.disposeBag)
         }
         
         return cell
@@ -219,14 +235,18 @@ extension ExerciseCalendarVC: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension ExerciseCalendarVC: ExerciseJournalDelegate {
-    func transferData(exerciseJournal: ExerciseJournal) {
-        viewModel.exerciseJournalArray.append(exerciseJournal)
-        viewModel.registeredDateStrArray.append(TimeManager.shared.dateToString(date: exerciseJournal.startTime, options: [.year, .month, .day]))
-        viewModel.selectedExerciseJournal = exerciseJournal
-        viewModel.setExerciseDivisionArray(exerciseArray: viewModel.selectedExerciseJournal!.exerciseArray)
-        emptyJournalStackView.isHidden = true
-        exerciseTimeLabel.text = "\(exerciseJournal.totalExerciseTime)분"
-        calendarView.reloadData()
-        exerciseTableView.reloadData()
+    func transferData(exerciseJournal: ExerciseJournal, editorMode: EditorMode) {
+        if editorMode == .new {
+            viewModel.exerciseJournalArray.append(exerciseJournal)
+            viewModel.registeredDateStrArray.append(TimeManager.shared.dateToString(date: exerciseJournal.startTime, options: [.year, .month, .day]))
+            viewModel.selectedExerciseJournal = exerciseJournal
+            viewModel.setExerciseDivisionArray(exerciseArray: viewModel.selectedExerciseJournal!.exerciseArray)
+            emptyJournalStackView.isHidden = true
+            exerciseTimeLabel.text = "\(exerciseJournal.totalExerciseTime)분"
+            calendarView.reloadData()
+            exerciseTableView.reloadData()
+        } else if editorMode == .edit {
+            
+        }
     }
 }
