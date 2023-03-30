@@ -25,6 +25,10 @@ public enum Cell {
     static let photoCell = "PhotoCell"
     static let labelCell = "LabelCell"
     static let detailJournalSetCell = "DetailJournalSetCell"
+    static let routineSetCell = "RoutineSetCell"
+    static let routineTitleCell = "RoutineTitleCell"
+    static let routineContentCell = "RoutineContentCell"
+    static let buttonCell = "ButtonCell"
 }
 
 public enum VC {
@@ -39,6 +43,8 @@ public enum VC {
     static let detailImageVC = "DetailImageVC"
     static let monthlyExerciseVC = "MonthlyExerciseVC"
     static let detailExerciseJournal = "DetailExerciseJournalVC"
+    static let routineVC = "RoutineVC"
+    static let routineRegisterVC = "RoutineRegisterVC"
 }
 
 public enum Storyboard {
