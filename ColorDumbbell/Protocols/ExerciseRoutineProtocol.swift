@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol ExerciseRoutineDelegate: AnyObject {
+    func transferData(section: Int?, routine: Routine, editorMode: EditorMode)
+}
