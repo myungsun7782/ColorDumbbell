@@ -34,4 +34,17 @@ class AlertManager {
         alert.addAction(cancelButton)
         completionHandler(alert)
     }
+    
+    func presentActionSheetAlert(title: String?, message: String, firstButtonTitle: String, secondButtonTitle: String, buttonHandler: @escaping () -> (), completionHandler: @escaping (_ alert: UIAlertController) ->()) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        
+        let discardAction = UIAlertAction(title: firstButtonTitle, style: .destructive) { _ in
+            buttonHandler()
+        }
+        let cancelAction = UIAlertAction(title: secondButtonTitle, style: .cancel)
+        alert.addAction(discardAction)
+        alert.addAction(cancelAction)
+        
+        completionHandler(alert)
+    }
 }
