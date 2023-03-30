@@ -6,18 +6,60 @@
 //
 
 import UIKit
+import RxSwift
 
 class RoutineContentCell: UITableViewCell {
-
+    // UIStackView
+    @IBOutlet weak var containerStackView: UIStackView!
+    
+    // UIView
+    @IBOutlet weak var pointView: UIView!
+    
+    // UILabel
+    @IBOutlet weak var exerciseNameLabel: UILabel!
+    @IBOutlet weak var exerciseSetLabel: UILabel!
+    
+    // NSLayoutConstraint
+    @IBOutlet weak var topConst: NSLayoutConstraint!
+    @IBOutlet weak var bottomConst: NSLayoutConstraint!
+    
+    // RxSwift
+    var disposeBag = DisposeBag()
+    
+    // Constants
+    let VIEW_CORNER_RADIUS: CGFloat = 2
+    let PARTIAL_TOP_CONST: CGFloat = 13
+    let PARTIAL_BOTTOM_CONST: CGFloat = 36
+    let ORIGINAL_CONST: CGFloat = 6
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        initUI()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+    
+    private func initUI() {
+        // UIView
+        pointView.layer.cornerRadius = VIEW_CORNER_RADIUS
+    }
+    
+    func setData(currentLevelColor: UIColor, exerciseName: String, exerciseSet: Int, index: Int, lastIndex: Int) {
+        pointView.backgroundColor = currentLevelColor
+        exerciseNameLabel.text = exerciseName
+        exerciseSetLabel.text = "\(exerciseSet)세트"
+        if index == .zero {
+            topConst.constant = PARTIAL_TOP_CONST
+            bottomConst.constant = ORIGINAL_CONST
+        } else if index == lastIndex {
+            topConst.constant = ORIGINAL_CONST
+            bottomConst.constant = PARTIAL_BOTTOM_CONST
+        } else {
+            topConst.constant = ORIGINAL_CONST
+            bottomConst.constant = ORIGINAL_CONST
+        }
+    }
 }
