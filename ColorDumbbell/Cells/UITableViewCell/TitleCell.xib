@@ -44,6 +44,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="bottomConst" destination="015-c7-lzG" id="6r2-gO-5mf"/>
                 <outlet property="containerStackView" destination="H11-77-zFL" id="nI2-6X-c8w"/>
                 <outlet property="titleTextField" destination="wG7-PJ-pQ2" id="aol-ds-do5"/>
             </connections>

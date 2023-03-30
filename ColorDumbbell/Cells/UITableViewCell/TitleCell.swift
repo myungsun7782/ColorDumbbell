@@ -15,13 +15,19 @@ class TitleCell: UITableViewCell {
     // UIStackView
     @IBOutlet weak var containerStackView: UIStackView!
     
+    // NSLayoutConstraint
+    @IBOutlet weak var bottomConst: NSLayoutConstraint!
+    
     // Variable
     var disposeBag = DisposeBag()
+    var textFieldPlaceHolder = "제목"
     
     // Constants
-    let TEXT_FIELD_PLACE_HOLDER: String = "제목"
+    let ROUTINE_TEXT_FIELD_PLACE_HOLDER: String = "루틴 이름"
+    let MEMO_TEXT_FIELD_PLACE_HOLDER: String = "메모"
     let TEXT_FIELD_FONT_SIZE: CGFloat = 17
     let STACK_VIEW_CORNER_RADIUS: CGFloat = 7
+    let BOTTOM_CONSTRAINT: CGFloat = 36
     
     
     override func awakeFromNib() {
@@ -42,9 +48,9 @@ class TitleCell: UITableViewCell {
         configureTextField()
     }
     
-    private func configureTextField() {
+    func configureTextField() {
         titleTextField.font = FontManager.shared.getPretendardRegular(fontSize: TEXT_FIELD_FONT_SIZE)
-        titleTextField.attributedPlaceholder = NSAttributedString(string: TEXT_FIELD_PLACE_HOLDER, attributes: [NSAttributedString.Key.foregroundColor : ColorManager.shared.getSilverSand()])
+        titleTextField.attributedPlaceholder = NSAttributedString(string: textFieldPlaceHolder, attributes: [NSAttributedString.Key.foregroundColor : ColorManager.shared.getSilverSand()])
         titleTextField.addLeftPadding()
     }
     
