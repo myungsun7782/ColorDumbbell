@@ -139,4 +139,12 @@ class ColorManager {
     func getPhilippineGray() -> UIColor {
         return UIColor(named: "PhilippineGray")!
     }
+    
+    func getBlackOlive() -> UIColor {
+        return UIColor(named: "BlackOlive")!
+    }
+    
+    func getQuartz() -> UIColor {
+        return UIColor(named: "Quartz")!
+    }
 }
