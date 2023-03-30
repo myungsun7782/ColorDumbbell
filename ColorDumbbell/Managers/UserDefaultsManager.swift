@@ -14,6 +14,7 @@ class UserDefaultsManager {
     private let USER_NAME = "userName"
     private let EXERCISE_TIME = "exerciseTime"
     private let TOTAL_EXERCISE_COUNT = "TotalExerciseCount"
+    private let DOCUMENT_ID = "documentID"
 
     private init() {}
     
@@ -57,11 +58,19 @@ class UserDefaultsManager {
         UserDefaults.standard.set(totalExerciseCount, forKey: TOTAL_EXERCISE_COUNT)
     }
     
+    func setDocumentID(documentID: String) {
+        UserDefaults.standard.set(documentID, forKey: DOCUMENT_ID)
+    }
+    
+    func getDocumentId() -> String {
+        return UserDefaults.standard.string(forKey: DOCUMENT_ID)!
+    }
+    
     func finishIntialization(uid: String, userName: String, exerciseTime: Date, totalExerciseCount: Int) {
         setUserUid(userUid: uid)
         setUserName(userName: userName)
         setExerciseTime(exerciseTime: exerciseTime)
         setExerciseTotalCount(totalExerciseCount: totalExerciseCount)
-//        setIsInitialized()
+        setIsInitialized()
     }
 }
