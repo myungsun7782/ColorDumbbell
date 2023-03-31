@@ -6,18 +6,28 @@
 //
 
 import UIKit
+import RxSwift
 
 class ButtonCell: UITableViewCell {
-
+    // UIButton
+    @IBOutlet weak var deleteButton: UIButton!
+    
+    // RxSwift
+    var disposeBag = DisposeBag()
+    
+    // Constants
+    let BUTTON_CORNER_RADIUS: CGFloat = 4
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        initUI()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+    
+    private func initUI() {
+        deleteButton.layer.cornerRadius = BUTTON_CORNER_RADIUS
+    }
 }

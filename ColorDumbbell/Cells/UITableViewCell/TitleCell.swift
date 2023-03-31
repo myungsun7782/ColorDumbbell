@@ -29,7 +29,6 @@ class TitleCell: UITableViewCell {
     let STACK_VIEW_CORNER_RADIUS: CGFloat = 7
     let BOTTOM_CONSTRAINT: CGFloat = 36
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         initUI()

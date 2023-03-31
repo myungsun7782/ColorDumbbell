@@ -17,7 +17,7 @@ class ExerciseSelectionVM {
     
     // Variable
     var exerciseArray: [Exercise] = Array<Exercise>()
-    var totalExerciseArray: [[Exercise]] = [[], [], [], [], [], []]
+    var totalExerciseArray: [[Exercise]] = ExerciseManager.shared.totalExerciseArray
     var isEditorModeOn: Bool = false
     var isClicked: Bool = false
     var exerciseDelegate: ExerciseDelegate?
@@ -37,7 +37,7 @@ class ExerciseSelectionVM {
     }
     
     init() {
-        setDefaultExerciseData()
+        
     }
     
     // MARK: - ExerciseManager 클래스 만들어서 사용자가 초기 설정 끝나면 기본 운동 값으로 넣어주기(Cloud Firestore에도 저장되어야 함)

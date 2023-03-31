@@ -14,6 +14,7 @@ class FirebaseManager {
     private let db = Firestore.firestore()
     private let storage = Storage.storage()
     private let USER_COLLECTION: String = "users"
+    private let DEFAULT_EXERCISE_COLLECTION: String = "defaultExercise"
     private let storageUrl = "gs://colordumbbell.appspot.com/"
     private init() {}
     
@@ -26,7 +27,7 @@ class FirebaseManager {
         
         for (idx, _) in photoAndIdList.enumerated() {
             var data = Data()
-            data = photoAndIdList[idx].0.jpegData(compressionQuality: 0.8)!
+            data = photoAndIdList[idx].0.jpegData(compressionQuality: 0.2)!
             
             let metaData = StorageMetadata()
             metaData.contentType = "image/png"
@@ -88,7 +89,8 @@ class FirebaseManager {
     }
     
     func addUser(user: User, completionHandler: @escaping (_ isSuccess: Bool) -> ()) {
-        db.collection(USER_COLLECTION).addDocument(data: [
+        var ref: DocumentReference? = nil
+        ref = db.collection(USER_COLLECTION).addDocument(data: [
             UserCodingKeys.uid.rawValue: user.uid,
             UserCodingKeys.name.rawValue: user.name,
             UserCodingKeys.exerciseTime.rawValue: Timestamp(date: user.exerciseTime),
@@ -99,8 +101,51 @@ class FirebaseManager {
                 print("Error adding document: \(err)")
                 completionHandler(false)
             } else {
+                UserDefaultsManager.shared.setDocumentID(documentID: ref!.documentID)
                 completionHandler(true)
             }
         }
+    }
+    
+    func addExerciseJournal(exerciseJournal: ExerciseJournal, completionHandler: @escaping (_ isSuccess: Bool) -> ()) {
+        db.collection("users")
+            .document(UserDefaultsManager.shared.getDocumentId())
+            .collection("exerciseJournals")
+            .addDocument(data: [
+                "id" : exerciseJournal.id,
+                "title": exerciseJournal.title,
+                "registerDate": Timestamp(date: exerciseJournal.registerDate),
+                "startTime": Timestamp(date: exerciseJournal.startTime),
+                "endTime": Timestamp(date: exerciseJournal.endTime),
+                "totalExerciseTime": exerciseJournal.totalExerciseTime,
+                "photoIdArray": exerciseJournal.photoIdArray!,
+            ]) { (err) in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                    completionHandler(false)
+                } else {
+                    completionHandler(true)
+                }
+            }
+    }
+    
+    func getDefaultExercises(completionHandler: @escaping (_ exerciseArray: [Exercise]) -> ()) {
+        db.collection(DEFAULT_EXERCISE_COLLECTION).order(by: "sequence", descending: false).getDocuments { (querySnapshot, error) in
+            if let err = error {
+                print(err.localizedDescription)
+            } else {
+                var exerciseArray: [Exercise] = Array<Exercise>()
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    let exerciseName = data["exerciseName"] as! String
+                    let exerciseArea = data["exerciseArea"] as! String
+                    let exercise = Exercise(name: exerciseName, area: exerciseArea, quantity: [])
+                    exerciseArray.append(exercise)
+                }
+                completionHandler(exerciseArray)
+            }
+        }
+        
+        
     }
 }

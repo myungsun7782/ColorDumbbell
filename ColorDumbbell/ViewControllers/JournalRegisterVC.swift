@@ -168,9 +168,13 @@ class JournalRegisterVC: UIViewController {
                         LoadingManager.shared.showLoading()
                         if !exerciseJournal.photoIdArray!.isEmpty {
                             FirebaseManager.shared.uploadImage(photoAndIdList: viewModel.photoAndIdList) { _ in
-                                LoadingManager.shared.hideLoading()
-                                self.viewModel.delegate?.transferData(exerciseJournal: exerciseJournal, editorMode: .new)
-                                self.dismiss(animated: true)
+                                FirebaseManager.shared.addExerciseJournal(exerciseJournal: exerciseJournal) { isSuccess in
+                                    if isSuccess {
+                                        LoadingManager.shared.hideLoading()
+                                        self.viewModel.delegate?.transferData(exerciseJournal: exerciseJournal, editorMode: .new)
+                                        self.dismiss(animated: true)
+                                    }
+                                }
                             }
                         } else {
                             self.viewModel.delegate?.transferData(exerciseJournal: exerciseJournal, editorMode: .new)
@@ -204,7 +208,7 @@ class JournalRegisterVC: UIViewController {
                                     self.dismiss(animated: true)
                                 }
                             } else {
-                                self.viewModel.delegate?.transferData(exerciseJournal: exerciseJournal, editorMode: .new)
+                                self.viewModel.delegate?.transferData(exerciseJournal: exerciseJournal, editorMode: .edit)
                                 
                                 LoadingManager.shared.hideLoading()
                                 self.dismiss(animated: true)
@@ -603,7 +607,9 @@ extension JournalRegisterVC: ExerciseDelegate {
     
     func selectExercises(exerciseArray: [Exercise]) {
         exerciseArray.forEach { exercise in
-            viewModel.exerciseArray.append(exercise)
+            var selectedExercise = exercise
+            selectedExercise.quantity.append(ExerciseQuantity())
+            viewModel.exerciseArray.append(selectedExercise)
         }
         journalTableView.reloadData()
     }
