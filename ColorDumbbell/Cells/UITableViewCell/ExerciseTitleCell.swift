@@ -20,6 +20,8 @@ class ExerciseTitleCell: UITableViewCell {
     
     // NSLayoutConstraint
     @IBOutlet weak var topConst: NSLayoutConstraint!
+    @IBOutlet weak var leadingConst: NSLayoutConstraint!
+    @IBOutlet weak var trailingConst: NSLayoutConstraint!
     
     // RxSwift
     var disposeBag = DisposeBag()
@@ -41,6 +43,8 @@ class ExerciseTitleCell: UITableViewCell {
     let ARM_TEXT = "팔 (Arm)"
     let ABS_TEXT = "복근 (Abs)"
     let BUTTON_IMAGE: UIImage? = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 14))
+    let LEADING_CONST: CGFloat = 8
+    let TRAILING_CONST: CGFloat = 8
     
     
     override func awakeFromNib() {
@@ -122,5 +126,7 @@ class ExerciseTitleCell: UITableViewCell {
         editButton.isHidden = isHidden
         titleLabel.font = FontManager.shared.getPretendardBold(fontSize: LABEL_FONT_SIZE)
         titleLabel.text = exercise.name + " (\(exercise.area))"
+        leadingConst.constant = LEADING_CONST
+        trailingConst.constant = TRAILING_CONST
     }
 }
