@@ -20,6 +20,7 @@ class ExerciseCalendarCell: UITableViewCell {
     @IBOutlet weak var exerciseLabel: UILabel!
     
     // NSLayoutConstraint
+    @IBOutlet weak var topConst: NSLayoutConstraint!
     @IBOutlet weak var bottomConst: NSLayoutConstraint!
     
     // RxSwift
@@ -27,7 +28,10 @@ class ExerciseCalendarCell: UITableViewCell {
     
     // Constants
     let VIEW_CORNER_RADIUS: CGFloat = 2
+    let FIRST_CELL_TOP_CONSTRAINT: CGFloat = 7
     let LAST_CELL_BOTTOM_CONSTRAINT: CGFloat = 18
+    let NORNAL_CONSTRAINT: CGFloat = 6
+    let MAX_EXERCISE_COUNT: Int = 3
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,7 +59,14 @@ class ExerciseCalendarCell: UITableViewCell {
         setExerciseAreaLabel(exerciseArray: exerciseArray)
         setExerciseLabel(exerciseArray: exerciseArray)
         if index == lastIndex {
+            topConst.constant = NORNAL_CONSTRAINT
             bottomConst.constant = LAST_CELL_BOTTOM_CONSTRAINT
+        } else if index == .zero {
+            topConst.constant = FIRST_CELL_TOP_CONSTRAINT
+            bottomConst.constant = NORNAL_CONSTRAINT
+        } else {
+            topConst.constant = NORNAL_CONSTRAINT
+            bottomConst.constant = NORNAL_CONSTRAINT
         }
     }
     
@@ -80,11 +91,26 @@ class ExerciseCalendarCell: UITableViewCell {
     
     private func setExerciseLabel(exerciseArray: [Exercise]) {
         var exerciseListString = ""
-        for (idx, exercise) in exerciseArray.enumerated() {
-            if idx == exerciseArray.count - 1 {
-                exerciseListString += exercise.name
-            } else {
-                exerciseListString += exercise.name + ", "
+        let exerciseSize: Int = exerciseArray.count
+        
+        if exerciseSize > MAX_EXERCISE_COUNT {
+            for (idx, exercise) in exerciseArray.enumerated() {
+                if idx > MAX_EXERCISE_COUNT {
+                    break
+                }
+                if idx == MAX_EXERCISE_COUNT - 1 {
+                    exerciseListString += exercise.name
+                } else {
+                    exerciseListString += exercise.name + ", "
+                }
+            }
+        } else {
+            for (idx, exercise) in exerciseArray.enumerated() {
+                if idx == exerciseArray.count - 1 {
+                    exerciseListString += exercise.name
+                } else {
+                    exerciseListString += exercise.name + ", "
+                }
             }
         }
         exerciseLabel.text = exerciseListString
