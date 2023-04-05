@@ -8,6 +8,7 @@
 import Foundation
 
 struct Routine {
+    var id: String
     var name: String
     var memo: String
     var exerciseArray: [Exercise]
