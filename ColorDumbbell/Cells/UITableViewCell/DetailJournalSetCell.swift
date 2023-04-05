@@ -24,6 +24,7 @@ class DetailJournalSetCell: UITableViewCell {
     // Constants
     let TOP_CONSTRAINT: CGFloat = 16
     let BOTTOM_CONSTARINT: CGFloat = 30
+    let NORMAL_CONSTRAINT: CGFloat = 8
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,8 +41,18 @@ class DetailJournalSetCell: UITableViewCell {
             bottomConst.constant = BOTTOM_CONSTARINT
         }
         
-        if index == 0 {
+        if index == .zero && index != lastIndex {
             topConst.constant = TOP_CONSTRAINT
+            bottomConst.constant = NORMAL_CONSTRAINT
+        } else if index == .zero && index == lastIndex {
+            topConst.constant = TOP_CONSTRAINT
+            bottomConst.constant = BOTTOM_CONSTARINT
+        } else if index == lastIndex {
+            topConst.constant = NORMAL_CONSTRAINT
+            bottomConst.constant = BOTTOM_CONSTARINT
+        } else {
+            topConst.constant = NORMAL_CONSTRAINT
+            bottomConst.constant = NORMAL_CONSTRAINT
         }
     }
 }
