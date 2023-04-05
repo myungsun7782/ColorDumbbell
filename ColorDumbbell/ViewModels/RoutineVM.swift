@@ -28,12 +28,22 @@ class RoutineVM {
     }
     
     struct Output {
-        
+        var fetchDataDone = PublishSubject<Void>()
     }
     
     init() {
 
     }
     
-    
+    func fetchRoutines() {
+        LoadingManager.shared.showLoading()
+        FirebaseManager.shared.fetchRotines { routineArray, isSuccess in
+            if isSuccess {
+                self.routineArray = routineArray!
+                self.output.fetchDataDone.onNext(())
+            } else {
+                LoadingManager.shared.hideLoading()
+            }
+        }
+    }
 }
