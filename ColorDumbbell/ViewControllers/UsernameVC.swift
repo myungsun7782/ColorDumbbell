@@ -10,6 +10,11 @@ import RxSwift
 import RxCocoa
 
 class UsernameVC: UIViewController {
+    // UIStatusBarStyle
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
+    
     // UIStackView
     @IBOutlet weak var stepStackView: UIStackView!
     

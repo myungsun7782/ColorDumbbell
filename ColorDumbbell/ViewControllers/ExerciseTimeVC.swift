@@ -11,6 +11,11 @@ import RxCocoa
 import RxGesture
 
 class ExerciseTimeVC: UIViewController {
+    // UIStatusBarStyle
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
+    
     // UIStackView
     @IBOutlet weak var stepStackView: UIStackView!
     

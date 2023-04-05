@@ -10,6 +10,11 @@ import RxSwift
 import RxCocoa
 
 class DetailImageVC: UIViewController {
+    // UIStatusBarStyle
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // UIView
     @IBOutlet weak var containerView: UIView!
     
@@ -27,7 +32,6 @@ class DetailImageVC: UIViewController {
     let disposeBag = DisposeBag()
     
     // Variables
-    var isPinching = false
     
     // Constants
     let BUTTON_IMAGE: UIImage? = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 23))

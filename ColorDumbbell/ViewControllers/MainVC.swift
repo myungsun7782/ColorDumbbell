@@ -10,6 +10,11 @@ import RxSwift
 import RxCocoa
 
 class MainVC: UIViewController {
+    // UIStatusBarStyle
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent 
+    }
+    
     // ViewModel
     let viewModel = MainVM()
     
