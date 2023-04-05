@@ -21,6 +21,7 @@ class DetailExerciseJournalVM {
     // Variable
     var journalDate: String!
     var exerciseJournal: ExerciseJournal!
+    var delegate: ExerciseJournalDelegate?
     
     // Constants
 
