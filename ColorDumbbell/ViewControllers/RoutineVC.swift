@@ -11,6 +11,11 @@ import RxCocoa
 import RxGesture
 
 class RoutineVC: UIViewController {
+    // UIStatusBarStyle
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
+    
     // UIStackView
     @IBOutlet weak var emptyStackView: UIStackView!
     
@@ -34,7 +39,9 @@ class RoutineVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
-        action()        
+        action()
+        bind()
+        viewModel.fetchRoutines()
     }
     
     private func initUI() {
@@ -56,6 +63,20 @@ class RoutineVC: UIViewController {
             })
             .disposed(by: disposeBag)
         
+    }
+    
+    private func bind() {
+        // Output
+        viewModel.output
+            .fetchDataDone
+            .subscribe(onNext: { _ in
+                LoadingManager.shared.hideLoading()
+                self.configureStackView()
+                DispatchQueue.main.async {
+                    self.routineTableView.reloadData()
+                }
+        })
+        .disposed(by: disposeBag)
     }
     
     private func configureStackView() {
@@ -102,8 +123,6 @@ extension RoutineVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Cell.routineTitleCell) as! RoutineTitleCell
             
@@ -113,8 +132,13 @@ extension RoutineVC: UITableViewDataSource, UITableViewDelegate {
             cell.deleteButton.rx.tap
                 .subscribe(onNext: { _ in
                     AlertManager.shared.presentTwoButtonAlert(title: "삭제", message: "정말로 해당 루틴을 삭제하시겠습니까?", buttonTitle: "확인", style: .alert) {
-                        self.viewModel.routineArray.remove(at: indexPath.section)
-                        self.routineTableView.reloadData()
+                        FirebaseManager.shared.deleteRoutine(routine: self.viewModel.routineArray[indexPath.section]) { isSuccess in
+                            self.viewModel.routineArray.remove(at: indexPath.section)
+                            self.configureStackView()
+                            DispatchQueue.main.async {
+                                self.routineTableView.reloadData()
+                            }
+                        }
                     } completionHandler: { alert in
                         self.present(alert, animated: true)
                     }
