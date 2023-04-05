@@ -19,7 +19,14 @@ class ExerciseManager {
     func getDefaultExercise() {
         FirebaseManager.shared.getUserDefaultExercises { exerciseArray in
             self.exerciseArray = exerciseArray
-            self.setSpecificExercise()
+            FirebaseManager.shared.getUserCustomExercise { exerciseArray, isSuccess in
+                if isSuccess {
+                    exerciseArray.forEach { exercise in
+                        self.exerciseArray.append(exercise)
+                    }
+                }
+                self.setSpecificExercise()
+            }
         }
     }
     
