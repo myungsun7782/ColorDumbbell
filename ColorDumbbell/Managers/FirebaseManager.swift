@@ -18,7 +18,7 @@ class FirebaseManager {
     private let DEFAULT_EXERCISE_COLLECTION: String = "defaultExercise"
     private let EXERCISE_JOURNAL_COLLECTION: String = "exerciseJournals"
     private let EXERCISE_LIST_COLLECTION: String = "exerciseList"
-    private let CUSTOM_EXERCISE_COLLECTION: String = "customExercises"
+    private let CUSTOM_EXERCISE_COLLECTION: String = "customExercise"
     private let ROUTINE_COLLECTION: String = "routines"
     private let storageUrl = "gs://colordumbbell.appspot.com/"
     private init() {}
@@ -108,7 +108,7 @@ class FirebaseManager {
             } else {
                 UserDefaultsManager.shared.setDocumentID(documentID: ref!.documentID)
                 self.getDefaultExercises { exerciseArray in
-                    var exerciseList: [Exercise] = exerciseArray
+                    let exerciseList: [Exercise] = exerciseArray
                     for (idx, exercise) in exerciseList.enumerated() {
                         self.db.collection(self.USER_COLLECTION)
                             .document(ref!.documentID)
@@ -208,6 +208,7 @@ class FirebaseManager {
                             ]) { err in
                                 if let err = err {
                                     print("Error updating document: \(err.localizedDescription)")
+                                    completionHandler(false)
                                 } else {
                                     document.reference
                                         .collection(self.EXERCISE_LIST_COLLECTION)
@@ -234,7 +235,8 @@ class FirebaseManager {
                                                         "quantityList": weightAndReps,
                                                         "id": exercise.id,
                                                         "exerciseName": exercise.name,
-                                                        "exerciseArea": exercise.area
+                                                        "exerciseArea": exercise.area,
+                                                        "exerciseType": exercise.type
                                                     ]) { err in
                                                         if let err = err {
                                                             print(err.localizedDescription)
@@ -341,10 +343,52 @@ class FirebaseManager {
         return exerciseJournalArray.count == length ? true : false
     }
     
+    private func checkRoutineFetchDone(routineArray: [Routine], length: Int) -> Bool {
+        return routineArray.count == length ? true : false
+    }
+    
     func fetchExerciseArray(documentId: String, completionHandler: @escaping (_ exerciseArray: [Exercise]) -> ()) {
         db.collection(USER_COLLECTION)
             .document(UserDefaultsManager.shared.getDocumentId())
             .collection(EXERCISE_JOURNAL_COLLECTION)
+            .document(documentId)
+            .collection(EXERCISE_LIST_COLLECTION)
+            .order(by: "sequence")
+            .getDocuments { (querySnapshot, error) in
+                if let err = error {
+                    print(err.localizedDescription)
+                } else {
+                    var exerciseArray: [Exercise] = Array<Exercise>()
+                    for document in querySnapshot!.documents {
+                        let data = document.data()
+                        let id = data["id"] as! String
+                        let exerciseName = data["exerciseName"] as! String
+                        let exerciseArea = data["exerciseArea"] as! String
+                        let exerciseType = data["exerciseType"] as! String
+                        let quantityDictArray = data["quantityList"] as! [[String: Any]]
+                        var quantityArray: [ExerciseQuantity] = Array<ExerciseQuantity>()
+                        quantityDictArray.forEach { quantityDict in
+                            let weight = quantityDict["weight"] as! Double
+                            let reps = quantityDict["reps"] as! Int
+                            quantityArray.append(ExerciseQuantity(weight: weight, reps: reps))
+                        }
+                        let exercise = Exercise(name: exerciseName,
+                                                area: exerciseArea,
+                                                quantity: quantityArray,
+                                                id: id,
+                                                type: exerciseType)
+                        
+                        exerciseArray.append(exercise)
+                    }
+                    completionHandler(exerciseArray)
+                }
+            }
+    }
+    
+    func fetchExerciseArrayInRoutine(documentId: String, completionHandler: @escaping (_ exerciseArray: [Exercise]) -> ()) {
+        db.collection(USER_COLLECTION)
+            .document(UserDefaultsManager.shared.getDocumentId())
+            .collection(ROUTINE_COLLECTION)
             .document(documentId)
             .collection(EXERCISE_LIST_COLLECTION)
             .order(by: "sequence")
@@ -408,6 +452,7 @@ class FirebaseManager {
         db.collection(USER_COLLECTION)
             .document(UserDefaultsManager.shared.getDocumentId())
             .collection(DEFAULT_EXERCISE_COLLECTION)
+            .order(by: "sequence", descending: false)
             .getDocuments { (querySnapshot, error) in
                 if let err = error {
                     print(err.localizedDescription)
@@ -483,6 +528,301 @@ class FirebaseManager {
                                     print("Successfully delete default exercise")
                                     completionHandler(true)
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+    }
+    
+    func addCustomExercise(exercise: Exercise, completionHandler: @escaping (_ isSuccess: Bool) -> ()) {
+        db.collection(USER_COLLECTION)
+            .document(UserDefaultsManager.shared.getDocumentId())
+            .collection(CUSTOM_EXERCISE_COLLECTION)
+            .addDocument(data: [
+                "exerciseName": exercise.name,
+                "exerciseArea": exercise.area,
+                "exerciseType": exercise.type,
+                "id": exercise.id,
+            ]) { err in
+                if let err = err {
+                    print(err.localizedDescription)
+                    completionHandler(false)
+                } else {
+                    print("Successfully save custom exercise")
+                    completionHandler(true)
+                }
+            }
+    }
+    
+    func getUserCustomExercise(completionHandler: @escaping (_ exerciseArray: [Exercise], _ isSuccess: Bool) -> ()) {
+        db.collection(USER_COLLECTION)
+            .document(UserDefaultsManager.shared.getDocumentId())
+            .collection(CUSTOM_EXERCISE_COLLECTION)
+            .getDocuments { (querySnapshot, err) in
+                if let err = err {
+                    print(err.localizedDescription)
+                    completionHandler([Exercise](), false)
+                } else {
+                    var exerciseArray: [Exercise] = Array<Exercise>()
+                    for document in querySnapshot!.documents {
+                        let data = document.data()
+                        let id = data["id"] as! String
+                        let exerciseName = data["exerciseName"] as! String
+                        let exerciseType = data["exerciseType"] as! String
+                        let exerciseArea = data["exerciseArea"] as! String
+                        
+                        let exercise = Exercise(name: exerciseName,
+                                                area: exerciseArea, quantity: [],
+                                                id: id,
+                                                type: exerciseType)
+                        exerciseArray.append(exercise)
+                    }
+                    completionHandler(exerciseArray, true)
+                }
+            }
+    }
+    
+    func modifyCustomExercise(exercise: Exercise, completionHandler: @escaping (_ isSuccess: Bool) -> () ){
+        db.collection(USER_COLLECTION)
+            .document(UserDefaultsManager.shared.getDocumentId())
+            .collection(CUSTOM_EXERCISE_COLLECTION)
+            .getDocuments { (querySnapshot, err) in
+                if let err = err {
+                    print(err.localizedDescription)
+                    completionHandler(false)
+                } else {
+                    for document in querySnapshot!.documents {
+                        let data = document.data()
+                        let id = data["id"] as! String
+                        
+                        if exercise.id == id {
+                            document.reference.updateData([
+                                "exerciseName": exercise.name
+                            ]) { err in
+                                if let err = err {
+                                    print(err.localizedDescription)
+                                    completionHandler(false)
+                                } else {
+                                    print("Successfully modifiy custom exercise")
+                                    completionHandler(true)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+    }
+    
+    func deleteCustomExercise(exercise: Exercise, completionHandler: @escaping (_ isSuccess: Bool) -> ()) {
+        db.collection(USER_COLLECTION)
+            .document(UserDefaultsManager.shared.getDocumentId())
+            .collection(CUSTOM_EXERCISE_COLLECTION)
+            .getDocuments { (querySnapshot, err) in
+                if let err = err {
+                    print(err.localizedDescription)
+                    completionHandler(false)
+                } else {
+                    for document in querySnapshot!.documents {
+                        let data = document.data()
+                        let id = data["id"] as! String
+                        
+                        if exercise.id == id {
+                            document.reference.delete() { err in
+                                if let err = err {
+                                    print(err.localizedDescription)
+                                    completionHandler(false)
+                                } else {
+                                    print("Successfully delete custom exercise")
+                                    completionHandler(true)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+    }
+    
+    func addRoutine(routine: Routine, completionHandler: @escaping (_ isSuccess: Bool) -> ()) {
+        var ref: DocumentReference? = nil
+        ref = db.collection(USER_COLLECTION)
+            .document(UserDefaultsManager.shared.getDocumentId())
+            .collection(ROUTINE_COLLECTION)
+            .addDocument(data: [
+                "id" : routine.id,
+                "name": routine.name,
+                "memo": routine.memo
+            ]) { (err) in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                    completionHandler(false)
+                } else {
+                    let exerciseArray = routine.exerciseArray
+                    
+                    for (idx, exercise) in exerciseArray.enumerated() {
+                        var weightAndReps: [[String: Any]] = []
+    
+                        for quantity in exercise.quantity {
+                            var quantityDict = [String: Any]()
+                            quantityDict["weight"] = quantity.weight
+                            quantityDict["reps"] = quantity.reps
+                            
+                            weightAndReps.append(quantityDict)
+                        }
+                        
+                        ref!.collection(self.EXERCISE_LIST_COLLECTION)
+                            .addDocument(data: [
+                                "sequence": idx,
+                                "quantityList": weightAndReps,
+                                "id": exercise.id,
+                                "exerciseName": exercise.name,
+                                "exerciseArea": exercise.area,
+                                "exerciseType": exercise.type
+                            ]) { err in
+                                if let err = err {
+                                    print(err.localizedDescription)
+                                } else {
+                                    print("Successfully save exercise")
+                                }
+                            }
+                    }
+                    completionHandler(true)
+                }
+            }
+    }
+    
+    func modifyRoutine(routine: Routine, completionHandler: @escaping (_ isSuccess: Bool) -> ()) {
+        db.collection(USER_COLLECTION)
+            .document(UserDefaultsManager.shared.getDocumentId())
+            .collection(ROUTINE_COLLECTION)
+            .getDocuments { (querySnapshot, err) in
+                if let err = err {
+                    print(err.localizedDescription)
+                } else {
+                    for document in querySnapshot!.documents {
+                        let data = document.data()
+                        let id = data["id"] as! String
+                        if id == routine.id {
+                            document.reference.updateData([
+                                "id" : routine.id,
+                                "name": routine.name,
+                                "memo": routine.memo
+                            ]) { err in
+                                if let err = err {
+                                    print("Error updating document: \(err.localizedDescription)")
+                                    completionHandler(false)
+                                } else {
+                                    document.reference
+                                        .collection(self.EXERCISE_LIST_COLLECTION)
+                                        .getDocuments { (querySnapshot, err) in
+                                            for document in querySnapshot!.documents {
+                                                document.reference.delete()
+                                            }
+                                            let exerciseArray = routine.exerciseArray
+                                            
+                                            for (idx, exercise) in exerciseArray.enumerated() {
+                                                var weightAndReps: [[String: Any]] = []
+                            
+                                                for quantity in exercise.quantity {
+                                                    var quantityDict = [String: Any]()
+                                                    quantityDict["weight"] = quantity.weight
+                                                    quantityDict["reps"] = quantity.reps
+                                                    
+                                                    weightAndReps.append(quantityDict)
+                                                }
+                                                
+                                                document.reference.collection(self.EXERCISE_LIST_COLLECTION)
+                                                    .addDocument(data: [
+                                                        "sequence": idx,
+                                                        "quantityList": weightAndReps,
+                                                        "id": exercise.id,
+                                                        "exerciseName": exercise.name,
+                                                        "exerciseArea": exercise.area,
+                                                        "exerciseType": exercise.type
+                                                    ]) { err in
+                                                        if let err = err {
+                                                            print(err.localizedDescription)
+                                                            completionHandler(false)
+                                                        } else {
+                                                            print("Successfully save exercise")
+                                                        }
+                                                    }
+                                            }
+                                            completionHandler(true)
+                                        }
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+    }
+    
+    func deleteRoutine(routine: Routine, completionHandler: @escaping (_ isSuccess: Bool) ->()) {
+        db.collection(USER_COLLECTION)
+            .document(UserDefaultsManager.shared.getDocumentId())
+            .collection(ROUTINE_COLLECTION)
+            .getDocuments { (querySnapShot, err) in
+                if let err = err {
+                    print(err.localizedDescription)
+                } else {
+                    for document in querySnapShot!.documents {
+                        let data = document.data()
+                        let id = data["id"] as! String
+                        
+                        if id == routine.id {
+                            document.reference.delete() { err in
+                                if let err = err {
+                                    print("Error removing document: \(err)")
+                                    completionHandler(false)
+                                } else {
+                                    document.reference
+                                        .collection(self.EXERCISE_LIST_COLLECTION)
+                                        .getDocuments { (querySnapshot, err) in
+                                            for document in querySnapshot!.documents {
+                                                document.reference.delete()
+                                            }
+                                            print("ExerciseJournal Document Successfully removed!")
+                                            completionHandler(true)
+                                        }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+    }
+    
+    func fetchRotines(completionHandler: @escaping (_ routineArray: [Routine]?, _ isSuccess: Bool) -> ()) {
+        db.collection(USER_COLLECTION)
+            .document(UserDefaultsManager.shared.getDocumentId())
+            .collection(ROUTINE_COLLECTION)
+            .getDocuments { (querySnapShot, err) in
+                if let err = err {
+                    print(err.localizedDescription)
+                    completionHandler(nil, false)
+                } else {
+                    var routineArray: [Routine] = Array<Routine>()
+                    
+                    if querySnapShot!.documents.isEmpty {
+                        completionHandler(nil, false)
+                    }
+                    
+                    for document in querySnapShot!.documents {
+                        self.fetchExerciseArrayInRoutine(documentId: document.documentID) { exerciseArray in
+                            let data = document.data()
+                            let id = data["id"] as! String
+                            let name = data["name"] as! String
+                            let memo = data["memo"] as! String
+                            
+                            let routine = Routine(id: id,
+                                                  name: name,
+                                                  memo: memo,
+                                                  exerciseArray: exerciseArray)
+                            routineArray.append(routine)
+                            if self.checkRoutineFetchDone(routineArray: routineArray, length: querySnapShot!.count) {
+                                completionHandler(routineArray, true)
                             }
                         }
                     }
