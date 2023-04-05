@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lKL-qI-tBA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lKL-qI-tBA">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1094,7 +1094,7 @@
                                 <color key="backgroundColor" name="Black"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuy-2c-R8T">
-                                <rect key="frame" x="351.66666666666669" y="107" width="17.333333333333314" height="22"/>
+                                <rect key="frame" x="351.66666666666669" y="119" width="17.333333333333314" height="22"/>
                                 <color key="tintColor" name="White"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="xmark" catalog="system"/>
@@ -1110,7 +1110,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="UwR-gk-GA0" firstAttribute="leading" secondItem="ttk-By-lkm" secondAttribute="leading" id="2EV-Xf-wKE"/>
-                            <constraint firstItem="zuy-2c-R8T" firstAttribute="top" secondItem="ttk-By-lkm" secondAttribute="top" constant="48" id="Kei-mr-q2z"/>
+                            <constraint firstItem="zuy-2c-R8T" firstAttribute="top" secondItem="ttk-By-lkm" secondAttribute="top" constant="60" id="Kei-mr-q2z"/>
                             <constraint firstItem="CeZ-YY-6yX" firstAttribute="trailing" secondItem="ttk-By-lkm" secondAttribute="trailing" id="Yd5-tA-6Jr"/>
                             <constraint firstItem="ttk-By-lkm" firstAttribute="trailing" secondItem="UwR-gk-GA0" secondAttribute="trailing" id="aWH-5y-trA"/>
                             <constraint firstItem="CeZ-YY-6yX" firstAttribute="leading" secondItem="ttk-By-lkm" secondAttribute="leading" id="dGs-iH-2gV"/>
@@ -1143,7 +1143,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebp-ca-ycE">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="32"/>
-                                        <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="17"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="취소">
                                             <color key="titleColor" name="CarminePink"/>
@@ -1247,7 +1247,7 @@
                                                         </constraints>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -1626,7 +1626,7 @@
         <!--이력-->
         <scene sceneID="A2v-j8-1a2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qC3-QH-QGP" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qC3-QH-QGP" customClass="CustomNavigationController" customModule="ColorDumbbell" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="이력" image="CalendarImage" id="1ae-rK-Ao0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WOA-sw-GgK">
@@ -1644,7 +1644,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CalendarImage" width="11.333333015441895" height="12"/>
+        <image name="CalendarImage" width="17" height="18"/>
         <image name="HomeIconImage" width="18.666666030883789" height="19"/>
         <image name="RoutineIconImage" width="17.333333969116211" height="19.333333969116211"/>
         <image name="chevron.left" catalog="system" width="97" height="128"/>

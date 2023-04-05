@@ -12,6 +12,7 @@
 		F001931729B9BBD10041CE68 /* RoutineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001931629B9BBD10041CE68 /* RoutineVC.swift */; };
 		F001931929B9BC600041CE68 /* ExerciseCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001931829B9BC600041CE68 /* ExerciseCalendarVC.swift */; };
 		F001931B29B9BDD90041CE68 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001931A29B9BDD90041CE68 /* MainTabBarController.swift */; };
+		F0262C3029DD4E4900A73DC2 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0262C2F29DD4E4900A73DC2 /* CustomNavigationController.swift */; };
 		F027CF4529B6007C000B94BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027CF4429B6007C000B94BC /* AppDelegate.swift */; };
 		F027CF4729B6007C000B94BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027CF4629B6007C000B94BC /* SceneDelegate.swift */; };
 		F027CF4929B6007C000B94BC /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027CF4829B6007C000B94BC /* MainVC.swift */; };
@@ -116,6 +117,7 @@
 		F0E846D229CD811C00FF3E1F /* DetailJournalSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0E846D029CD811C00FF3E1F /* DetailJournalSetCell.xib */; };
 		F0F4E51229BDF4D000DCD04C /* PhotoFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4E51029BDF4D000DCD04C /* PhotoFileCell.swift */; };
 		F0F4E51329BDF4D000DCD04C /* PhotoFileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0F4E51129BDF4D000DCD04C /* PhotoFileCell.xib */; };
+		F0F847EE29DC249E006B8DC9 /* ExerciseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F847ED29DC249E006B8DC9 /* ExerciseType.swift */; };
 		F0FBF43F29C196A200789D3D /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FBF43E29C196A200789D3D /* AlertManager.swift */; };
 		F0FBF44129C1A89400789D3D /* AddExerciseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FBF44029C1A89400789D3D /* AddExerciseVC.swift */; };
 		FBB5489B8BB381F50417F23F /* Pods_ColorDumbbell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22C8599FFE89588CE10B807 /* Pods_ColorDumbbell.framework */; };
@@ -130,6 +132,7 @@
 		F001931629B9BBD10041CE68 /* RoutineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineVC.swift; sourceTree = "<group>"; };
 		F001931829B9BC600041CE68 /* ExerciseCalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCalendarVC.swift; sourceTree = "<group>"; };
 		F001931A29B9BDD90041CE68 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		F0262C2F29DD4E4900A73DC2 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		F027CF4129B6007C000B94BC /* ColorDumbbell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorDumbbell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F027CF4429B6007C000B94BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F027CF4629B6007C000B94BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +239,7 @@
 		F0E846D029CD811C00FF3E1F /* DetailJournalSetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailJournalSetCell.xib; sourceTree = "<group>"; };
 		F0F4E51029BDF4D000DCD04C /* PhotoFileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFileCell.swift; sourceTree = "<group>"; };
 		F0F4E51129BDF4D000DCD04C /* PhotoFileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoFileCell.xib; sourceTree = "<group>"; };
+		F0F847ED29DC249E006B8DC9 /* ExerciseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseType.swift; sourceTree = "<group>"; };
 		F0FBF43E29C196A200789D3D /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		F0FBF44029C1A89400789D3D /* AddExerciseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -395,6 +399,7 @@
 				F0CB06AE29B705D500AA7255 /* Level.swift */,
 				F001931429B9B6CF0041CE68 /* CodingKeys.swift */,
 				F0A1308D29BC522F005D3793 /* ExerciseArea.swift */,
+				F0F847ED29DC249E006B8DC9 /* ExerciseType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -458,6 +463,7 @@
 				F0849C3B29CC4479001009A6 /* MonthlyExerciseVC.swift */,
 				F0E846B829CD6D8300FF3E1F /* DetailExerciseJournalVC.swift */,
 				F0C5EADA29D2BA7800DF379D /* RoutineRegisterVC.swift */,
+				F0262C2F29DD4E4900A73DC2 /* CustomNavigationController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -469,9 +475,9 @@
 				F0819DF429B8368E00A45B57 /* ExerciseTimeVM.swift */,
 				F001931229B9AB3F0041CE68 /* MainVM.swift */,
 				F0A130A529BC674E005D3793 /* JournalRegisterVM.swift */,
-				F080579A29BF190100556426 /* ExerciseSelectionVM.swift */,
 				F07B7D7429C2D72D002B0B6C /* AddExerciseVM.swift */,
 				F0554F7629C443B8006A0E8E /* WeightAndRepetitionVM.swift */,
+				F080579A29BF190100556426 /* ExerciseSelectionVM.swift */,
 				F0A528CB29C98B4A00DE4B6F /* ExerciseCalendarVM.swift */,
 				F0849C3D29CC4486001009A6 /* MonthlyExerciseVM.swift */,
 				F0E846BA29CD6DBD00FF3E1F /* DetailExerciseJournalVM.swift */,
@@ -676,6 +682,7 @@
 				F080579E29BF19A000556426 /* ExerciseTitleCell.swift in Sources */,
 				F08057A229BF1CC700556426 /* ExerciseContentCell.swift in Sources */,
 				F08057A629BF201300556426 /* ExerciseRegisterCell.swift in Sources */,
+				F0262C3029DD4E4900A73DC2 /* CustomNavigationController.swift in Sources */,
 				F0C5EADD29D2BABA00DF379D /* RoutineRegisterVM.swift in Sources */,
 				F080579929BF161200556426 /* ExerciseSelectionVC.swift in Sources */,
 				F0CB06AD29B6FDA500AA7255 /* EditorMode.swift in Sources */,
@@ -719,6 +726,7 @@
 				F0CB069D29B6FBB700AA7255 /* UIImageView.swift in Sources */,
 				F07B7D7829C2E113002B0B6C /* ExerciseProtocol.swift in Sources */,
 				F0C9F50829D32D0800B81908 /* ExerciseRoutineProtocol.swift in Sources */,
+				F0F847EE29DC249E006B8DC9 /* ExerciseType.swift in Sources */,
 				F001931729B9BBD10041CE68 /* RoutineVC.swift in Sources */,
 				F07B7D7329C2D167002B0B6C /* CALayer.swift in Sources */,
 				F080579529BF040F00556426 /* LoadingManager.swift in Sources */,

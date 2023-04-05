@@ -169,8 +169,6 @@ class ExerciseCalendarVC: UIViewController {
         journalRegisterVC.viewModel.startTime = selectedDate.convertTo(region: Region.current).date
         journalRegisterVC.viewModel.endTime = selectedDate.convertTo(region: Region.current).date.addingTimeInterval(60)
         journalRegisterVC.viewModel.delegate = self
-//        journalRegisterVC.modalPresentationStyle = .automatic
-//        journalRegisterVC.modalPresentationCapturesStatusBarAppearance = true
         
         present(journalRegisterVC, animated: true)
     }
