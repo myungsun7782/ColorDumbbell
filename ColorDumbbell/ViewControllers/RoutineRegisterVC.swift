@@ -11,6 +11,11 @@ import RxCocoa
 import RxGesture
 
 class RoutineRegisterVC: UIViewController {
+    // UIStatusBarStyle
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // UIButton
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
@@ -74,8 +79,17 @@ class RoutineRegisterVC: UIViewController {
                     guard let title = self.viewModel.title else { return }
                     
                     if self.viewModel.editorMode == .new {
-                        let routine = Routine(name: title, memo: self.viewModel.memo ?? "", exerciseArray: self.viewModel.exerciseArray)
-                        self.viewModel.delegate?.transferData(section: self.viewModel.section, routine: routine, editorMode: self.viewModel.editorMode)
+                        let routine = Routine(id: UUID().uuidString,
+                                              name: title,
+                                              memo: self.viewModel.memo ?? "",
+                                              exerciseArray: self.viewModel.exerciseArray)
+                        LoadingManager.shared.showLoading()
+                        FirebaseManager.shared.addRoutine(routine: routine) { isSuccess in
+                            if isSuccess {
+                                self.viewModel.delegate?.transferData(section: self.viewModel.section, routine: routine, editorMode: self.viewModel.editorMode)
+                                LoadingManager.shared.hideLoading()
+                            }
+                        }
                     } else if self.viewModel.editorMode == .edit {
                         guard let section = self.viewModel.section else { return }
                         guard var modifiableRoutine = self.viewModel.modifiableRoutine else { return }
@@ -85,7 +99,13 @@ class RoutineRegisterVC: UIViewController {
                         modifiableRoutine.memo = memo
                         modifiableRoutine.exerciseArray = self.viewModel.exerciseArray
                         
-                        self.viewModel.delegate?.transferData(section: section, routine: modifiableRoutine, editorMode: self.viewModel.editorMode)
+                        LoadingManager.shared.showLoading()
+                        FirebaseManager.shared.modifyRoutine(routine: modifiableRoutine) { isSuccess in
+                            if isSuccess {
+                                self.viewModel.delegate?.transferData(section: section, routine: modifiableRoutine, editorMode: self.viewModel.editorMode)
+                                LoadingManager.shared.hideLoading()
+                            }
+                        }
                     }
                     self.dismiss(animated: true)
                 }
