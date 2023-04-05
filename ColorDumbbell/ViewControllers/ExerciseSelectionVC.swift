@@ -11,6 +11,11 @@ import RxCocoa
 import RxGesture
 
 class ExerciseSelectionVC: UIViewController {
+    // UIStatusBarStyle
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // UITableView
     @IBOutlet weak var selectionTableView: UITableView!
     
@@ -104,11 +109,11 @@ class ExerciseSelectionVC: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    private func presentAddExerciseVC(editorMode: EditorMode, section: Int, row: Int, exerciseName: String? = nil) {
+    private func presentAddExerciseVC(editorMode: EditorMode, section: Int, row: Int, exercise: Exercise? = nil) {
         let addExerciseVC = UIStoryboard(name: Storyboard.main, bundle: nil).instantiateViewController(withIdentifier: VC.addExerciseVC) as! AddExerciseVC
         
         addExerciseVC.viewModel.editorMode = editorMode
-        addExerciseVC.viewModel.exerciseName = exerciseName
+        addExerciseVC.viewModel.exercise = exercise
         addExerciseVC.viewModel.section = section
         addExerciseVC.viewModel.row = row
         addExerciseVC.viewModel.exerciseDelegate = self
@@ -185,7 +190,9 @@ extension ExerciseSelectionVC: UITableViewDataSource, UITableViewDelegate {
                     cell.containerStackView.rx.tapGesture()
                         .when(.recognized)
                         .subscribe(onNext: { _ in
-                            self.presentAddExerciseVC(editorMode: .new, section: indexPath.section, row: indexPath.row-1)
+                            self.presentAddExerciseVC(editorMode: .new,
+                                                      section: indexPath.section,
+                                                      row: indexPath.row-1)
                         })
                         .disposed(by: cell.disposeBag)
                     
@@ -193,12 +200,18 @@ extension ExerciseSelectionVC: UITableViewDataSource, UITableViewDelegate {
                 } else {
                     let cell = tableView.dequeueReusableCell(withIdentifier: Cell.exerciseContentCell) as! ExerciseContentCell
                     
-                    cell.setData(exerciseName: viewModel.totalExerciseArray[indexPath.section][indexPath.row-1].name, isEditorModeOn: true, index: indexPath.row, exerciseArray: viewModel.totalExerciseArray[indexPath.section])
+                    cell.setData(exerciseName: viewModel.totalExerciseArray[indexPath.section][indexPath.row-1].name,
+                                 isEditorModeOn: true,
+                                 index: indexPath.row,
+                                 exerciseArray: viewModel.totalExerciseArray[indexPath.section])
                     cell.setCheckButtonConfiguration(isClicked: viewModel.totalExerciseArray[indexPath.section][indexPath.row-1].isChecked)
                     cell.containerStackView.rx.tapGesture()
                         .when(.recognized)
                         .subscribe(onNext: { _ in
-                            self.presentAddExerciseVC(editorMode: .edit, section: indexPath.section, row: indexPath.row-1, exerciseName: self.viewModel.totalExerciseArray[indexPath.section][indexPath.row-1].name)
+                            self.presentAddExerciseVC(editorMode: .edit,
+                                                      section: indexPath.section,
+                                                      row: indexPath.row-1,
+                                                      exercise: self.viewModel.totalExerciseArray[indexPath.section][indexPath.row-1])
                             
                             DispatchQueue.main.async {
                                 self.selectionTableView.reloadData()
@@ -211,9 +224,25 @@ extension ExerciseSelectionVC: UITableViewDataSource, UITableViewDelegate {
                         .subscribe(onNext: { _ in
                             AlertManager.shared.presentTwoButtonAlert(title: "운동 삭제", message: "정말로 해당 운동을 삭제하시겠습니까?", buttonTitle: "확인", style: .alert) {
                                 // MARK: - Cloud Firestore에서도 삭제하기
-                                self.viewModel.totalExerciseArray[indexPath.section].remove(at: indexPath.row-1)
-                                DispatchQueue.main.async {
-                                    self.selectionTableView.reloadData()
+                                let selectedExercise = self.viewModel.totalExerciseArray[indexPath.section][indexPath.row-1]
+                                if selectedExercise.type == ExerciseType.basis.rawValue {
+                                    FirebaseManager.shared.deleteDefaultExercise(exercise: selectedExercise) { isSuccess in
+                                        if isSuccess {
+                                            self.viewModel.totalExerciseArray[indexPath.section].remove(at: indexPath.row-1)
+                                            DispatchQueue.main.async {
+                                                self.selectionTableView.reloadData()
+                                            }
+                                        }
+                                    }
+                                } else if selectedExercise.type == ExerciseType.custom.rawValue {
+                                    FirebaseManager.shared.deleteCustomExercise(exercise: selectedExercise) { isSuccess in
+                                        if isSuccess {
+                                            self.viewModel.totalExerciseArray[indexPath.section].remove(at: indexPath.row-1)
+                                            DispatchQueue.main.async {
+                                                self.selectionTableView.reloadData()
+                                            }
+                                        }
+                                    }
                                 }
                             } completionHandler: { alert in
                                 self.present(alert, animated: true)
@@ -240,7 +269,12 @@ extension ExerciseSelectionVC: ExerciseDelegate {
     func selectExercises(exerciseArray: [Exercise]) {}
     func manageExercise(section: Int, row: Int, exerciseName: String, editorMode: EditorMode) {
         if editorMode == .new {
-            viewModel.totalExerciseArray[section].append(Exercise(name: exerciseName, area: viewModel.EXERCISE_AREA_ARRAY[section].rawValue, quantity: [ExerciseQuantity]()))
+            let exercise: Exercise = Exercise(name: exerciseName,
+                                              area: viewModel.EXERCISE_AREA_ARRAY[section].rawValue,
+                                              quantity: [ExerciseQuantity](),
+                                              id: UUID().uuidString,
+                                              type: ExerciseType.custom.rawValue)
+            viewModel.totalExerciseArray[section].append(exercise)
         } else if editorMode == .edit {
             viewModel.totalExerciseArray[section][row].name = exerciseName
         }
