@@ -55,7 +55,6 @@ class ExerciseTimeCell: UITableViewCell {
         }
         startTimePicker.setValue(UIColor.black, forKeyPath: PICKER_KEY_PATH)
         endTimePicker.setValue(UIColor.black, forKeyPath: PICKER_KEY_PATH)
-        endTimePicker.minimumDate = startTimePicker.date + 1.minutes
     }
     
     func setData(startTime: Date, endTime: Date, totalExerciseTime: Int, isEditingMode: Bool) {
@@ -76,9 +75,11 @@ class ExerciseTimeCell: UITableViewCell {
                                       minute: currentMinute+1)
         } else {
             startTimePicker.datePickerMode = .time
+            endTimePicker.datePickerMode = .time
             startTimePicker.date = startTime
             endTimePicker.date = endTime
             totalExerciseTimeLabel.text = "\(totalExerciseTime)분"
         }
+        endTimePicker.minimumDate = startTimePicker.date + 1.minutes
     }
 }
