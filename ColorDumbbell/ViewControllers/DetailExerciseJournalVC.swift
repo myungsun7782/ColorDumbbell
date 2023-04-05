@@ -11,6 +11,11 @@ import RxCocoa
 import RxGesture
 
 class DetailExerciseJournalVC: UIViewController {
+    // UIStatusBarStyle
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
+    
     // UIStackView
     @IBOutlet weak var leftStackView: UIStackView!
     
@@ -51,6 +56,7 @@ class DetailExerciseJournalVC: UIViewController {
         
         // UINavigationController
         navigationController?.navigationBar.isHidden = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
         // UITableView
         configureTableView()
@@ -64,6 +70,7 @@ class DetailExerciseJournalVC: UIViewController {
         leftStackView.rx.tapGesture()
             .when(.recognized)
             .subscribe(onNext: { _ in
+                self.viewModel.delegate?.transferData(exerciseJournal: self.viewModel.exerciseJournal, editorMode: .edit)
                 self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
@@ -101,6 +108,7 @@ class DetailExerciseJournalVC: UIViewController {
         detailJournalTableView.register(UINib(nibName: Cell.labelCell, bundle: nil), forCellReuseIdentifier: Cell.labelCell)
         detailJournalTableView.register(UINib(nibName: Cell.detailJournalSetCell, bundle: nil), forCellReuseIdentifier: Cell.detailJournalSetCell)
         detailJournalTableView.register(UINib(nibName: Cell.exerciseTitleCell, bundle: nil), forCellReuseIdentifier: Cell.exerciseTitleCell)
+        detailJournalTableView.register(UINib(nibName: Cell.buttonCell, bundle: nil), forCellReuseIdentifier: Cell.buttonCell)
     }
     
     private func configureLoadingView() {
@@ -130,19 +138,19 @@ class DetailExerciseJournalVC: UIViewController {
 extension DetailExerciseJournalVC: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         if !viewModel.exerciseJournal.photoIdArray!.isEmpty {
-            return 3 + viewModel.exerciseJournal.exerciseArray.count
+            return 4 + viewModel.exerciseJournal.exerciseArray.count
         }
-        return 2 + viewModel.exerciseJournal.exerciseArray.count
+        return 3 + viewModel.exerciseJournal.exerciseArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if !viewModel.exerciseJournal.photoIdArray!.isEmpty {
-            if section == 0 || section == 1 || section == 2 {
+            if section == 0 || section == 1 || section == 2 || section == (3 + viewModel.exerciseJournal.exerciseArray.count) {
                 return 1
             }
             return viewModel.exerciseJournal.exerciseArray[section-3].quantity.count + 1
         } else {
-            if section == 0 || section == 1 {
+            if section == 0 || section == 1 || section == (2 + viewModel.exerciseJournal.exerciseArray.count) {
                 return 1
             }
             return viewModel.exerciseJournal.exerciseArray[section-2].quantity.count + 1
@@ -168,11 +176,33 @@ extension DetailExerciseJournalVC: UITableViewDataSource, UITableViewDelegate {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Cell.labelCell) as! LabelCell
 
                 return cell
+            } else if indexPath.section == (3 + viewModel.exerciseJournal.exerciseArray.count) {
+                let cell = tableView.dequeueReusableCell(withIdentifier: Cell.buttonCell) as! ButtonCell
+                
+                cell.deleteButton.rx.tap
+                    .subscribe(onNext: { _ in
+                        AlertManager.shared.presentTwoButtonAlert(title: "삭제", message: "정말로 해당 운동 일지를 삭제하시겠습니까?", buttonTitle: "확인", style: .alert) {
+                            LoadingManager.shared.showLoading()
+                            FirebaseManager.shared.deleteExerciseJournal(exerciseJournal: self.viewModel.exerciseJournal) { isSuccess in
+                                if isSuccess {
+                                    LoadingManager.shared.hideLoading()
+                                    self.viewModel.delegate?.transferData(exerciseJournal: self.viewModel.exerciseJournal, editorMode: .delete)
+                                    self.navigationController?.popViewController(animated: true)
+                                }
+                            }
+                        } completionHandler: { alert in
+                            self.present(alert, animated: true)
+                        }
+                    })
+                    .disposed(by: cell.disposeBag)
+                
+                return cell
             }
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Cell.exerciseTitleCell) as! ExerciseTitleCell
 
-                cell.setData(isHidden: true, exercise: viewModel.exerciseJournal.exerciseArray[indexPath.section-3])
+                cell.setData(isHidden: true,
+                             exercise: viewModel.exerciseJournal.exerciseArray[indexPath.section-3])
 
                 return cell
             } else {
@@ -199,12 +229,34 @@ extension DetailExerciseJournalVC: UITableViewDataSource, UITableViewDelegate {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Cell.labelCell) as! LabelCell
 
                 return cell
+            } else if indexPath.section == (2 + viewModel.exerciseJournal.exerciseArray.count) {
+                let cell = tableView.dequeueReusableCell(withIdentifier: Cell.buttonCell) as! ButtonCell
+                
+                cell.deleteButton.rx.tap
+                    .subscribe(onNext: { _ in
+                        AlertManager.shared.presentTwoButtonAlert(title: "삭제", message: "정말로 해당 운동 일지를 삭제하시겠습니까?", buttonTitle: "확인", style: .alert) {
+                            LoadingManager.shared.showLoading()
+                            FirebaseManager.shared.deleteExerciseJournal(exerciseJournal: self.viewModel.exerciseJournal) { isSuccess in
+                                if isSuccess {
+                                    LoadingManager.shared.hideLoading()
+                                    self.viewModel.delegate?.transferData(exerciseJournal: self.viewModel.exerciseJournal, editorMode: .delete)
+                                    self.navigationController?.popViewController(animated: true)
+                                }
+                            }
+                        } completionHandler: { alert in
+                            self.present(alert, animated: true)
+                        }
+                    })
+                    .disposed(by: cell.disposeBag)
+                
+                return cell
             }
             
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Cell.exerciseTitleCell) as! ExerciseTitleCell
 
-                cell.setData(isHidden: true, exercise: viewModel.exerciseJournal.exerciseArray[indexPath.section-2])
+                cell.setData(isHidden: true,
+                             exercise: viewModel.exerciseJournal.exerciseArray[indexPath.section-2])
 
                 return cell
             } else {
