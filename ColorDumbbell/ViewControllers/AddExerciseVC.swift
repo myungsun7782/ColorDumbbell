@@ -10,6 +10,11 @@ import RxSwift
 import RxCocoa
 
 class AddExerciseVC: UIViewController {
+    // UIStatusBarStyle
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // UIView
     @IBOutlet weak var containerView: UIView!
     
@@ -87,7 +92,46 @@ class AddExerciseVC: UIViewController {
         
         saveButton.rx.tap
             .subscribe(onNext: { _ in
-                self.viewModel.exerciseDelegate?.manageExercise(section: self.viewModel.section, row: self.viewModel.row, exerciseName: self.exerciseTextField.text!, editorMode: self.viewModel.editorMode)
+                if self.viewModel.editorMode == .edit {
+                    guard var exercise = self.viewModel.exercise else { return }
+                    guard let exerciseName = self.exerciseTextField.text else { return }
+                    exercise.name = exerciseName
+                    if exercise.type == ExerciseType.basis.rawValue {
+                        FirebaseManager.shared.modifyDefaultExercise(exercise: exercise) { isSuccess in
+                            if isSuccess {
+                                self.viewModel.exerciseDelegate?.manageExercise(section: self.viewModel.section,
+                                                                                row: self.viewModel.row,
+                                                                                exerciseName: exerciseName,
+                                                                                editorMode: self.viewModel.editorMode)
+                                
+                            }
+                        }
+                    } else if exercise.type == ExerciseType.custom.rawValue {
+                        FirebaseManager.shared.modifyCustomExercise(exercise: exercise) { isSuccess in
+                            if isSuccess {
+                                self.viewModel.exerciseDelegate?.manageExercise(section: self.viewModel.section,
+                                                                                row: self.viewModel.row,
+                                                                                exerciseName: exerciseName,
+                                                                                editorMode: self.viewModel.editorMode)
+                            }
+                        }
+                    }
+                } else if self.viewModel.editorMode == .new {
+                    guard let exerciseName = self.exerciseTextField.text else { return }
+                    let exerciseArea = self.viewModel.exerciseAreaArray[self.viewModel.section]
+                    let exercise = Exercise(name: exerciseName,
+                                            area: exerciseArea.rawValue,
+                                            quantity: [],
+                                            id: UUID().uuidString,
+                                            type: ExerciseType.custom.rawValue)
+                    FirebaseManager.shared.addCustomExercise(exercise: exercise) { isSuccess in
+                        if isSuccess {
+                            self.viewModel.exerciseDelegate?.manageExercise(section: self.viewModel.section,
+                                                                            row: self.viewModel.row,
+                                                                            exerciseName: exerciseName, editorMode: self.viewModel.editorMode)
+                        }
+                    }
+                }
                 self.dismiss(animated: true)
             })
             .disposed(by: disposeBag)
@@ -132,7 +176,7 @@ class AddExerciseVC: UIViewController {
         exerciseTextField.addLeftPadding()
         exerciseTextField.attributedPlaceholder = NSAttributedString(string: TEXT_FIELD_PLACE_HODLER, attributes: [NSAttributedString.Key.foregroundColor : ColorManager.shared.getLavenderGray()])
         
-        if let exerciseName = viewModel.exerciseName {
+        if let exerciseName = viewModel.exercise?.name {
             exerciseTextField.text = exerciseName
             viewModel.input.exerciseName.onNext(exerciseName)
         }
