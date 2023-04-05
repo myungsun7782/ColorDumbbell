@@ -20,7 +20,7 @@ class AddExerciseVM {
     
     // Variable
     var editorMode: EditorMode = .new
-    var exerciseName: String?
+    var exercise: Exercise?
     var exerciseDelegate: ExerciseDelegate?
     var section: Int!
     var row: Int!
@@ -28,6 +28,7 @@ class AddExerciseVM {
     // Constants
     let MINIMUM_LENGTH: Int = 2
     let MAXIMUM_LENGTH: Int = 6
+    let exerciseAreaArray: [ExerciseArea] = [.back, .chest, .shoulder, .leg, .arm, .abs]
     
     struct Input {
         var exerciseName = BehaviorSubject<String>(value: "")
