@@ -15,6 +15,11 @@ import YPImagePicker
 import SwiftDate
 
 class JournalRegisterVC: UIViewController {
+    // UIStatusBarStyle
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // UIButton
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
@@ -177,15 +182,16 @@ class JournalRegisterVC: UIViewController {
                                 }
                             }
                         } else {
-                            self.viewModel.delegate?.transferData(exerciseJournal: exerciseJournal, editorMode: .new)
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                LoadingManager.shared.hideLoading()
-                                self.dismiss(animated: true)
+                            FirebaseManager.shared.addExerciseJournal(exerciseJournal: exerciseJournal) { isSuccess in
+                                if isSuccess {
+                                    LoadingManager.shared.hideLoading()
+                                    self.viewModel.delegate?.transferData(exerciseJournal: exerciseJournal, editorMode: .new)
+                                    self.dismiss(animated: true)
+                                }
                             }
                         }
                     } else if viewModel.editorMode == .edit {
-                        if var exerciseJournal = viewModel.exerciseJournal {
+                        if let exerciseJournal = viewModel.exerciseJournal {
                             let existingPhotoIdList = exerciseJournal.photoIdArray!
                             let deduplicatedList = self.viewModel.photoAndIdList.filter { (_, photoId) in
                                 return !existingPhotoIdList.contains(photoId)
@@ -199,23 +205,31 @@ class JournalRegisterVC: UIViewController {
                             exerciseJournal.totalExerciseTime = totalExerciseTime
                             exerciseJournal.photoIdArray = idList
                             exerciseJournal.exerciseArray = viewModel.exerciseArray
+                            exerciseJournal.divisionExerciseArray(exerciseArray: viewModel.exerciseArray)
                             
                             LoadingManager.shared.showLoading()
                             if !deduplicatedList.isEmpty {
                                 FirebaseManager.shared.uploadImage(photoAndIdList: deduplicatedList) { _ in
-                                    LoadingManager.shared.hideLoading()
-                                    self.viewModel.delegate?.transferData(exerciseJournal: exerciseJournal, editorMode: .edit)
-                                    self.dismiss(animated: true)
+                                    FirebaseManager.shared.modifyExerciseJournal(exerciseJournal: exerciseJournal) { isSuccess in
+                                        if isSuccess {
+                                            LoadingManager.shared.hideLoading()
+                                            self.viewModel.delegate?.transferData(exerciseJournal: exerciseJournal, editorMode: .edit)
+                                            self.dismiss(animated: true)
+                                        }
+                                    }
                                 }
                             } else {
-                                self.viewModel.delegate?.transferData(exerciseJournal: exerciseJournal, editorMode: .edit)
-                                
-                                LoadingManager.shared.hideLoading()
-                                self.dismiss(animated: true)
+                                FirebaseManager.shared.modifyExerciseJournal(exerciseJournal: exerciseJournal) { isSuccess in
+                                    if isSuccess {
+                                        self.viewModel.delegate?.transferData(exerciseJournal: exerciseJournal, editorMode: .edit)
+                                        
+                                        LoadingManager.shared.hideLoading()
+                                        self.dismiss(animated: true)
+                                    }
+                                }
                             }
                         }
                     }
-                    
                 }
             })
             .disposed(by: disposeBag)
