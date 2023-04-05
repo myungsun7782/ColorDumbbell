@@ -11,5 +11,7 @@ struct Exercise {
     var name: String
     var area: ExerciseArea.RawValue
     var quantity: [ExerciseQuantity]
+    var id: String
+    var type: ExerciseType.RawValue
     var isChecked: Bool = false
 }
