@@ -8,13 +8,21 @@
 import UIKit
 
 class GradientProgressView: UIProgressView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBInspectable var firstColor: UIColor = UIColor.white {
+        didSet {
+            updateView()
+        }
     }
-    */
-
+    
+    @IBInspectable var secondColor: UIColor = UIColor.black {
+        didSet {
+            updateView()
+        }
+    }
+    
+    func updateView() {
+        if let gradientImage = UIImage(bounds: self.bounds, colors: [firstColor, secondColor]) {
+            self.progressImage = gradientImage
+        }
+    }
 }
