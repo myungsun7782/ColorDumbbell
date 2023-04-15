@@ -29,6 +29,10 @@ public enum Cell {
     static let routineTitleCell = "RoutineTitleCell"
     static let routineContentCell = "RoutineContentCell"
     static let buttonCell = "ButtonCell"
+    static let routineSelectionCell = "RoutineSelectionCell"
+    static let mainTopCell = "MainTopCell"
+    static let mainMidCell = "MainMidCell"
+    static let mainBottomCell = "MainBottomCell"
 }
 
 public enum VC {
