@@ -46,7 +46,6 @@ class ExerciseTimeVC: UIViewController {
         super.viewDidLoad()
         initUI()
         action()
-        bind()
     }
     
     private func initUI() {
@@ -58,6 +57,9 @@ class ExerciseTimeVC: UIViewController {
         
         // UIDatePicker
         configureDatePicker()
+        if viewModel.editorMode == .new {
+            viewModel.exerciseTime = Date()
+        }
     }
     
     private func action() {
@@ -84,12 +86,6 @@ class ExerciseTimeVC: UIViewController {
                 self.exerciseTimeTextField.text = TimeManager.shared.dateToString(date: self.timePickerView.date, options: [.time])
             })
             .disposed(by: disposeBag)
-    }
-    
-    private func bind() {
-        // Input
-        
-        // Output
     }
     
     private func configureTextField() {
@@ -130,8 +126,10 @@ class ExerciseTimeVC: UIViewController {
         UserDefaultsManager.shared.finishIntialization(uid: user.uid, userName: user.name, exerciseTime: user.exerciseTime, totalExerciseCount: user.totalExerciseCount)
 
         // CloudFirestore에 필요한 정보 저장
-        viewModel.saveUserData(userObj: user)
+        viewModel.saveUserData(userObj: user) {
+            LoadingManager.shared.hideLoading()
+        }
         
-        present(mainVC, animated: true)
+        self.present(mainVC, animated: true)
     }
 }
