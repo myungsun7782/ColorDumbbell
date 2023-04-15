@@ -147,4 +147,16 @@ class ColorManager {
     func getQuartz() -> UIColor {
         return UIColor(named: "Quartz")!
     }
+    
+    func getDarkSilver() -> UIColor {
+        return UIColor(named: "DarkSilver")!
+    }
+    
+    func getCottonCandy() -> UIColor {
+        return UIColor(named: "CottonCandy")!
+    }
+    
+    func getLightGray() -> UIColor {
+        return UIColor(named: "LightGray")!
+    }
 }
