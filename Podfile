@@ -21,5 +21,6 @@ target 'ColorDumbbell' do
   pod 'RxKeyboard'
   pod 'FirebaseStorageUI'
   pod 'RxGesture'
+  pod 'Charts'
 end
 
