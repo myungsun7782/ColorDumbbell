@@ -359,6 +359,7 @@ class JournalRegisterVC: UIViewController {
         let exerciseSelctionVC = UIStoryboard(name: Storyboard.main, bundle: nil).instantiateViewController(withIdentifier: VC.exerciseSelectionVC) as! ExerciseSelectionVC
         
         exerciseSelctionVC.viewModel.exerciseDelegate = self
+        exerciseSelctionVC.viewModel.routineDelegate = self
         
         self.present(exerciseSelctionVC, animated: true)
     }
@@ -448,6 +449,10 @@ extension JournalRegisterVC: UITableViewDataSource, UITableViewDelegate {
                     self.viewModel.title = text
                 })
                 .disposed(by: cell.disposeBag)
+            cell.titleTextField.rx.text.orEmpty
+                .map { String($0.prefix(self.viewModel.MAX_TITLE_LENGTH))}
+                .bind(to: cell.titleTextField.rx.text)
+                .disposed(by: disposeBag)
         
             return cell
         } else if indexPath.section == 1 {
@@ -617,7 +622,7 @@ extension JournalRegisterVC: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension JournalRegisterVC: ExerciseDelegate {
-    func manageExercise(section: Int, row: Int, exerciseName: String, editorMode: EditorMode) {}
+    func manageExercise(section: Int, row: Int, exercise: Exercise, editorMode: EditorMode) {}
     
     func selectExercises(exerciseArray: [Exercise]) {
         exerciseArray.forEach { exercise in
@@ -629,6 +634,17 @@ extension JournalRegisterVC: ExerciseDelegate {
     }
 }
 
+extension JournalRegisterVC: ExerciseRoutineDelegate {
+    func transferData(section: Int?, routine: Routine, editorMode: EditorMode) {
+        let exerciseArray = routine.exerciseArray
+        exerciseArray.forEach { exercise in
+            viewModel.exerciseArray.append(exercise)
+        }
+        journalTableView.reloadData()
+    }
+}
+
+
 extension JournalRegisterVC: WeightAndRepetitionDelegate {
     func transferData(section: Int, row: Int, weight: Double, reps: Int) {
         viewModel.exerciseArray[section].quantity[row].weight = weight
@@ -639,7 +655,6 @@ extension JournalRegisterVC: WeightAndRepetitionDelegate {
 
 extension JournalRegisterVC: UIAdaptivePresentationControllerDelegate {
     func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
-        presentActionSheetAlert()
         return false
     }
 }
