@@ -8,6 +8,6 @@
 import Foundation
 
 protocol ExerciseDelegate: AnyObject {
-    func manageExercise(section: Int, row: Int, exerciseName: String, editorMode: EditorMode)
+    func manageExercise(section: Int, row: Int, exercise: Exercise, editorMode: EditorMode)
     func selectExercises(exerciseArray: [Exercise])
 }
