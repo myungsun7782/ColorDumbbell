@@ -162,6 +162,9 @@ extension MonthlyExerciseVC: ExerciseJournalDelegate {
                     viewModel.exerciseJournalArray.remove(at: idx)
                     break
                 }
+                if TimeManager.shared.dateToString(date: Date(), options: [.year, .month, .day]) == TimeManager.shared.dateToString(date: exerciseJournal.registerDate, options: [.year, .month, .day]) {
+                    viewModel.updateUserTotalCount(exerciseJournal: exerciseJournal, editorMode: editorMode)
+                }
             }
         }
         monthlyExerciseTableView.reloadData()
