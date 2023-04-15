@@ -27,6 +27,7 @@ class RoutineRegisterVM {
     // Constants
     let MAX_SET_COUNT: Int = 100
     let MIN_SET_COUNT: Int = 1
+    let MAX_TITLE_LENGTH: Int = 15
     
     // RxSwift
     let disposeBag = DisposeBag()
