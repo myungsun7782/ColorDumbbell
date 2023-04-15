@@ -93,7 +93,11 @@ class ExerciseCalendarVC: UIViewController {
         // UIButton
         addButton.rx.tap
             .subscribe(onNext: { _ in
-                self.presentJournalRegisterVC()
+                if self.viewModel.isDuplicateExerciseJournal() {
+                    self.viewModel.presentDupJournalAlert(exerciseCalendarVC: self)
+                } else {
+                    self.presentJournalRegisterVC()
+                }
             })
             .disposed(by: disposeBag)
         
@@ -169,6 +173,7 @@ class ExerciseCalendarVC: UIViewController {
         journalRegisterVC.viewModel.startTime = selectedDate.convertTo(region: Region.current).date
         journalRegisterVC.viewModel.endTime = selectedDate.convertTo(region: Region.current).date.addingTimeInterval(60)
         journalRegisterVC.viewModel.delegate = self
+        journalRegisterVC.viewModel.exerciseJournalArray = viewModel.exerciseJournalArray
         
         present(journalRegisterVC, animated: true)
     }
@@ -256,6 +261,10 @@ extension ExerciseCalendarVC: ExerciseJournalDelegate {
                 emptyJournalStackView.isHidden = true
                 exerciseTimeLabel.text = "\(exerciseJournal.totalExerciseTime)분"
             }
+            
+            if TimeManager.shared.dateToString(date: Date(), options: [.year, .month, .day]) == TimeManager.shared.dateToString(date: exerciseJournal.registerDate, options: [.year, .month, .day]) {
+                viewModel.updateUserTotalCount(exerciseJournal: exerciseJournal, editorMode: editorMode)
+            }
         } else if editorMode == .edit {
             for (idx, exerciseJournalObj) in viewModel.exerciseJournalArray.enumerated() {
                 if exerciseJournalObj.id == exerciseJournal.id {
@@ -275,6 +284,9 @@ extension ExerciseCalendarVC: ExerciseJournalDelegate {
                     viewModel.exerciseJournalArray.remove(at: idx)
                     break
                 }
+            }
+            if TimeManager.shared.dateToString(date: Date(), options: [.year, .month, .day]) == TimeManager.shared.dateToString(date: exerciseJournal.registerDate, options: [.year, .month, .day]) {
+                viewModel.updateUserTotalCount(exerciseJournal: exerciseJournal, editorMode: editorMode)
             }
             emptyJournalStackView.isHidden = false
             exerciseTimeLabel.text = "0분"
