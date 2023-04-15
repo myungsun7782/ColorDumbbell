@@ -101,9 +101,8 @@ class AddExerciseVC: UIViewController {
                             if isSuccess {
                                 self.viewModel.exerciseDelegate?.manageExercise(section: self.viewModel.section,
                                                                                 row: self.viewModel.row,
-                                                                                exerciseName: exerciseName,
+                                                                                exercise: exercise,
                                                                                 editorMode: self.viewModel.editorMode)
-                                
                             }
                         }
                     } else if exercise.type == ExerciseType.custom.rawValue {
@@ -111,7 +110,7 @@ class AddExerciseVC: UIViewController {
                             if isSuccess {
                                 self.viewModel.exerciseDelegate?.manageExercise(section: self.viewModel.section,
                                                                                 row: self.viewModel.row,
-                                                                                exerciseName: exerciseName,
+                                                                                exercise: exercise,
                                                                                 editorMode: self.viewModel.editorMode)
                             }
                         }
@@ -128,7 +127,7 @@ class AddExerciseVC: UIViewController {
                         if isSuccess {
                             self.viewModel.exerciseDelegate?.manageExercise(section: self.viewModel.section,
                                                                             row: self.viewModel.row,
-                                                                            exerciseName: exerciseName, editorMode: self.viewModel.editorMode)
+                                                                            exercise: exercise, editorMode: self.viewModel.editorMode)
                         }
                     }
                 }
@@ -149,6 +148,22 @@ class AddExerciseVC: UIViewController {
                 self.saveButton.isEnabled = isValidated
                 self.saveButton.setTitleColor(self.saveButton.isEnabled ? ColorManager.shared.getBleuDeFrance() : ColorManager.shared.getArgent(), for: .normal)
             })
+            .disposed(by: disposeBag)
+        
+        viewModel.output.isDuplicateExerciseName
+            .subscribe { isDuplicated in
+                if isDuplicated {
+                    self.descriptionLabel.text = self.viewModel.DUPLICATION_TEXT
+                } else {
+                    if self.viewModel.editorMode == .new {
+                        self.descriptionLabel.text = self.ADD_DESCRIPTION_TEXT
+                    } else {
+                        self.descriptionLabel.text = self.MODIFICATION_DESCRIPTION_TEXT
+                    }
+                }
+                self.saveButton.isEnabled = !isDuplicated
+                self.saveButton.setTitleColor(self.saveButton.isEnabled ? ColorManager.shared.getBleuDeFrance() : ColorManager.shared.getArgent(), for: .normal)
+            }
             .disposed(by: disposeBag)
     }
     
