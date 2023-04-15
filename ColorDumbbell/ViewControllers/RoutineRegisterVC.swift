@@ -141,6 +141,7 @@ class RoutineRegisterVC: UIViewController {
         let exerciseSelctionVC = UIStoryboard(name: Storyboard.main, bundle: nil).instantiateViewController(withIdentifier: VC.exerciseSelectionVC) as! ExerciseSelectionVC
         
         exerciseSelctionVC.viewModel.exerciseDelegate = self
+        exerciseSelctionVC.viewModel.routineDelegate = self
         
         self.present(exerciseSelctionVC, animated: true)
     }
@@ -181,6 +182,10 @@ extension RoutineRegisterVC: UITableViewDataSource, UITableViewDelegate {
                     self.viewModel.title = title
                 })
                 .disposed(by: cell.disposeBag)
+            cell.titleTextField.rx.text.orEmpty
+                .map { String($0.prefix(self.viewModel.MAX_TITLE_LENGTH))}
+                .bind(to: cell.titleTextField.rx.text)
+                .disposed(by: disposeBag)
             
             return cell
         } else if indexPath.section == 1 {
@@ -204,6 +209,11 @@ extension RoutineRegisterVC: UITableViewDataSource, UITableViewDelegate {
                     self.viewModel.memo = memo
                 })
                 .disposed(by: cell.disposeBag)
+            
+            cell.titleTextField.rx.text.orEmpty
+                .map { String($0.prefix(self.viewModel.MAX_TITLE_LENGTH))}
+                .bind(to: cell.titleTextField.rx.text)
+                .disposed(by: disposeBag)
             
             return cell
         } else if indexPath.section == viewModel.exerciseArray.count + 2 {
@@ -263,7 +273,7 @@ extension RoutineRegisterVC: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension RoutineRegisterVC: ExerciseDelegate {
-    func manageExercise(section: Int, row: Int, exerciseName: String, editorMode: EditorMode) {}
+    func manageExercise(section: Int, row: Int, exercise: Exercise, editorMode: EditorMode) {}
     
     func selectExercises(exerciseArray: [Exercise]) {
         exerciseArray.forEach { exercise in
@@ -275,13 +285,18 @@ extension RoutineRegisterVC: ExerciseDelegate {
     }
 }
 
+extension RoutineRegisterVC: ExerciseRoutineDelegate {
+    func transferData(section: Int?, routine: Routine, editorMode: EditorMode) {
+        let exerciseArray = routine.exerciseArray
+        exerciseArray.forEach { exercise in
+            viewModel.exerciseArray.append(exercise)
+        }
+        routineTableView.reloadData()
+    }
+}
+
 extension RoutineRegisterVC: UIAdaptivePresentationControllerDelegate {
     func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
-        AlertManager.shared.presentActionSheetAlert(title: nil, message: ACTION_SHEET_ALERT_MESSAGE, firstButtonTitle: ALERT_DISCARD_ACTION_TITLE, secondButtonTitle: ALERT_CANCEL_ACTION_TITLE) {
-            self.dismiss(animated: true)
-        } completionHandler: { alert in
-            self.present(alert, animated: true)
-        }
         return false
     }
 }
