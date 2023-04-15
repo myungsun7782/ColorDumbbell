@@ -17,10 +17,12 @@ class ExerciseSelectionVM {
     
     // Variable
     var exerciseArray: [Exercise] = Array<Exercise>()
-    var totalExerciseArray: [[Exercise]] = ExerciseManager.shared.totalExerciseArray
+    var totalExerciseArray: [[Exercise]] = []
+    var routineArray: [Routine] = []
     var isEditorModeOn: Bool = false
     var isClicked: Bool = false
     var exerciseDelegate: ExerciseDelegate?
+    var routineDelegate: ExerciseRoutineDelegate?
     
     // Constants
     let EXERCISE_AREA_ARRAY: [ExerciseArea] = [.back, .chest, .shoulder, .leg, .arm, .abs]
@@ -37,7 +39,8 @@ class ExerciseSelectionVM {
     }
     
     init() {
-        
+        totalExerciseArray = ExerciseManager.shared.totalExerciseArray
+        routineArray = ExerciseManager.shared.routineArray
     }
  
     func validateFinishButton() -> Bool {
