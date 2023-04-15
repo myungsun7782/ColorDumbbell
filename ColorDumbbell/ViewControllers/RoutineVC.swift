@@ -132,6 +132,7 @@ extension RoutineVC: UITableViewDataSource, UITableViewDelegate {
             cell.deleteButton.rx.tap
                 .subscribe(onNext: { _ in
                     AlertManager.shared.presentTwoButtonAlert(title: "삭제", message: "정말로 해당 루틴을 삭제하시겠습니까?", buttonTitle: "확인", style: .alert) {
+                        ExerciseManager.shared.figureRoutine(routineObj: self.viewModel.routineArray[indexPath.section], editorMode: .delete)
                         FirebaseManager.shared.deleteRoutine(routine: self.viewModel.routineArray[indexPath.section]) { isSuccess in
                             self.viewModel.routineArray.remove(at: indexPath.section)
                             self.configureStackView()
@@ -176,9 +177,11 @@ extension RoutineVC: UITableViewDataSource, UITableViewDelegate {
 extension RoutineVC: ExerciseRoutineDelegate {
     func transferData(section: Int?, routine: Routine, editorMode: EditorMode) {
         if editorMode == .new {
+            ExerciseManager.shared.figureRoutine(routineObj: routine, editorMode: .new)
             viewModel.routineArray.append(routine)
         } else if editorMode == .edit {
             guard let section = section else { return }
+            ExerciseManager.shared.figureRoutine(routineObj: routine, editorMode: .edit)
             viewModel.routineArray[section] = routine
         }
         configureStackView()
