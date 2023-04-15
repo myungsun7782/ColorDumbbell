@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+public enum GradientOrientation {
+    case vertical
+    case horizontal
+}
