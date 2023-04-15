@@ -32,10 +32,12 @@ class JournalRegisterVM {
     var delegate: ExerciseJournalDelegate?
     var editorMode: EditorMode = .new
     var exerciseJournal: ExerciseJournal?
+    var exerciseJournalArray: [ExerciseJournal]?
     lazy var isEditingMode: Bool = editorMode == .new ? false : true
     
     // Constants
     let MAX_NUMBER_OF_PHOTO: Int = 3
+    let MAX_TITLE_LENGTH: Int = 15
     let ALERT_TITLE: String = "사진은 최대 3장까지 등록할 수 있습니다."
     let ACTION_TITLE: String = "확인"
     let WEIGHT_DEFAULT_VALUE: String = "0"
@@ -122,6 +124,16 @@ class JournalRegisterVM {
             }
             
             return false
+        } else if let exerciseJournalArray = exerciseJournalArray, let startTime = startTime {
+            for journal in exerciseJournalArray {
+                if TimeManager.shared.dateToString(date: journal.startTime, options: [.year, .month, .day]) == TimeManager.shared.dateToString(date: startTime, options: [.year, .month, .day]) {
+                    AlertManager.shared.presentOneButtonAlert(title: "운동 일지를 등록할 수 없음", message: "해당 날짜는 이미 등록된 운동 일지가 있습니다.") {
+                    } completionHandler: { alert in
+                        journalRegisterVC.present(alert, animated: true, completion: nil)
+                    }
+                    return false
+                }
+            }
         } else {
             var isRegistered = false
             for exercise in exerciseArray {
