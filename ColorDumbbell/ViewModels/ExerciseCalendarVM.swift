@@ -25,6 +25,9 @@ class ExerciseCalendarVM {
     
     // Constants
     let EXERCISE_AREA_ARRAY: [ExerciseArea] = [.back, .chest, .shoulder, .leg, .arm, .abs]
+    let ALERT_TITLE: String = "운동 일지를 등록할 수 없음"
+    let ALERT_MESSAGE: String = "해당 날짜에는 이미 등록된 운동 일지가 있습니다."
+    let BUTTON_TITLE: String = "확인"
     
     struct Input {
         
@@ -69,6 +72,37 @@ class ExerciseCalendarVM {
                 self.output.fetchDataDone.onNext(())
             } else {
                 LoadingManager.shared.hideLoading()
+            }
+        }
+    }
+    
+    func isDuplicateExerciseJournal() -> Bool {
+        return getJournal() == nil ? false : true
+    }
+    
+    func presentDupJournalAlert(exerciseCalendarVC: ExerciseCalendarVC) {
+        AlertManager.shared.presentOneButtonAlert(title: ALERT_TITLE, message: ALERT_MESSAGE) {
+        } completionHandler: { alert in
+            exerciseCalendarVC.present(alert, animated: true)
+        }
+    }
+    
+    func updateUserTotalCount(exerciseJournal: ExerciseJournal, editorMode: EditorMode) {
+        if editorMode == .new {
+            var currentTotalExerciseCount = UserDefaultsManager.shared.getExerciseTotalCount()
+            UserDefaultsManager.shared.setExerciseTotalCount(totalExerciseCount: currentTotalExerciseCount + 1)
+            FirebaseManager.shared.updateTotalCount(totalExerciseCount: currentTotalExerciseCount + 1) { isSuccess in
+                if isSuccess {
+                    print("Successfully update totalCount!!!")
+                }
+            }
+        } else if editorMode == .delete {
+            var currentTotalExerciseCount = UserDefaultsManager.shared.getExerciseTotalCount()
+            UserDefaultsManager.shared.setExerciseTotalCount(totalExerciseCount: currentTotalExerciseCount - 1)
+            FirebaseManager.shared.updateTotalCount(totalExerciseCount: currentTotalExerciseCount - 1) { isSuccess in
+                if isSuccess {
+                    print("Successfully update totalCount!!!")
+                }
             }
         }
     }
