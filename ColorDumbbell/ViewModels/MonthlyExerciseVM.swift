@@ -38,4 +38,24 @@ class MonthlyExerciseVM {
     init() {
 
     }
+    
+    func updateUserTotalCount(exerciseJournal: ExerciseJournal, editorMode: EditorMode) {
+        if editorMode == .new {
+            var currentTotalExerciseCount = UserDefaultsManager.shared.getExerciseTotalCount()
+            UserDefaultsManager.shared.setExerciseTotalCount(totalExerciseCount: currentTotalExerciseCount + 1)
+            FirebaseManager.shared.updateTotalCount(totalExerciseCount: currentTotalExerciseCount + 1) { isSuccess in
+                if isSuccess {
+                    print("Successfully update totalCount!!!")
+                }
+            }
+        } else if editorMode == .delete {
+            var currentTotalExerciseCount = UserDefaultsManager.shared.getExerciseTotalCount()
+            UserDefaultsManager.shared.setExerciseTotalCount(totalExerciseCount: currentTotalExerciseCount - 1)
+            FirebaseManager.shared.updateTotalCount(totalExerciseCount: currentTotalExerciseCount - 1) { isSuccess in
+                if isSuccess {
+                    print("Successfully update totalCount!!!")
+                }
+            }
+        }
+    }
 }
