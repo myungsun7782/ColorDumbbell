@@ -37,12 +37,16 @@ class ExerciseTimeVM {
 
     }
     
-    func saveUserData(userObj: User) {
+    func saveUserData(userObj: User, completionHandler: @escaping () -> ()) {
+        LoadingManager.shared.showLoading()
         FirebaseManager.shared.addUser(user: userObj) { isSuccess in
             if isSuccess {
                 print("successfully saved")
+                ExerciseManager.shared.getDefaultExercise()
+                completionHandler()
             } else {
                 print("Firebase Error!")
+                LoadingManager.shared.hideLoading()
             }
         }
     }
