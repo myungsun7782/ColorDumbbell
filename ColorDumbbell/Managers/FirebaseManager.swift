@@ -124,7 +124,9 @@ class FirebaseManager {
                                     print(err.localizedDescription)
                                     completionHandler(false)
                                 } else {
-                                    completionHandler(true)
+                                    if idx == exerciseList.count - 1 {
+                                        completionHandler(true)
+                                    }
                                 }
                             }
                     }
@@ -826,6 +828,72 @@ class FirebaseManager {
                             }
                         }
                     }
+                }
+            }
+    }
+    
+    func fetchExerciseTimeInMonth(year: Int, month: Int, completionHandler: @escaping (_ previousCurrentMonthJournals: [ExerciseJournal]?, _ isSuccess: Bool)->()) {
+        let startDate = DateInRegion(year: year, month: month, day: 1)
+        let prevDate = startDate - 1.months
+        let endDate = startDate + 1.months
+        
+        db.collection(USER_COLLECTION)
+            .document(UserDefaultsManager.shared.getDocumentId())
+            .collection(EXERCISE_JOURNAL_COLLECTION)
+            .whereField("startTime", isGreaterThanOrEqualTo: Timestamp(date: prevDate.date))
+            .whereField("startTime", isLessThan: Timestamp(date: endDate.date))
+            .getDocuments { (querySnapShot, err) in
+                if let err = err {
+                    completionHandler(nil, false)
+                } else {
+                    var exerciseJournalArray: [ExerciseJournal] = Array<ExerciseJournal>()
+                    if querySnapShot!.documents.isEmpty {
+                        completionHandler(nil, false)
+                    }
+                    
+                    for document in querySnapShot!.documents {
+                        self.fetchExerciseArray(documentId: document.documentID) { exerciseArray in
+                            let data = document.data()
+                            let id = data["id"] as! String
+                            let title = data["title"] as! String
+                            let registerDateTimeStamp = data["registerDate"] as! Timestamp
+                            let registerDate = registerDateTimeStamp.dateValue()
+                            let startDateTimeStamp = data["startTime"] as! Timestamp
+                            let startTime = startDateTimeStamp.dateValue()
+                            let endDateTimeStamp = data["endTime"] as! Timestamp
+                            let endTime = endDateTimeStamp.dateValue()
+                            let totalExerciseTime = data["totalExerciseTime"] as! Int
+                            let photoIdArray = data["photoIdArray"] as! [String]
+                            let exerciseJournal = ExerciseJournal(id: id,
+                                                                  title: title,
+                                                                  registerDate: registerDate,
+                                                                  startTime: startTime,
+                                                                  endTime: endTime,
+                                                                  totalExerciseTime: totalExerciseTime,
+                                                                  photoIdArray: photoIdArray,
+                                                                  exerciseArray: exerciseArray)
+                                            
+                            exerciseJournalArray.append(exerciseJournal)
+                            if self.checkExerciseJournalDone(exerciseJournalArray: exerciseJournalArray, length: querySnapShot!.count) {
+                                completionHandler(exerciseJournalArray, true)
+                            }
+                        }
+                    }
+                }
+            }
+    }
+    
+    func updateTotalCount(totalExerciseCount: Int, completionHandler: @escaping (_ isSuccess: Bool) -> ()) {
+        db.collection(USER_COLLECTION)
+            .document(UserDefaultsManager.shared.getDocumentId())
+            .updateData([
+                "totalExerciseCount": totalExerciseCount
+            ]) { err in
+                if let err = err {
+                    print(err.localizedDescription)
+                    completionHandler(false)
+                } else {
+                    completionHandler(true)
                 }
             }
     }
