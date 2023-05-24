@@ -71,6 +71,7 @@ class MainTopCell: UITableViewCell {
     
     private func configureButton() {
         convenienceButton.layer.cornerRadius = BUTTON_RADIUS
+        convenienceButton.backgroundColor = LevelManager.shared.getCurrentLevelColor(exerciseTotalCount: UserDefaultsManager.shared.getExerciseTotalCount())
         editButton.setImage(MY_PAGE_BUTTON_IMAGE, for: .normal)
     }
     
@@ -78,7 +79,7 @@ class MainTopCell: UITableViewCell {
         self.index = index
         nameLabel.text = name + "님,"
         
-        // TODO: 현재 레벨에 맞는 운동 횟수 값 넣어주기
+        dumbbellImageView.image = LevelManager.shared.getCurrentDumbbellImage(exerciseTotalCount: UserDefaultsManager.shared.getExerciseTotalCount())
         currentCountLabel.text = "(\(UserDefaultsManager.shared.getExerciseTotalCount())"
         totalCountLabel.text = "\(LevelManager.shared.getLevelMaxValue(level: .pink))" + ")"
         configureProgressView()

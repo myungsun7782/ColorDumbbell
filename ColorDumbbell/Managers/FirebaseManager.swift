@@ -843,7 +843,7 @@ class FirebaseManager {
             .whereField("startTime", isGreaterThanOrEqualTo: Timestamp(date: prevDate.date))
             .whereField("startTime", isLessThan: Timestamp(date: endDate.date))
             .getDocuments { (querySnapShot, err) in
-                if let err = err {
+                if err != nil {
                     completionHandler(nil, false)
                 } else {
                     var exerciseJournalArray: [ExerciseJournal] = Array<ExerciseJournal>()
@@ -888,6 +888,36 @@ class FirebaseManager {
             .document(UserDefaultsManager.shared.getDocumentId())
             .updateData([
                 "totalExerciseCount": totalExerciseCount
+            ]) { err in
+                if let err = err {
+                    print(err.localizedDescription)
+                    completionHandler(false)
+                } else {
+                    completionHandler(true)
+                }
+            }
+    }
+    
+    func updateUserName(userName: String, completionHandler: @escaping (_ isSuccess: Bool) -> ()) {
+        db.collection(USER_COLLECTION)
+            .document(UserDefaultsManager.shared.getDocumentId())
+            .updateData([
+                "name": userName
+            ]) { err in
+                if let err = err {
+                    print(err.localizedDescription)
+                    completionHandler(false)
+                } else {
+                    completionHandler(true)
+                }
+            }
+    }
+    
+    func updateExerciseTime(exerciseTime: Date, completionHandler: @escaping (_ isSuccess: Bool) -> ()) {
+        db.collection(USER_COLLECTION)
+            .document(UserDefaultsManager.shared.getDocumentId())
+            .updateData([
+                "exerciseTime": Timestamp(date: exerciseTime)
             ]) { err in
                 if let err = err {
                     print(err.localizedDescription)

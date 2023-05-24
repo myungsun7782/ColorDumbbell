@@ -18,6 +18,8 @@ class UsernameVM {
     // Variable
     var isEnabled: Bool = false
     var editorMode: EditorMode = .new
+    var passedName: String?
+    var delegate: UserInfoDelegate?
     
     // RxSwift
     let disposeBag = DisposeBag()
@@ -47,5 +49,18 @@ class UsernameVM {
             return true
         }
         return false
+    }
+    
+    func updateUserName(name: String, userNameVC: UsernameVC) {
+        LoadingManager.shared.showLoading()
+        UserDefaultsManager.shared.setUserName(userName: name)
+        FirebaseManager.shared.updateUserName(userName: name) { isSuccess in
+            if isSuccess {
+                print("Successfully update user name!")
+            }
+            userNameVC.viewModel.delegate?.updateName(name: name)
+            userNameVC.dismiss(animated: true)
+            LoadingManager.shared.hideLoading()
+        }
     }
 }

@@ -50,4 +50,17 @@ class ExerciseTimeVM {
             }
         }
     }
+    
+    func updateExerciseTime(exerciseTime: Date, exerciseTimeVC: ExerciseTimeVC) {
+        LoadingManager.shared.showLoading()
+        UserDefaultsManager.shared.setExerciseTime(exerciseTime: exerciseTime)
+        FirebaseManager.shared.updateExerciseTime(exerciseTime: exerciseTime) { isSuccess in
+            if isSuccess {
+                print("Successfully update user exercise Time")
+            }
+            LoadingManager.shared.hideLoading()
+            exerciseTimeVC.dismiss(animated: true)
+            
+        }
+    }
 }

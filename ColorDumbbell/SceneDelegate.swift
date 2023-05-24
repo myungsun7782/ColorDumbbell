@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if UserDefaultsManager.shared.getIsInitialized() {
             let mainVC = UIStoryboard(name: Storyboard.main, bundle: nil).instantiateViewController(withIdentifier: VC.mainTabBarController) as! MainTabBarController
             ExerciseManager.shared.getDefaultExercise()
-            
+            ExerciseManager.shared.getRountineArray()
             window?.rootViewController = mainVC
         }
     }

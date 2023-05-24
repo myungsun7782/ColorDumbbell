@@ -33,6 +33,7 @@ public enum Cell {
     static let mainTopCell = "MainTopCell"
     static let mainMidCell = "MainMidCell"
     static let mainBottomCell = "MainBottomCell"
+    static let dumbbellCriteriaCell = "DumbbellCriteriaCell"
 }
 
 public enum VC {
@@ -49,6 +50,8 @@ public enum VC {
     static let detailExerciseJournal = "DetailExerciseJournalVC"
     static let routineVC = "RoutineVC"
     static let routineRegisterVC = "RoutineRegisterVC"
+    static let myPageVC = "MyPageVC"
+    static let dumbbellCriteriaVC = "DumbbellCriteriaVC"
 }
 
 public enum Storyboard {

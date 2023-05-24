@@ -124,6 +124,18 @@ class JournalRegisterVM {
             }
             
             return false
+        } else if !exerciseArray.isEmpty {
+            for exercise in exerciseArray {
+                for exercicseQuantity in exercise.quantity {
+                    if exercicseQuantity.reps == .zero {
+                        AlertManager.shared.presentOneButtonAlert(title: "운동 일지를 등록할 수 없음", message: "아직 수행하지 않은 운동이 있습니다.") {
+                        } completionHandler: { alert in
+                            journalRegisterVC.present(alert, animated: true, completion: nil)
+                        }
+                        return false
+                    }
+                }
+            }
         } else if let exerciseJournalArray = exerciseJournalArray, let startTime = startTime {
             for journal in exerciseJournalArray {
                 if TimeManager.shared.dateToString(date: journal.startTime, options: [.year, .month, .day]) == TimeManager.shared.dateToString(date: startTime, options: [.year, .month, .day]) {

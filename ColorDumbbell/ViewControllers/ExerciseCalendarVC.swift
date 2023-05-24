@@ -136,10 +136,10 @@ class ExerciseCalendarVC: UIViewController {
         calendarView.appearance.titleFont = FontManager.shared.getPretendardBold(fontSize: CALENDAR_TITLE_FONT_SIZE)
         calendarView.appearance.headerTitleFont = FontManager.shared.getPretendardBold(fontSize: CALENDAR_HEADER_FONT_SIZE)
         // MARK: - 현재 레벨 색깔로 바꾸기
-        calendarView.appearance.titleTodayColor = ColorManager.shared.getCyclamen()
+        calendarView.appearance.titleTodayColor = LevelManager.shared.getCurrentLevelColor(exerciseTotalCount: UserDefaultsManager.shared.getExerciseTotalCount())
         calendarView.appearance.todayColor = ColorManager.shared.getWhite()
-        calendarView.appearance.selectionColor = ColorManager.shared.getCyclamen()
-        calendarView.appearance.eventDefaultColor = ColorManager.shared.getCyclamen()
+        calendarView.appearance.selectionColor = LevelManager.shared.getCurrentLevelColor(exerciseTotalCount: UserDefaultsManager.shared.getExerciseTotalCount())
+        calendarView.appearance.eventDefaultColor = LevelManager.shared.getCurrentLevelColor(exerciseTotalCount: UserDefaultsManager.shared.getExerciseTotalCount())
         calendarView.appearance.eventSelectionColor = ColorManager.shared.getWhite()
         calendarView.appearance.headerTitleAlignment = .left
         calendarView.appearance.borderRadius = CALENDAR_BORDER_RADIUS
@@ -203,6 +203,7 @@ extension ExerciseCalendarVC: FSCalendarDataSource, FSCalendarDelegate {
     // 캘린더에서 날짜가 선택되었을 때 호출되는 메서드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         dateLabel.text = TimeManager.shared.dateToString(date: date, options: [.month, .day, .weekday])
+        
         viewModel.selectedDate = date
         
         if viewModel.getJournal() != nil {
@@ -238,9 +239,9 @@ extension ExerciseCalendarVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cell.exerciseCalendarCell) as! ExerciseCalendarCell
         
-        // MARK: - User 현재 레벨에 맞는 색깔 넣어주기! (나중에 수정 필요!)
         if let exerciseJournal = viewModel.getJournal()  {
-            cell.setData(currentLevelColor: ColorManager.shared.getCyclamen(), exerciseArray: exerciseJournal.groupedExerciseArray[indexPath.row])
+            cell.setData(currentLevelColor: LevelManager.shared.getCurrentLevelColor(exerciseTotalCount: UserDefaultsManager.shared.getExerciseTotalCount()),
+                         exerciseArray: exerciseJournal.groupedExerciseArray[indexPath.row])
             cell.containerStackView.rx.tapGesture()
                 .when(.recognized)
                 .subscribe(onNext: { _ in
@@ -269,12 +270,7 @@ extension ExerciseCalendarVC: ExerciseJournalDelegate {
             for (idx, exerciseJournalObj) in viewModel.exerciseJournalArray.enumerated() {
                 if exerciseJournalObj.id == exerciseJournal.id {
                     viewModel.exerciseJournalArray[idx] = exerciseJournal
-                    exerciseJournal.groupedExerciseArray.forEach { exerciseArray in
-                        exerciseArray.forEach { exercise in
-                            print("exercise: \(exercise.name)")
-                        }
-                        print()
-                    }
+                    exerciseTimeLabel.text = "\(exerciseJournal.totalExerciseTime)분"
                     break
                 }
             }

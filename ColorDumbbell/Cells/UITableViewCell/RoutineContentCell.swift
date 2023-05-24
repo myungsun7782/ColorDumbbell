@@ -45,6 +45,7 @@ class RoutineContentCell: UITableViewCell {
     private func initUI() {
         // UIView
         pointView.layer.cornerRadius = VIEW_CORNER_RADIUS
+        pointView.backgroundColor = LevelManager.shared.getCurrentLevelColor(exerciseTotalCount: UserDefaultsManager.shared.getExerciseTotalCount())
     }
     
     func setData(currentLevelColor: UIColor, exerciseName: String, exerciseSet: Int, index: Int, lastIndex: Int) {

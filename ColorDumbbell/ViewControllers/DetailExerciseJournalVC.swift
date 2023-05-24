@@ -208,10 +208,9 @@ extension DetailExerciseJournalVC: UITableViewDataSource, UITableViewDelegate {
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Cell.detailJournalSetCell) as! DetailJournalSetCell
 
-                // MARK: - 유저 현재 레벨에 맞는 색깔로 수정해주기
                 cell.setData(index: indexPath.row-1,
                              lastIndex: viewModel.exerciseJournal.exerciseArray[indexPath.section-3].quantity.count - 1,
-                             currentLevelColor: ColorManager.shared.getCyclamen(),
+                             currentLevelColor: LevelManager.shared.getCurrentLevelColor(exerciseTotalCount: UserDefaultsManager.shared.getExerciseTotalCount()),
                              set: indexPath.row,
                              weight: viewModel.exerciseJournal.exerciseArray[indexPath.section-3].quantity[indexPath.row-1].weight,
                              reps: viewModel.exerciseJournal.exerciseArray[indexPath.section-3].quantity[indexPath.row-1].reps)
@@ -262,10 +261,9 @@ extension DetailExerciseJournalVC: UITableViewDataSource, UITableViewDelegate {
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Cell.detailJournalSetCell) as! DetailJournalSetCell
 
-                // MARK: - 유저 현재 레벨에 맞는 색깔로 수정해주기
                 cell.setData(index: indexPath.row-1,
                              lastIndex: viewModel.exerciseJournal.exerciseArray[indexPath.section-2].quantity.count - 1,
-                             currentLevelColor: ColorManager.shared.getCyclamen(),
+                             currentLevelColor: LevelManager.shared.getCurrentLevelColor(exerciseTotalCount: UserDefaultsManager.shared.getExerciseTotalCount()),
                              set: indexPath.row,
                              weight: viewModel.exerciseJournal.exerciseArray[indexPath.section-2].quantity[indexPath.row-1].weight,
                              reps: viewModel.exerciseJournal.exerciseArray[indexPath.section-2].quantity[indexPath.row-1].reps)

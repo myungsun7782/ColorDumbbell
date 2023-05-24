@@ -15,7 +15,6 @@ class ExerciseUtilityCell: UITableViewCell {
     // UIButton
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var timerButton: UIButton!
     
     // RxSwift
     var disposeBag = DisposeBag()
@@ -54,10 +53,6 @@ class ExerciseUtilityCell: UITableViewCell {
         deleteButton.layer.cornerRadius = BUTTON_CORNER_RADIUS
         deleteButton.layer.borderWidth = BUTTON_BORDER_WIDTH
         deleteButton.layer.borderColor = ColorManager.shared.getBrightGray().cgColor
-        
-        timerButton.layer.cornerRadius = BUTTON_CORNER_RADIUS
-        timerButton.layer.borderWidth = BUTTON_BORDER_WIDTH
-        timerButton.layer.borderColor = ColorManager.shared.getBrightGray().cgColor
     }
     
     func setData(index: Int) {

@@ -159,4 +159,40 @@ class ColorManager {
     func getLightGray() -> UIColor {
         return UIColor(named: "LightGray")!
     }
+    
+    func getCornSilk() -> UIColor {
+        return UIColor(named: "CornSilk")!
+    }
+    
+    func getPeachYellow() -> UIColor {
+        return UIColor(named: "PeachYellow")!
+    }
+    
+    func getTeaGreen() -> UIColor {
+        return UIColor(named: "TeaGreen")!
+    }
+    
+    func getBrilliantLavender() -> UIColor {
+        return UIColor(named: "BrilliantLavender")!
+    }
+    
+    func getBlizzardBlue() -> UIColor {
+        return UIColor(named: "BlizzardBlue")!
+    }
+    
+    func getPastelGray() -> UIColor {
+        return UIColor(named: "PastelGray")!
+    }
+    
+    func getLightRed() -> UIColor {
+        return UIColor(named: "LightRed")!
+    }
+    
+    func getEerieBlack() -> UIColor {
+        return UIColor(named: "EerieBlack")!
+    }
+    
+    func getDarkGrayX11() -> UIColor {
+        return UIColor(named: "DarkGrayX11")!
+    }
 }

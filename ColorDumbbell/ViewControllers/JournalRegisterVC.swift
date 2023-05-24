@@ -70,6 +70,7 @@ class JournalRegisterVC: UIViewController {
         bind()
         viewModel.fetchPhotos(journalRegisterVC: self)
         self.presentationController?.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -580,12 +581,6 @@ extension JournalRegisterVC: UITableViewDataSource, UITableViewDelegate {
                             self.viewModel.exerciseArray[indexPath.section-3].quantity.remove(at: self.viewModel.exerciseArray[indexPath.section-3].quantity.count-1)
                             self.journalTableView.reloadData()
                         }
-                    })
-                    .disposed(by: cell.disposeBag)
-                
-                cell.timerButton.rx.tap
-                    .subscribe(onNext: { _ in
-
                     })
                     .disposed(by: cell.disposeBag)
 

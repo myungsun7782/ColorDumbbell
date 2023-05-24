@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxGesture
+import SnapKit
 
 class ExerciseTimeVC: UIViewController {
     // UIStatusBarStyle
@@ -35,9 +36,10 @@ class ExerciseTimeVC: UIViewController {
     // Constants
     let BUTTON_CORNER_RADIUS: CGFloat = 10
     let BUTTON_FONT_SIZE: CGFloat = 16
-    let TEXT_FIELD_PLACE_HOLDER: String = "운동 시간을 선택해주세요 :)"
+    let TEXT_FIELD_PLACE_HOLDER: String = "알림 받을 시간을 선택해주세요 :)"
     let TEXT_FIELD_FONT_SIZE: CGFloat = 20
     let PICKER_KEY_PATH: String = "textColor"
+    let EDITOR_MODE_BUTTON_HEIGHT: CGFloat = 53
     
     // RxSwift
     let disposeBag = DisposeBag()
@@ -46,6 +48,7 @@ class ExerciseTimeVC: UIViewController {
         super.viewDidLoad()
         initUI()
         action()
+        turnOnEditMode()
     }
     
     private func initUI() {
@@ -55,10 +58,15 @@ class ExerciseTimeVC: UIViewController {
         // UIButton
         configureButton()
         
+        // UIStackView
+        configureStackView()
+        
         // UIDatePicker
         configureDatePicker()
         if viewModel.editorMode == .new {
             viewModel.exerciseTime = Date()
+        } else if viewModel.editorMode == .edit {
+            viewModel.exerciseTime = UserDefaultsManager.shared.getExerciseTime()
         }
     }
     
@@ -74,6 +82,9 @@ class ExerciseTimeVC: UIViewController {
             .subscribe(onNext: { _ in
                 if self.viewModel.editorMode == .new {
                     self.presentMainVC()
+                } else if self.viewModel.editorMode == .edit {
+                    guard let exerciseTime = self.viewModel.exerciseTime else { return }
+                    self.viewModel.updateExerciseTime(exerciseTime: exerciseTime, exerciseTimeVC: self)
                 }
             })
             .disposed(by: disposeBag)
@@ -86,6 +97,22 @@ class ExerciseTimeVC: UIViewController {
                 self.exerciseTimeTextField.text = TimeManager.shared.dateToString(date: self.timePickerView.date, options: [.time])
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func turnOnEditMode() {
+        if viewModel.editorMode == .edit {
+            backButton.isHidden = true
+            startButton.snp.makeConstraints { make in
+                make.height.equalTo(EDITOR_MODE_BUTTON_HEIGHT)
+            }
+            guard let exerciseTime = viewModel.exerciseTime else { return }
+            timePickerView.date = exerciseTime
+            exerciseTimeTextField.text = TimeManager.shared.dateToString(date: exerciseTime, options: [.time])
+        }
+    }
+    
+    private func configureStackView() {
+        stepStackView.isHidden = viewModel.editorMode == .new ? false : true
     }
     
     private func configureTextField() {
@@ -105,6 +132,7 @@ class ExerciseTimeVC: UIViewController {
         startButton.backgroundColor = ColorManager.shared.getBlack()
         startButton.titleLabel?.font = FontManager.shared.getPretendardMedium(fontSize: BUTTON_FONT_SIZE)
         startButton.setTitleColor(ColorManager.shared.getWhite(), for: .normal)
+        startButton.setTitle(viewModel.editorMode == .new ? "시작하기" : "완료", for: .normal)
     }
     
     private func configureDatePicker() {
@@ -127,9 +155,10 @@ class ExerciseTimeVC: UIViewController {
 
         // CloudFirestore에 필요한 정보 저장
         viewModel.saveUserData(userObj: user) {
-            LoadingManager.shared.hideLoading()
+            self.present(mainVC, animated: true) {
+                LoadingManager.shared.hideLoading()
+            }
         }
         
-        self.present(mainVC, animated: true)
     }
 }

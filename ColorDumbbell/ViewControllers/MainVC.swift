@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SwiftDate
+import UserNotifications
 
 class MainVC: UIViewController {
     // UIStatusBarStyle
@@ -18,17 +19,20 @@ class MainVC: UIViewController {
     
     // UITableView
     @IBOutlet weak var mainTableView: UITableView!
-    
-    
+
     // ViewModel
     let viewModel = MainVM()
     
     // RxSwift
     let disposeBag = DisposeBag()
     
+    // UNUserNotificationCenter
+    let userNotificationCenter = UNUserNotificationCenter.current()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
+        initNotification()
         action()
         bind()
         viewModel.fetchExerciseJournals()
@@ -42,6 +46,11 @@ class MainVC: UIViewController {
     private func initUI() {
         // UITableView
         configureTableView()
+    }
+    
+    private func initNotification() {
+        userNotificationCenter.delegate = self
+        requestNotificationAuthorization()
     }
     
     private func action() {
@@ -87,6 +96,60 @@ class MainVC: UIViewController {
         
         present(journalRegisterVC, animated: true)
     }
+    
+    private func requestNotificationAuthorization() {
+        let authOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
+        
+        userNotificationCenter.requestAuthorization(options: authOptions) { granted, error in
+            if let error = error {
+                print("Error: \(error)")
+            }
+            if granted {
+                UserDefaultsManager.shared.setPushAuthStatus(pushAuthStatus: granted)
+                if !UserDefaultsManager.shared.getIsPushInitialized() {
+                    let userExerciseTime = UserDefaultsManager.shared.getExerciseTime()
+                    self.schedulePeriodicLocalNotification(hour: userExerciseTime.convertTo(region: Region.current).hour, minute: userExerciseTime.convertTo(region: Region.current).minute)
+                    UserDefaultsManager.shared.setIsPushInitialized(isInitialized: true)
+                }
+            }
+        }
+    }
+    
+    func schedulePeriodicLocalNotification(hour: Int, minute: Int) {
+        let content = UNMutableNotificationContent()
+        content.title = "운동 준비 알림"
+        content.body = "운동을 맛있게 즐길 수 있도록 준비할 시간입니다."
+        content.sound = .default
+        
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = hour
+        dateComponents.minute = minute
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        
+        let request = UNNotificationRequest(identifier: UserDefaultsManager.shared.getUserUid(), content: content, trigger: trigger)
+        
+        userNotificationCenter.add(request) { error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+            } else {
+                print("Notification scheduled for \(hour):\(minute) and will repeat daily")
+            }
+        }
+    }
+    
+    private func presentMyPageVC() {
+        let myPageVC = UIStoryboard(name: Storyboard.main, bundle: nil).instantiateViewController(withIdentifier: VC.myPageVC) as! MyPageVC
+        
+        myPageVC.viewModel.currentMonthCount = viewModel.currentMonthCount
+        myPageVC.viewModel.totalExerciseCount = viewModel.exerciseJournalArray.count
+        myPageVC.viewModel.mainVC = self
+        myPageVC.modalPresentationStyle = .fullScreen
+        myPageVC.modalTransitionStyle = .crossDissolve
+        
+        self.present(myPageVC, animated: true)
+    }
 }
 
 extension MainVC: UITableViewDataSource, UITableViewDelegate {
@@ -107,6 +170,11 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
             cell.convenienceButton.rx.tap
                 .subscribe(onNext: { _ in
                     self.presentJournalRegisterVC()
+                })
+                .disposed(by: cell.disposeBag)
+            cell.editButton.rx.tap
+                .subscribe(onNext: { _ in
+                    self.presentMyPageVC()
                 })
                 .disposed(by: cell.disposeBag)
             
@@ -139,3 +207,16 @@ extension MainVC: ExerciseJournalDelegate {
     }
 }
 
+extension MainVC: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+//        completionHandler([.alert, .badge, .sound])
+    }
+}

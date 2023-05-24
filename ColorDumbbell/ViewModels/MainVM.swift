@@ -25,6 +25,7 @@ class MainVM {
     
     // Constants
     let WEEK_DAY_STRING: String = "요일"
+    let userNotificationCenter = UNUserNotificationCenter.current()
     
     // RxSwift
     let disposeBag = DisposeBag()

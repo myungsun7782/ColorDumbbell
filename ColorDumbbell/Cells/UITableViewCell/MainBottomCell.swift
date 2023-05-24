@@ -33,6 +33,9 @@ class MainBottomCell: UITableViewCell {
     let CHART_VIEW_AXIS_MAXIMUM: Double = 31
     let CHART_VIEW_AXIS_MINIMUM: Double = 0
     let CHART_BAR_WIDTH: CGFloat = 1
+    let CURRENT_MONTH_EMPTY_STRING: String = "이번 달에 아직 운동하지 않았습니다."
+    let PREVIOUS_MONTH_EMPTY_STRING: String = "지날 달에 운동하지 않았습니다."
+    let EMPTY_FONT_SIZE: CGFloat = 13
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -60,6 +63,9 @@ class MainBottomCell: UITableViewCell {
     
     private func configureChart() {
         // currentMonthChartView
+        currentMonthChartView.noDataText = CURRENT_MONTH_EMPTY_STRING
+        currentMonthChartView.noDataFont = FontManager.shared.getPretendardMedium(fontSize: EMPTY_FONT_SIZE)
+        currentMonthChartView.noDataTextColor = ColorManager.shared.getLightSilver()
         currentMonthChartView.xAxis.labelPosition = .bottom
         currentMonthChartView.xAxis.drawGridLinesEnabled = false
         currentMonthChartView.xAxis.enabled = false
@@ -72,6 +78,9 @@ class MainBottomCell: UITableViewCell {
         currentMonthChartView.leftAxis.axisMinimum = CHART_VIEW_AXIS_MINIMUM
         
         // previousMonthChartView
+        previousMonthChartView.noDataText = PREVIOUS_MONTH_EMPTY_STRING
+        previousMonthChartView.noDataFont = FontManager.shared.getPretendardMedium(fontSize: EMPTY_FONT_SIZE)
+        previousMonthChartView.noDataTextColor = ColorManager.shared.getLightSilver()
         previousMonthChartView.xAxis.labelPosition = .bottom
         previousMonthChartView.xAxis.drawGridLinesEnabled = false
         previousMonthChartView.xAxis.enabled = false
@@ -124,8 +133,12 @@ class MainBottomCell: UITableViewCell {
     func setData(currentMonthCount: Int, previousMonthCount: Int) {
         currentMonthCountLabel.text = "\(currentMonthCount)"
         previousMonthCountLabel.text = "\(previousMonthCount)회"
-        setCurrentChart(currentMonthCount: currentMonthCount)
-        setPreviousChart(previousMonthCount: previousMonthCount)
+        if currentMonthCount != .zero {
+            setCurrentChart(currentMonthCount: currentMonthCount)
+        }
+        if previousMonthCount != .zero {
+            setPreviousChart(previousMonthCount: previousMonthCount)
+        }
         currentMonthChartView.notifyDataSetChanged()
         previousMonthChartView.notifyDataSetChanged()
     }

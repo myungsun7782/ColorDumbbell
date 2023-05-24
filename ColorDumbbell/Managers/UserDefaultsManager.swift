@@ -15,6 +15,8 @@ class UserDefaultsManager {
     private let EXERCISE_TIME = "exerciseTime"
     private let TOTAL_EXERCISE_COUNT = "TotalExerciseCount"
     private let DOCUMENT_ID = "documentID"
+    private let PUSH_AUTH_STATUS = "pushAuthStatus"
+    private let IS_PUSH_INITIALIZED = "isPushInitialized"
 
     private init() {}
     
@@ -24,6 +26,14 @@ class UserDefaultsManager {
     
     func setIsInitialized() {
         UserDefaults.standard.set(true, forKey: IS_INITIALIZED)
+    }
+    
+    func getIsPushInitialized() -> Bool {
+        return UserDefaults.standard.bool(forKey: IS_PUSH_INITIALIZED)
+    }
+    
+    func setIsPushInitialized(isInitialized: Bool) {
+        UserDefaults.standard.set(isInitialized, forKey: IS_PUSH_INITIALIZED)
     }
     
     func getUserUid() -> String {
@@ -64,6 +74,14 @@ class UserDefaultsManager {
     
     func getDocumentId() -> String {
         return UserDefaults.standard.string(forKey: DOCUMENT_ID)!
+    }
+    
+    func setPushAuthStatus(pushAuthStatus: Bool) {
+        UserDefaults.standard.set(pushAuthStatus, forKey: PUSH_AUTH_STATUS)
+    }
+    
+    func getPushAuthStatus() -> Bool {
+        return UserDefaults.standard.bool(forKey: PUSH_AUTH_STATUS)
     }
     
     func finishIntialization(uid: String, userName: String, exerciseTime: Date, totalExerciseCount: Int) {

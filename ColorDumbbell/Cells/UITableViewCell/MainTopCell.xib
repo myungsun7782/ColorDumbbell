@@ -136,7 +136,8 @@
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pinkImage" translatesAutoresizingMaskIntoConstraints="NO" id="U5b-2A-6OV">
                                                                 <rect key="frame" x="0.0" y="0.0" width="133" height="125"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="U5b-2A-6OV" secondAttribute="height" multiplier="1.064:1" id="x8Z-AG-k6w"/>
+                                                                    <constraint firstAttribute="width" constant="133" id="1c1-q5-Qnt"/>
+                                                                    <constraint firstAttribute="height" constant="125" id="QIA-St-dnq"/>
                                                                 </constraints>
                                                             </imageView>
                                                         </subviews>
@@ -215,7 +216,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="pinkImage" width="133" height="125"/>
+        <image name="pinkImage" width="88.666664123535156" height="83.333335876464844"/>
         <image name="square.and.pencil" catalog="system" width="128" height="113"/>
         <namedColor name="Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

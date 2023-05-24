@@ -128,10 +128,9 @@ extension MonthlyExerciseVC: UITableViewDataSource, UITableViewDelegate {
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: Cell.exerciseCalendarCell) as! ExerciseCalendarCell
         
-        // MARK: - 사용자 현재 레벨에 맞는 색깔로 수정하기!
         cell.setData(index: indexPath.row-1,
                      lastIndex: viewModel.exerciseJournalArray[indexPath.section].groupedExerciseArray.count-1,
-                     currentLevelColor: ColorManager.shared.getCyclamen(),
+                     currentLevelColor: LevelManager.shared.getCurrentLevelColor(exerciseTotalCount: UserDefaultsManager.shared.getExerciseTotalCount()),
                      exerciseArray: viewModel.exerciseJournalArray[indexPath.section].groupedExerciseArray[indexPath.row-1])
         
         cell.containerStackView.rx.tapGesture()

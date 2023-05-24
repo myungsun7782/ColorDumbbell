@@ -12,7 +12,7 @@ import RxCocoa
 class UsernameVC: UIViewController {
     // UIStatusBarStyle
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .darkContent
+        return viewModel.editorMode == .new ? .darkContent : .lightContent
     }
     
     // UIStackView
@@ -47,6 +47,7 @@ class UsernameVC: UIViewController {
         initUI()
         action()
         bind()
+        turnOnEditMode()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -68,7 +69,12 @@ class UsernameVC: UIViewController {
         // UIButton
         nextButton.rx.tap
             .subscribe(onNext: { _ in
-                self.presentExerciseTimeVC()
+                if self.viewModel.editorMode == .new {
+                    self.presentExerciseTimeVC()
+                } else if self.viewModel.editorMode == .edit {
+                    guard let userName = self.nameTextField.text else { return }
+                    self.viewModel.updateUserName(name: userName, userNameVC: self)
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -89,6 +95,13 @@ class UsernameVC: UIViewController {
             .disposed(by: disposeBag)
     }
     
+    private func turnOnEditMode() {
+        if viewModel.editorMode == .edit {
+            guard let name = viewModel.passedName else { return }
+            nameTextField.text = name
+        }
+    }
+    
     private func configureTextField() {
         nameTextField.font = FontManager.shared.getPretendardRegular(fontSize: TEXT_FIELD_FONT_SIZE)
         nameTextField.attributedPlaceholder = NSAttributedString(string: TEXT_FIELD_PLACE_HOLDER, attributes: [NSAttributedString.Key.foregroundColor : ColorManager.shared.getSilverFoil()])
@@ -99,6 +112,7 @@ class UsernameVC: UIViewController {
         self.nextButton.backgroundColor = self.nextButton.isEnabled ? .black : ColorManager.shared.getPhilippineSilver()
         nextButton.layer.cornerRadius = BUTTON_CORNER_RADIUS
         nextButton.titleLabel?.font = FontManager.shared.getPretendardMedium(fontSize: BUTTON_FONT_SIZE)
+        nextButton.setTitle(viewModel.editorMode == .new ? "다음으로" : "완료", for: .normal)
         nextButton.setTitleColor(ColorManager.shared.getWhite(), for: .normal)
     }
     

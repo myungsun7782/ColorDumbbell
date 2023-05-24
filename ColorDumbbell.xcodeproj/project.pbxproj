@@ -12,6 +12,8 @@
 		F001931729B9BBD10041CE68 /* RoutineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001931629B9BBD10041CE68 /* RoutineVC.swift */; };
 		F001931929B9BC600041CE68 /* ExerciseCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001931829B9BC600041CE68 /* ExerciseCalendarVC.swift */; };
 		F001931B29B9BDD90041CE68 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001931A29B9BDD90041CE68 /* MainTabBarController.swift */; };
+		F0217BEC29EE61EF00888915 /* DumbbellCriteriaVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0217BEB29EE61EF00888915 /* DumbbellCriteriaVM.swift */; };
+		F0217BEE29EE753400888915 /* UserInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0217BED29EE753400888915 /* UserInfoProtocol.swift */; };
 		F0262C3029DD4E4900A73DC2 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0262C2F29DD4E4900A73DC2 /* CustomNavigationController.swift */; };
 		F027CF4529B6007C000B94BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027CF4429B6007C000B94BC /* AppDelegate.swift */; };
 		F027CF4729B6007C000B94BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027CF4629B6007C000B94BC /* SceneDelegate.swift */; };
@@ -23,6 +25,8 @@
 		F027CF5129B6007D000B94BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F027CF4F29B6007D000B94BC /* LaunchScreen.storyboard */; };
 		F027CF5129D3D09E00FAB3E8 /* RoutineContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027CF4F29D3D09E00FAB3E8 /* RoutineContentCell.swift */; };
 		F027CF5229D3D09E00FAB3E8 /* RoutineContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F027CF5029D3D09E00FAB3E8 /* RoutineContentCell.xib */; };
+		F02CEB3B29EE5C7700FFD00A /* DumbbellCriteriaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02CEB3929EE5C7700FFD00A /* DumbbellCriteriaCell.swift */; };
+		F02CEB3C29EE5C7700FFD00A /* DumbbellCriteriaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02CEB3A29EE5C7700FFD00A /* DumbbellCriteriaCell.xib */; };
 		F03613BB29E576CE002E8B24 /* MainMidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03613B929E576CE002E8B24 /* MainMidCell.swift */; };
 		F03613BC29E576CE002E8B24 /* MainMidCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03613BA29E576CE002E8B24 /* MainMidCell.xib */; };
 		F04AA1A829E6C73A002E3D53 /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04AA1A729E6C73A002E3D53 /* WeekDay.swift */; };
@@ -38,6 +42,9 @@
 		F0571A7929C86C4200D050CB /* DetailImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0571A7829C86C4200D050CB /* DetailImageVC.swift */; };
 		F05B50CE29DEA17D0005719A /* RoutineSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B50CC29DEA17D0005719A /* RoutineSelectionCell.swift */; };
 		F05B50CF29DEA17D0005719A /* RoutineSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05B50CD29DEA17D0005719A /* RoutineSelectionCell.xib */; };
+		F06BF78329EBDD2C005D846D /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06BF78229EBDD2C005D846D /* MyPageVC.swift */; };
+		F06BF78529EBDE0E005D846D /* MyPageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06BF78429EBDE0E005D846D /* MyPageVM.swift */; };
+		F06BF78729EBDE84005D846D /* DumbbellCriteriaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06BF78629EBDE84005D846D /* DumbbellCriteriaVC.swift */; };
 		F06E30E129D6D78400E5BB23 /* ExerciseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06E30E029D6D78400E5BB23 /* ExerciseManager.swift */; };
 		F078232C29B6021B001D2220 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F078232B29B6021B001D2220 /* GoogleService-Info.plist */; };
 		F07A6D2029E5496C0077C952 /* MainTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07A6D1E29E5496C0077C952 /* MainTopCell.swift */; };
@@ -83,6 +90,7 @@
 		F0A130A429BC673F005D3793 /* JournalRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A130A329BC673F005D3793 /* JournalRegisterVC.swift */; };
 		F0A130A629BC674E005D3793 /* JournalRegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A130A529BC674E005D3793 /* JournalRegisterVM.swift */; };
 		F0A528CC29C98B4A00DE4B6F /* ExerciseCalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A528CB29C98B4A00DE4B6F /* ExerciseCalendarVM.swift */; };
+		F0BC27BF29EE7ECE00656B4B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F0BC27BE29EE7ECE00656B4B /* Settings.bundle */; };
 		F0C5EAD729D2ADDA00DF379D /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C5EAD629D2ADDA00DF379D /* Routine.swift */; };
 		F0C5EAD929D2B01100DF379D /* RoutineVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C5EAD829D2B01100DF379D /* RoutineVM.swift */; };
 		F0C5EADB29D2BA7800DF379D /* RoutineRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C5EADA29D2BA7800DF379D /* RoutineRegisterVC.swift */; };
@@ -144,6 +152,8 @@
 		F001931629B9BBD10041CE68 /* RoutineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineVC.swift; sourceTree = "<group>"; };
 		F001931829B9BC600041CE68 /* ExerciseCalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCalendarVC.swift; sourceTree = "<group>"; };
 		F001931A29B9BDD90041CE68 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		F0217BEB29EE61EF00888915 /* DumbbellCriteriaVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumbbellCriteriaVM.swift; sourceTree = "<group>"; };
+		F0217BED29EE753400888915 /* UserInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoProtocol.swift; sourceTree = "<group>"; };
 		F0262C2F29DD4E4900A73DC2 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		F027CF4129B6007C000B94BC /* ColorDumbbell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorDumbbell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F027CF4429B6007C000B94BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +167,8 @@
 		F027CF5029B6007D000B94BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F027CF5029D3D09E00FAB3E8 /* RoutineContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutineContentCell.xib; sourceTree = "<group>"; };
 		F027CF5229B6007D000B94BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F02CEB3929EE5C7700FFD00A /* DumbbellCriteriaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumbbellCriteriaCell.swift; sourceTree = "<group>"; };
+		F02CEB3A29EE5C7700FFD00A /* DumbbellCriteriaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DumbbellCriteriaCell.xib; sourceTree = "<group>"; };
 		F03613B929E576CE002E8B24 /* MainMidCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMidCell.swift; sourceTree = "<group>"; };
 		F03613BA29E576CE002E8B24 /* MainMidCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMidCell.xib; sourceTree = "<group>"; };
 		F04AA1A729E6C73A002E3D53 /* WeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDay.swift; sourceTree = "<group>"; };
@@ -172,6 +184,9 @@
 		F0571A7829C86C4200D050CB /* DetailImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageVC.swift; sourceTree = "<group>"; };
 		F05B50CC29DEA17D0005719A /* RoutineSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineSelectionCell.swift; sourceTree = "<group>"; };
 		F05B50CD29DEA17D0005719A /* RoutineSelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutineSelectionCell.xib; sourceTree = "<group>"; };
+		F06BF78229EBDD2C005D846D /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
+		F06BF78429EBDE0E005D846D /* MyPageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVM.swift; sourceTree = "<group>"; };
+		F06BF78629EBDE84005D846D /* DumbbellCriteriaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumbbellCriteriaVC.swift; sourceTree = "<group>"; };
 		F06E30E029D6D78400E5BB23 /* ExerciseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseManager.swift; sourceTree = "<group>"; };
 		F078232B29B6021B001D2220 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F07A6D1E29E5496C0077C952 /* MainTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopCell.swift; sourceTree = "<group>"; };
@@ -217,6 +232,7 @@
 		F0A130A329BC673F005D3793 /* JournalRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalRegisterVC.swift; sourceTree = "<group>"; };
 		F0A130A529BC674E005D3793 /* JournalRegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalRegisterVM.swift; sourceTree = "<group>"; };
 		F0A528CB29C98B4A00DE4B6F /* ExerciseCalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCalendarVM.swift; sourceTree = "<group>"; };
+		F0BC27BE29EE7ECE00656B4B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		F0C5EAD629D2ADDA00DF379D /* Routine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
 		F0C5EAD829D2B01100DF379D /* RoutineVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineVM.swift; sourceTree = "<group>"; };
 		F0C5EADA29D2BA7800DF379D /* RoutineRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineRegisterVC.swift; sourceTree = "<group>"; };
@@ -300,6 +316,7 @@
 		F027CF3829B6007C000B94BC = {
 			isa = PBXGroup;
 			children = (
+				F0BC27BE29EE7ECE00656B4B /* Settings.bundle */,
 				F027CF4329B6007C000B94BC /* ColorDumbbell */,
 				F027CF4229B6007C000B94BC /* Products */,
 				799607391932E0BB95AF553D /* Pods */,
@@ -344,6 +361,7 @@
 				F0554F7829C445B4006A0E8E /* WeightAndRepetitionProtocol.swift */,
 				F056D2E929CABDC0009E9FF4 /* ExerciseJournalProtocol.swift */,
 				F0C9F50729D32D0800B81908 /* ExerciseRoutineProtocol.swift */,
+				F0217BED29EE753400888915 /* UserInfoProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -399,6 +417,8 @@
 				F03613BA29E576CE002E8B24 /* MainMidCell.xib */,
 				F083EC5D29E7F54E00D56321 /* MainBottomCell.swift */,
 				F083EC5E29E7F54E00D56321 /* MainBottomCell.xib */,
+				F02CEB3929EE5C7700FFD00A /* DumbbellCriteriaCell.swift */,
+				F02CEB3A29EE5C7700FFD00A /* DumbbellCriteriaCell.xib */,
 			);
 			path = UITableViewCell;
 			sourceTree = "<group>";
@@ -499,6 +519,8 @@
 				F0E846B829CD6D8300FF3E1F /* DetailExerciseJournalVC.swift */,
 				F0C5EADA29D2BA7800DF379D /* RoutineRegisterVC.swift */,
 				F0262C2F29DD4E4900A73DC2 /* CustomNavigationController.swift */,
+				F06BF78229EBDD2C005D846D /* MyPageVC.swift */,
+				F06BF78629EBDE84005D846D /* DumbbellCriteriaVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -518,6 +540,8 @@
 				F0E846BA29CD6DBD00FF3E1F /* DetailExerciseJournalVM.swift */,
 				F0C5EAD829D2B01100DF379D /* RoutineVM.swift */,
 				F0C5EADC29D2BABA00DF379D /* RoutineRegisterVM.swift */,
+				F06BF78429EBDE0E005D846D /* MyPageVM.swift */,
+				F0217BEB29EE61EF00888915 /* DumbbellCriteriaVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -612,6 +636,7 @@
 				F0CB069129B6FAE700AA7255 /* Pretendard-ExtraLight.otf in Resources */,
 				F027CF5229D3D09E00FAB3E8 /* RoutineContentCell.xib in Resources */,
 				F027CF5129B6007D000B94BC /* LaunchScreen.storyboard in Resources */,
+				F02CEB3C29EE5C7700FFD00A /* DumbbellCriteriaCell.xib in Resources */,
 				F0849C4229CC47E6001009A6 /* ExerciseDateCell.xib in Resources */,
 				F0CB069029B6FAE700AA7255 /* Pretendard-Bold.otf in Resources */,
 				F080579F29BF19A000556426 /* ExerciseTitleCell.xib in Resources */,
@@ -635,6 +660,7 @@
 				F056D2EE29CADF39009E9FF4 /* ExerciseCalendarCell.xib in Resources */,
 				F080579329BEFBA600556426 /* ExerciseAddCell.xib in Resources */,
 				F0A1309A29BC56DB005D3793 /* TitleCell.xib in Resources */,
+				F0BC27BF29EE7ECE00656B4B /* Settings.bundle in Resources */,
 				F0E846BF29CD716E00FF3E1F /* DetailJournalTitleCell.xib in Resources */,
 				F0CB069629B6FAE700AA7255 /* Pretendard-Medium.otf in Resources */,
 				F08057A329BF1CC700556426 /* ExerciseContentCell.xib in Resources */,
@@ -694,6 +720,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F06BF78729EBDE84005D846D /* DumbbellCriteriaVC.swift in Sources */,
+				F02CEB3B29EE5C7700FFD00A /* DumbbellCriteriaCell.swift in Sources */,
 				F0CB06A129B6FC2E00AA7255 /* UIView.swift in Sources */,
 				F05B50CE29DEA17D0005719A /* RoutineSelectionCell.swift in Sources */,
 				F0C5EAE029D2C20600DF379D /* RoutineSetCell.swift in Sources */,
@@ -731,6 +759,7 @@
 				F0262C3029DD4E4900A73DC2 /* CustomNavigationController.swift in Sources */,
 				F0C5EADD29D2BABA00DF379D /* RoutineRegisterVM.swift in Sources */,
 				F080579929BF161200556426 /* ExerciseSelectionVC.swift in Sources */,
+				F06BF78329EBDD2C005D846D /* MyPageVC.swift in Sources */,
 				F0CB06AD29B6FDA500AA7255 /* EditorMode.swift in Sources */,
 				F0C5EADB29D2BA7800DF379D /* RoutineRegisterVC.swift in Sources */,
 				F056D2EA29CABDC0009E9FF4 /* ExerciseJournalProtocol.swift in Sources */,
@@ -757,6 +786,7 @@
 				F0849C3E29CC4486001009A6 /* MonthlyExerciseVM.swift in Sources */,
 				F0F4E51229BDF4D000DCD04C /* PhotoFileCell.swift in Sources */,
 				F0CBF37429B9C3880075D382 /* LevelManager.swift in Sources */,
+				F0217BEE29EE753400888915 /* UserInfoProtocol.swift in Sources */,
 				F0CB06B329B7104500AA7255 /* UsernameVC.swift in Sources */,
 				F0E846C229CD765900FF3E1F /* DetailJournalPhotoCell.swift in Sources */,
 				F0819DF529B8368E00A45B57 /* ExerciseTimeVM.swift in Sources */,
@@ -766,6 +796,7 @@
 				F0C5EAD729D2ADDA00DF379D /* Routine.swift in Sources */,
 				F07B7D7529C2D72D002B0B6C /* AddExerciseVM.swift in Sources */,
 				F0849C3C29CC4479001009A6 /* MonthlyExerciseVC.swift in Sources */,
+				F06BF78529EBDE0E005D846D /* MyPageVM.swift in Sources */,
 				F083EC5F29E7F54E00D56321 /* MainBottomCell.swift in Sources */,
 				F0CB069929B6FB4E00AA7255 /* FontManager.swift in Sources */,
 				F07B7D7F29C2F72C002B0B6C /* ExerciseUtilityCell.swift in Sources */,
@@ -774,6 +805,7 @@
 				F0CB069D29B6FBB700AA7255 /* UIImageView.swift in Sources */,
 				F07B7D7829C2E113002B0B6C /* ExerciseProtocol.swift in Sources */,
 				F0C9F50829D32D0800B81908 /* ExerciseRoutineProtocol.swift in Sources */,
+				F0217BEC29EE61EF00888915 /* DumbbellCriteriaVM.swift in Sources */,
 				F0F847EE29DC249E006B8DC9 /* ExerciseType.swift in Sources */,
 				F001931729B9BBD10041CE68 /* RoutineVC.swift in Sources */,
 				F07B7D7329C2D167002B0B6C /* CALayer.swift in Sources */,
@@ -931,6 +963,7 @@
 				DEVELOPMENT_TEAM = ZDUPRML6B6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ColorDumbbell/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Color Dumbbell";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -963,6 +996,7 @@
 				DEVELOPMENT_TEAM = ZDUPRML6B6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ColorDumbbell/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Color Dumbbell";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
