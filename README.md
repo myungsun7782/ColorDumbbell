@@ -26,7 +26,7 @@
 
 ## App Thumbnail
 
-![](https://github.com/myungsun7782/ColorDumbbell/assets/74762699/fa3e126a-2e74-452f-9782-793f6fe48884)
+![](https://github.com/myungsun7782/ColorDumbbell/assets/74762699/c8e84489-8caf-4f42-8bf5-d1dfa5c354d6)
 
 <br/>
 
